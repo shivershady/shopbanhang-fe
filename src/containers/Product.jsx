@@ -26,13 +26,13 @@ export default class Product extends Component {
                 </div>
                 <div className="border-b py-4 space-y-4">
                   <div className="bg-gray-100 flex items-center space-x-4 p-4">
-                    <p className="text-red-500 text-4xl tracking-wide">
+                    <p className="text-red-500 text-4xl">
                       12.000.000 vnđ
                     </p>
-                    <p className="text-gray-500 line-through tracking-wide">
+                    <p className="text-gray-500 line-through">
                       15.000.000 vnđ
                     </p>
-                    <p className="  text-red-500 text-xl tracking-wide">-25%</p>
+                    <p className="  text-red-500 text-xl">-25%</p>
                   </div>
 
                   {/* variants */}

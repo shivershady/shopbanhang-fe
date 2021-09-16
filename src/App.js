@@ -1,7 +1,8 @@
 import React  from 'react';
 import './App.scss';
 import Home from './containers/Home';
-import Product from './containers/Product'
+import Product from './containers/Product';
+import Cart from './containers/Cart';
 import {
   BrowserRouter as Router,
   Switch,
@@ -22,9 +23,9 @@ function App() {
             <Product />
           </Route>
 
-          {/* <Route path="/users">
-            <Users />
-          </Route> */}
+          <Route path="/cart">
+            <Cart/>
+          </Route>
 
         </Switch>
       </Router>

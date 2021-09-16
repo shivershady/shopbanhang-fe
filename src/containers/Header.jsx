@@ -1,4 +1,4 @@
-import React, { Component , Fragment } from "react";
+import React, { Component, Fragment } from "react";
 import { Menu, Transition } from "@headlessui/react";
 import { ChevronDownIcon } from "@heroicons/react/solid";
 
@@ -9,7 +9,7 @@ function classNames(...classes) {
 export default class Header extends Component {
   render() {
     return (
-      <header className="bg-yellow-400 border border-yellow-600 h-30">
+      <header className="bg-yellow-400 border shadow-md overflow-hidden h-30">
         <div className="container mx-auto px-8 py-4 grid grid-cols-4 gap-4 my-auto">
           <div className="flex space-x-5 col-span-1 ">
             <img
@@ -50,7 +50,22 @@ export default class Header extends Component {
                             "block px-4 py-2 text-sm"
                           )}
                         >
-                          Điện thoại - Máy tính bảng
+                          Điện thoại - Máy tính bảng 0
+                        </a> 
+                      )}
+                    </Menu.Item>
+                    <Menu.Item>
+                      {({ active }) => (
+                        <a
+                          href="#"
+                          className={classNames(
+                            active
+                              ? "bg-gray-100 text-gray-900"
+                              : "text-gray-700",
+                            "block px-4 py-2 text-sm"
+                          )}
+                        >
+                          Điện thoại - Máy tính bảng 1
                         </a>
                       )}
                     </Menu.Item>
@@ -65,7 +80,7 @@ export default class Header extends Component {
                             "block px-4 py-2 text-sm"
                           )}
                         >
-                          Điện thoại - Máy tính bảng
+                          Điện thoại - Máy tính bảng 2
                         </a>
                       )}
                     </Menu.Item>
@@ -80,7 +95,7 @@ export default class Header extends Component {
                             "block px-4 py-2 text-sm"
                           )}
                         >
-                          Điện thoại - Máy tính bảng
+                          Điện thoại - Máy tính bảng 3
                         </a>
                       )}
                     </Menu.Item>
@@ -95,22 +110,7 @@ export default class Header extends Component {
                             "block px-4 py-2 text-sm"
                           )}
                         >
-                          Điện thoại - Máy tính bảng
-                        </a>
-                      )}
-                    </Menu.Item>
-                    <Menu.Item>
-                      {({ active }) => (
-                        <a
-                          href="#"
-                          className={classNames(
-                            active
-                              ? "bg-gray-100 text-gray-900"
-                              : "text-gray-700",
-                            "block px-4 py-2 text-sm"
-                          )}
-                        >
-                          Điện thoại - Máy tính bảng
+                          Điện thoại - Máy tính bảng 4
                         </a>
                       )}
                     </Menu.Item>

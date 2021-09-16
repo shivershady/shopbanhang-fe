@@ -3,7 +3,7 @@ import React, { Component } from "react";
 export default class Footer extends Component {
   render() {
     return (
-      <footer className="bg-white ">
+      <footer className="bg-white shadow-md overflow-hidden">
         <div className="container mx-auto px-8 py-4 flex justify-between">
           <div>
             <b>Hỗ trợ khách hàng</b>

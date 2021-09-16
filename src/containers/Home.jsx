@@ -13,7 +13,7 @@ export default class Home extends Component {
          <Banner></Banner>
 
           {/* HomeQuicklinksTabContainer */}
-          <div className="flex justify-between border border-yellow-600 bg-white px-8 py-4 text-center">
+          <div className="flex justify-between rounded-xl shadow-md overflow-hidden bg-white px-8 py-4 text-center">
             <div>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -105,7 +105,7 @@ export default class Home extends Component {
           </div>
 
           {/* BrandStaticWidget */}
-          <div className="border border-yellow-600 bg-white px-8 py-4">
+          <div className="rounded-xl shadow-md overflow-hidden bg-white px-8 py-4">
             <b>Thương hiệu chính hãng</b>
             <div className="my-5">
               {/* Slide */}
@@ -145,7 +145,7 @@ export default class Home extends Component {
           </div>
 
           {/* FeaturedCategorises */}
-          <div className="border border-yellow-600 bg-white px-8 py-4">
+          <div className="rounded-xl shadow-md overflow-hidden bg-white px-8 py-4">
             <b>Danh mục sản phẩm</b>
             <div className="grid grid-cols-10 gap-4 my-5 text-center">
               <div>
@@ -292,7 +292,7 @@ export default class Home extends Component {
           </div>
 
           {/* FeaturedKeywords */}
-          <div className="border border-yellow-600 bg-white px-8 py-4">
+          <div className="rounded-xl shadow-md overflow-hidden bg-white px-8 py-4">
             <b>Tìm kiến nổi bật</b>
             <div className="grid grid-cols-4 gap-4 my-5">
               <div className="border border-gray-300 text-center bg-yellow-400">
@@ -326,7 +326,7 @@ export default class Home extends Component {
             </div>
           </div>
           {/* InfiniteScroll */}
-          <div className="border border-yellow-600 bg-white px-8 py-4">
+          <div className="rounded-xl shadow-md overflow-hidden bg-white px-8 py-4">
             <b>Gợi ý hôm nay</b>
             <div className="grid grid-cols-6 gap-4 my-5 text-center">
               <div className="border border-gray-300 px-1">
@@ -335,7 +335,7 @@ export default class Home extends Component {
                   alt=""
                 />
                 <p>Điện thoại iphone 13</p>
-                <p>12.000.000 vnđ</p>
+                <p className="text-red-500">12.000.000 vnđ</p>
               </div>
               <div className="border border-gray-300 px-1">
                 <img
@@ -343,7 +343,7 @@ export default class Home extends Component {
                   alt=""
                 />
                 <p>Điện thoại iphone 13</p>
-                <p>12.000.000 vnđ</p>
+                <p className="text-red-500">12.000.000 vnđ</p>
               </div>
               <div className="border border-gray-300 px-1">
                 <img
@@ -351,7 +351,7 @@ export default class Home extends Component {
                   alt=""
                 />
                 <p>Điện thoại iphone 13</p>
-                <p>12.000.000 vnđ</p>
+                <p className="text-red-500">12.000.000 vnđ</p>
               </div>
               <div className="border border-gray-300 px-1">
                 <img
@@ -359,7 +359,7 @@ export default class Home extends Component {
                   alt=""
                 />
                 <p>Điện thoại iphone 13</p>
-                <p>12.000.000 vnđ</p>
+                <p className="text-red-500">12.000.000 vnđ</p>
               </div>
               <div className="border border-gray-300 px-1">
                 <img
@@ -367,7 +367,7 @@ export default class Home extends Component {
                   alt=""
                 />
                 <p>Điện thoại iphone 13</p>
-                <p>12.000.000 vnđ</p>
+                <p className="text-red-500">12.000.000 vnđ</p>
               </div>
               <div className="border border-gray-300 px-1">
                 <img
@@ -375,7 +375,7 @@ export default class Home extends Component {
                   alt=""
                 />
                 <p>Điện thoại iphone 13</p>
-                <p>12.000.000 vnđ</p>
+                <p className="text-red-500">12.000.000 vnđ</p>
               </div>
               <div className="border border-gray-300 px-1">
                 <img
@@ -383,7 +383,7 @@ export default class Home extends Component {
                   alt=""
                 />
                 <p>Điện thoại iphone 13</p>
-                <p>12.000.000 vnđ</p>
+                <p className="text-red-500">12.000.000 vnđ</p>
               </div>
               <div className="border border-gray-300 px-1">
                 <img
@@ -391,7 +391,7 @@ export default class Home extends Component {
                   alt=""
                 />
                 <p>Điện thoại iphone 13</p>
-                <p>12.000.000 vnđ</p>
+                <p className="text-red-500">12.000.000 vnđ</p>
               </div>
               <div className="border border-gray-300 px-1">
                 <img
@@ -399,7 +399,7 @@ export default class Home extends Component {
                   alt=""
                 />
                 <p>Điện thoại iphone 13</p>
-                <p>12.000.000 vnđ</p>
+                <p className="text-red-500">12.000.000 vnđ</p>
               </div>
               <div className="border border-gray-300 px-1">
                 <img
@@ -407,7 +407,7 @@ export default class Home extends Component {
                   alt=""
                 />
                 <p>Điện thoại iphone 13</p>
-                <p>12.000.000 vnđ</p>
+                <p className="text-red-500">12.000.000 vnđ</p>
               </div>
               <div className="border border-gray-300 px-1">
                 <img
@@ -415,7 +415,7 @@ export default class Home extends Component {
                   alt=""
                 />
                 <p>Điện thoại iphone 13</p>
-                <p>12.000.000 vnđ</p>
+                <p className="text-red-500">12.000.000 vnđ</p>
               </div>
               <div className="border border-gray-300 px-1">
                 <img
@@ -423,7 +423,7 @@ export default class Home extends Component {
                   alt=""
                 />
                 <p>Điện thoại iphone 13</p>
-                <p>12.000.000 vnđ</p>
+                <p className="text-red-500">12.000.000 vnđ</p>
               </div>
               <div className="border border-gray-300 px-1">
                 <img
@@ -431,7 +431,7 @@ export default class Home extends Component {
                   alt=""
                 />
                 <p>Điện thoại iphone 13</p>
-                <p>12.000.000 vnđ</p>
+                <p className="text-red-500">12.000.000 vnđ</p>
               </div>
               <div className="border border-gray-300 px-1">
                 <img
@@ -439,7 +439,7 @@ export default class Home extends Component {
                   alt=""
                 />
                 <p>Điện thoại iphone 13</p>
-                <p>12.000.000 vnđ</p>
+                <p className="text-red-500">12.000.000 vnđ</p>
               </div>
             </div>
           </div>
