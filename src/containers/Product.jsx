@@ -10,7 +10,7 @@ export default class Product extends Component {
         <main className="container mx-auto space-y-4">
           {/* ProductHeader */}
           <div className="bg-white rounded-xl shadow-md overflow-hidden ">
-            <div className="md:flex">
+            <div className="lg:flex">
               {/* Imgage */}
               <div className="md:flex-shrink-0">
                 <img
@@ -20,25 +20,26 @@ export default class Product extends Component {
               </div>
 
               <div className="p-8 border-l border-gray-300">
+
                 {/* Title */}
-                <div className="uppercase tracking-wide text-2xl text-indigo-500">
+                <div className="uppercase tracking-wide text-2xl text-indigo-500 font-bold">
                   Điện Thoại Samsung Galaxy S20 FE - Hàng Chính Hãng
                 </div>
                 <div className="border-b py-4 space-y-4">
-                  <div className="bg-gray-100 flex items-center space-x-4 p-4">
-                    <p className="text-red-500 text-4xl">
+                  <div className="bg-gray-100 md:flex items-center space-x-4 p-4">
+                    <div className="text-red-500 text-4xl font-bold">
                       12.000.000 vnđ
-                    </p>
-                    <p className="text-gray-500 line-through">
+                    </div>
+                    <div className="text-gray-500 line-through">
                       15.000.000 vnđ
-                    </p>
-                    <p className="  text-red-500 text-xl">-25%</p>
+                    </div>
+                    <div className="  text-red-500 text-xl font-bold border border-red-500">-25%</div>
                   </div>
 
                   {/* variants */}
                   <div>
-                    <div>Màu</div>
-                    <div>Dung lượng</div>
+                    <div className="font-bold">Màu :</div>
+                    <div className="font-bold">Dung lượng :</div>
                   </div>
                 </div>
 
@@ -67,48 +68,54 @@ export default class Product extends Component {
           {/* Sản Phẩm Tương Tự */}
           <div className="container mx-auto bg-white rounded-xl shadow-md overflow-hidden p-4 space-y-4">
             <b>Sản phẩm tương tự</b>
-            <div className="grid grid-cols-6 gap-4 text-center">
+            <div className="grid grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-4 text-center">
               <div>
                 <img
                   src="https://images.fpt.shop/unsafe/fit-in/585x390/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2020/10/14/637382632990998957_ip-12-xanhduong-1.png"
                   alt=""
                 />
-                <div>Sảm phẩm</div>
+                <p className="text-base font-bold">Điện thoại iphone 13</p>
+                <p className="text-red-500 text-sm font-normal">12.000.000 vnđ</p>
               </div>
               <div>
                 <img
                   src="https://images.fpt.shop/unsafe/fit-in/585x390/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2020/10/14/637382632990998957_ip-12-xanhduong-1.png"
                   alt=""
                 />
-                <div>Sảm phẩm</div>
+                <p className="text-base font-bold">Điện thoại iphone 13</p>
+                <p className="text-red-500 text-sm font-normal">12.000.000 vnđ</p>
               </div>
               <div>
                 <img
                   src="https://images.fpt.shop/unsafe/fit-in/585x390/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2020/10/14/637382632990998957_ip-12-xanhduong-1.png"
                   alt=""
                 />
-                <div>Sảm phẩm</div>
+                <p className="text-base font-bold">Điện thoại iphone 13</p>
+                <p className="text-red-500 text-sm font-normal">12.000.000 vnđ</p>
               </div>
               <div>
                 <img
                   src="https://images.fpt.shop/unsafe/fit-in/585x390/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2020/10/14/637382632990998957_ip-12-xanhduong-1.png"
                   alt=""
                 />
-                <div>Sảm phẩm</div>
+                <p className="text-base font-bold">Điện thoại iphone 13</p>
+                <p className="text-red-500 text-sm font-normal">12.000.000 vnđ</p>
               </div>
               <div>
                 <img
                   src="https://images.fpt.shop/unsafe/fit-in/585x390/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2020/10/14/637382632990998957_ip-12-xanhduong-1.png"
                   alt=""
                 />
-                <div>Sảm phẩm</div>
+                <p className="text-base font-bold">Điện thoại iphone 13</p>
+                <p className="text-red-500 text-sm font-normal">12.000.000 vnđ</p>
               </div>
               <div>
                 <img
                   src="https://images.fpt.shop/unsafe/fit-in/585x390/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2020/10/14/637382632990998957_ip-12-xanhduong-1.png"
                   alt=""
                 />
-                <div>Sảm phẩm</div>
+                <p className="text-base font-bold">Điện thoại iphone 13</p>
+                <p className="text-red-500 text-sm font-normal">12.000.000 vnđ</p>
               </div>
             </div>
           </div>
@@ -163,48 +170,54 @@ export default class Product extends Component {
           {/* Khám phá thêm */}
           <div className="container mx-auto bg-white rounded-xl shadow-md overflow-hidden p-4 space-y-4">
               <b>Khám phá thêm</b>
-              <div className="grid grid-cols-6 gap-4 text-center">
+              <div className="grid grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-4 text-center">
               <div>
                 <img
                   src="https://images.fpt.shop/unsafe/fit-in/585x390/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2020/10/14/637382632990998957_ip-12-xanhduong-1.png"
                   alt=""
                 />
-                <div>Sảm phẩm</div>
+                <p className="text-base font-bold">Điện thoại iphone 13</p>
+                <p className="text-red-500 text-sm font-normal">12.000.000 vnđ</p>
               </div>
               <div>
                 <img
                   src="https://images.fpt.shop/unsafe/fit-in/585x390/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2020/10/14/637382632990998957_ip-12-xanhduong-1.png"
                   alt=""
                 />
-                <div>Sảm phẩm</div>
+                <p className="text-base font-bold">Điện thoại iphone 13</p>
+                <p className="text-red-500 text-sm font-normal">12.000.000 vnđ</p>
               </div>
               <div>
                 <img
                   src="https://images.fpt.shop/unsafe/fit-in/585x390/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2020/10/14/637382632990998957_ip-12-xanhduong-1.png"
                   alt=""
                 />
-                <div>Sảm phẩm</div>
+                <p className="text-base font-bold">Điện thoại iphone 13</p>
+                <p className="text-red-500 text-sm font-normal">12.000.000 vnđ</p>
               </div>
               <div>
                 <img
                   src="https://images.fpt.shop/unsafe/fit-in/585x390/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2020/10/14/637382632990998957_ip-12-xanhduong-1.png"
                   alt=""
                 />
-                <div>Sảm phẩm</div>
+                <p className="text-base font-bold">Điện thoại iphone 13</p>
+                <p className="text-red-500 text-sm font-normal">12.000.000 vnđ</p>
               </div>
               <div>
                 <img
                   src="https://images.fpt.shop/unsafe/fit-in/585x390/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2020/10/14/637382632990998957_ip-12-xanhduong-1.png"
                   alt=""
                 />
-                <div>Sảm phẩm</div>
+                <p className="text-base font-bold">Điện thoại iphone 13</p>
+                <p className="text-red-500 text-sm font-normal">12.000.000 vnđ</p>
               </div>
               <div>
                 <img
                   src="https://images.fpt.shop/unsafe/fit-in/585x390/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2020/10/14/637382632990998957_ip-12-xanhduong-1.png"
                   alt=""
                 />
-                <div>Sảm phẩm</div>
+                <p className="text-base font-bold">Điện thoại iphone 13</p>
+                <p className="text-red-500 text-sm font-normal">12.000.000 vnđ</p>
               </div>
             </div>
           </div>
@@ -212,48 +225,54 @@ export default class Product extends Component {
           {/* Sản phẩm đã xem */}
           <div className="container mx-auto bg-white rounded-xl shadow-md overflow-hidden p-4 space-y-4">
               <b>Sản phẩm đã xem</b>
-              <div className="grid grid-cols-6 gap-4 text-center">
+              <div className="grid grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-4 text-center">
               <div>
                 <img
                   src="https://images.fpt.shop/unsafe/fit-in/585x390/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2020/10/14/637382632990998957_ip-12-xanhduong-1.png"
                   alt=""
                 />
-                <div>Sảm phẩm</div>
+                <p className="text-base font-bold">Điện thoại iphone 13</p>
+                <p className="text-red-500 text-sm font-normal">12.000.000 vnđ</p>
               </div>
               <div>
                 <img
                   src="https://images.fpt.shop/unsafe/fit-in/585x390/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2020/10/14/637382632990998957_ip-12-xanhduong-1.png"
                   alt=""
                 />
-                <div>Sảm phẩm</div>
+                <p className="text-base font-bold">Điện thoại iphone 13</p>
+                <p className="text-red-500 text-sm font-normal">12.000.000 vnđ</p>
               </div>
               <div>
                 <img
                   src="https://images.fpt.shop/unsafe/fit-in/585x390/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2020/10/14/637382632990998957_ip-12-xanhduong-1.png"
                   alt=""
                 />
-                <div>Sảm phẩm</div>
+                <p className="text-base font-bold">Điện thoại iphone 13</p>
+                <p className="text-red-500 text-sm font-normal">12.000.000 vnđ</p>
               </div>
               <div>
                 <img
                   src="https://images.fpt.shop/unsafe/fit-in/585x390/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2020/10/14/637382632990998957_ip-12-xanhduong-1.png"
                   alt=""
                 />
-                <div>Sảm phẩm</div>
+                <p className="text-base font-bold">Điện thoại iphone 13</p>
+                <p className="text-red-500 text-sm font-normal">12.000.000 vnđ</p>
               </div>
               <div>
                 <img
                   src="https://images.fpt.shop/unsafe/fit-in/585x390/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2020/10/14/637382632990998957_ip-12-xanhduong-1.png"
                   alt=""
                 />
-                <div>Sảm phẩm</div>
+                <p className="text-base font-bold">Điện thoại iphone 13</p>
+                <p className="text-red-500 text-sm font-normal">12.000.000 vnđ</p>
               </div>
               <div>
                 <img
                   src="https://images.fpt.shop/unsafe/fit-in/585x390/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2020/10/14/637382632990998957_ip-12-xanhduong-1.png"
                   alt=""
                 />
-                <div>Sảm phẩm</div>
+                <p className="text-base font-bold">Điện thoại iphone 13</p>
+                <p className="text-red-500 text-sm font-normal">12.000.000 vnđ</p>
               </div>
             </div>
           </div>
