@@ -1,8 +1,8 @@
 import React  from 'react';
 import './App.scss';
-import Home from './containers/Home';
-import Product from './containers/Product';
-import Cart from './containers/Cart';
+import Home from './views/Home';
+import Product from './views/Product';
+import Cart from './views/Cart';
 import {
   BrowserRouter as Router,
   Switch,
