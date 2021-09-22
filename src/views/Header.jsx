@@ -11,7 +11,7 @@ export default class Header extends Component {
     return (
       <header className="bg-yellow-400 border shadow-md overflow-hidden text-base text-white">
         <div className="container mx-auto">
-          <div className="lg:flex justify-between ">
+          <div className="hidden lg:flex justify-between ">
             <nav>
               <ol className="list-reset rounded flex bg-grey-light text-grey space-x-4">
                 <li className="hover:text-black">
@@ -61,7 +61,7 @@ export default class Header extends Component {
               <img
                 src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBT45ExAc6Sde3zTi0sNAxbf0H6iOPfS118pVIpBFf5lCnMetYvUGl7StY17Fi_R2xqTE&usqp=CAU"
                 alt=""
-                className="h-16 w-16"
+                className="h-16 w-16 cursor-pointer"
               />
               <h1 className="leading-none text-2xl text-grey-darkest">
                 <a
@@ -96,32 +96,6 @@ export default class Header extends Component {
                   </svg>
                 </button>
               </form>
-              <div className="px-8 hidden lg:block">
-                <nav>
-                  <ol className="list-reset rounded flex bg-grey-light text-grey space-x-4">
-                    <li className="hover:text-black">
-                      <a href="#" className="no-underline text-indigo">
-                        Áo khoác
-                      </a>
-                    </li>
-                    <li className="hover:text-black">
-                      <a href="#" className="no-underline text-indigo">
-                        Điện thoại
-                      </a>
-                    </li>
-                    <li className="hover:text-black">
-                      <a href="#" className="no-underline text-indigo">
-                        Quần
-                      </a>
-                    </li>
-                    <li className="hover:text-black">
-                      <a href="#" className="no-underline text-indigo">
-                        Tai nghe
-                      </a>
-                    </li>
-                  </ol>
-                </nav>
-              </div>
             </div>
             {/* END Search field */}
             {/* Global navigation */}

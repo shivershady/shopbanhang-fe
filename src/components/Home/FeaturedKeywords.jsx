@@ -5,7 +5,7 @@ function FeaturedKeywords() {
     <div className="rounded-xl shadow-md overflow-hidden bg-white px-8 py-4">
       <b>Tìm kiến nổi bật</b>
       <div className="grid grid-cols-3 md:grid-cols-6 lg:grid-cols-8 gap-4 my-5">
-        <div className="border border-gray-300 text-center bg-yellow-400 h-full w-full grid grid-rows-4">
+        <div className="border border-gray-300 text-center bg-yellow-400 h-full w-full grid grid-rows-4 cursor-pointer">
           <img
             className="row-span-3 w-full h-full"
             src="https://leep.imgix.net/2020/08/thuc-pham-giau-dam-image.jpg?auto=compress&fm=pjpg&ixlib=php-1.2.1"
@@ -13,7 +13,7 @@ function FeaturedKeywords() {
           />
           <div className="text-lg font-medium">Thực phẩm sạch</div>
         </div>
-        <div className="border border-gray-300 text-center bg-yellow-400 h-full w-full grid grid-rows-4">
+        <div className="border border-gray-300 text-center bg-yellow-400 h-full w-full grid grid-rows-4 cursor-pointer">
           <img
             className="row-span-3 w-full h-full"
             src="https://leep.imgix.net/2020/08/thuc-pham-giau-dam-image.jpg?auto=compress&fm=pjpg&ixlib=php-1.2.1"
@@ -21,7 +21,7 @@ function FeaturedKeywords() {
           />
           <div className="text-lg font-medium">Thực phẩm sạch</div>
         </div>
-        <div className="border border-gray-300 text-center bg-yellow-400 h-full w-full grid grid-rows-4">
+        <div className="border border-gray-300 text-center bg-yellow-400 h-full w-full grid grid-rows-4 cursor-pointer">
           <img
             className="row-span-3 w-full h-full"
             src="https://leep.imgix.net/2020/08/thuc-pham-giau-dam-image.jpg?auto=compress&fm=pjpg&ixlib=php-1.2.1"
@@ -29,7 +29,7 @@ function FeaturedKeywords() {
           />
           <div className="text-lg font-medium">Thực phẩm sạch</div>
         </div>
-        <div className="border border-gray-300 text-center bg-yellow-400 h-full w-full grid grid-rows-4">
+        <div className="border border-gray-300 text-center bg-yellow-400 h-full w-full grid grid-rows-4 cursor-pointer">
           <img
             className="row-span-3 w-full h-full"
             src="https://leep.imgix.net/2020/08/thuc-pham-giau-dam-image.jpg?auto=compress&fm=pjpg&ixlib=php-1.2.1"
