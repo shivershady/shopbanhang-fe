@@ -2,7 +2,7 @@ import React from "react";
 
 const data = [
   {
-    img: (
+    icon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
         className="h-14 w-14 text-yellow-600"
@@ -15,7 +15,7 @@ const data = [
     detail: "Đi chợ online",
   },
   {
-    img: (
+    icon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
         className="h-14 w-14 text-yellow-600"
@@ -28,7 +28,7 @@ const data = [
     detail: "Mã giảm giá",
   },
   {
-    img: (
+    icon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
         className="h-14 w-14 text-yellow-600"
@@ -41,7 +41,7 @@ const data = [
     detail: "Dịch vụ và tiện ích",
   },
   {
-    img: (
+    icon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
         className="h-14 w-14 text-yellow-600"
@@ -54,7 +54,7 @@ const data = [
     detail: "Gói hội viên",
   },
   {
-    img: (
+    icon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
         className="h-14 w-14 text-yellow-600"
@@ -67,7 +67,7 @@ const data = [
     detail: "Giảm đến 50%",
   },
   {
-    img: (
+    icon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
         className="h-14 w-14 text-yellow-600"
@@ -80,7 +80,7 @@ const data = [
     detail: "Hoàn tiền 15%",
   },
   {
-    img: (
+    icon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
         className="h-14 w-14 text-yellow-600"
@@ -93,7 +93,7 @@ const data = [
     detail: "Ưu đãi thanh toán",
   },
   {
-    img: (
+    icon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
         className="h-14 w-14 text-yellow-600"
@@ -113,7 +113,7 @@ function HomeQuicklinksTabContainer() {
       {data.map((items, index) => {
         return (
           <div key={index} className="grid grid-row-3 cursor-pointer">
-            <div className="row-span-2 mx-auto">{items.img}</div>
+            <div className="row-span-2 mx-auto">{items.icon}</div>
             <div className="font-semibold row-span-1 text-center">{items.detail}</div>
           </div>
         );
