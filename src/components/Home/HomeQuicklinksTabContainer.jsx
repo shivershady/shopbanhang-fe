@@ -112,9 +112,9 @@ function HomeQuicklinksTabContainer() {
     <div className="grid grid-cols-4 md:grid-cols-6 lg:grid-cols-8 rounded-xl shadow-md overflow-hidden bg-white p-4">
       {data.map((items, index) => {
         return (
-          <div key={index} className="grid grid-row-3 cursor-pointer">
-            <div className="row-span-2 mx-auto">{items.icon}</div>
-            <div className="font-semibold row-span-1 text-center">{items.detail}</div>
+          <div key={index} className="grid cursor-pointer">
+            <div className=" mx-auto">{items.icon}</div>
+            <div className="font-semibold text-center h-10">{items.detail}</div>
           </div>
         );
       })}
