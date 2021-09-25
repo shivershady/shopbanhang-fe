@@ -178,6 +178,7 @@ export default class Cart extends Component {
               Tiếp tục mua sắm
             </a>
           </div>
+          
           <div id="summary" className="md:w-1/4 px-8 py-10">
             <h1 className=" text-2xl border-b pb-8 font-bold">
               Tóm tắt đơn hàng

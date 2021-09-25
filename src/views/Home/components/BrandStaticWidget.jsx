@@ -1,79 +1,62 @@
-import React from "react";
 
-const productLisst = [
+const products = [
   {
-    src: "https://cdn.tgdd.vn/Products/Images/42/230529/iphone-13-pro-max-sierra-blue-600x600.jpg",
-    name: "Điện thoại iphone 13",
-    price: "12.000.000 vnđ",
+    id: 1,
+    name: 'Bình đất',
+    href: '#',
+    price: '48.000 vnđ',
+    imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-01.jpg',
+    imageAlt: 'Chai sứ mảnh mai cao với phần thân bằng đất sét tự nhiên và nút chai.',
   },
   {
-    src: "https://cdn.tgdd.vn/Products/Images/42/230529/iphone-13-pro-max-sierra-blue-600x600.jpg",
-    name: "Điện thoại iphone 13",
-    price: "12.000.000 vnđ",
+    id: 2,
+    name: 'Bình bầu dục',
+    href: '#',
+    price: '35.000 vnđ',
+    imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-02.jpg',
+    imageAlt: 'Chai cách nhiệt màu xanh lá cây ô liu có nắp vặn loe và phần trên bằng phẳng.',
   },
   {
-    src: "https://cdn.tgdd.vn/Products/Images/42/230529/iphone-13-pro-max-sierra-blue-600x600.jpg",
-    name: "Điện thoại iphone 13",
-    price: "12.000.000 vnđ",
+    id: 3,
+    name: 'Giấy ghi chú',
+    href: '#',
+    price: '89.000 vnđ',
+    imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-03.jpg',
+    imageAlt: 'Người dùng bút để gạch ngang một nhiệm vụ trên thẻ giấy năng suất.',
   },
   {
-    src: "https://cdn.tgdd.vn/Products/Images/42/230529/iphone-13-pro-max-sierra-blue-600x600.jpg",
-    name: "Điện thoại iphone 13",
-    price: "12.000.000 vnđ",
+    id: 4,
+    name: 'Bút chì cơ khí được gia công',
+    href: '#',
+    price: '35.000 vnđ',
+    imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-04.jpg',
+    imageAlt: 'Tay cầm bút chì cơ bằng thép gia công màu đen với đầu và đỉnh bằng đồng.',
   },
-  {
-    src: "https://cdn.tgdd.vn/Products/Images/42/230529/iphone-13-pro-max-sierra-blue-600x600.jpg",
-    name: "Điện thoại iphone 13",
-    price: "12.000.000 vnđ",
-  },
-  {
-    src: "https://cdn.tgdd.vn/Products/Images/42/230529/iphone-13-pro-max-sierra-blue-600x600.jpg",
-    name: "Điện thoại iphone 13",
-    price: "12.000.000 vnđ",
-  },
-  {
-    src: "https://cdn.tgdd.vn/Products/Images/42/230529/iphone-13-pro-max-sierra-blue-600x600.jpg",
-    name: "Điện thoại iphone 13",
-    price: "12.000.000 vnđ",
-  },
-  {
-    src: "https://cdn.tgdd.vn/Products/Images/42/230529/iphone-13-pro-max-sierra-blue-600x600.jpg",
-    name: "Điện thoại iphone 13",
-    price: "12.000.000 vnđ",
-  },
-  {
-    src: "https://cdn.tgdd.vn/Products/Images/42/230529/iphone-13-pro-max-sierra-blue-600x600.jpg",
-    name: "Điện thoại iphone 13",
-    price: "12.000.000 vnđ",
-  },
-  {
-    src: "https://cdn.tgdd.vn/Products/Images/42/230529/iphone-13-pro-max-sierra-blue-600x600.jpg",
-    name: "Điện thoại iphone 13",
-    price: "12.000.000 vnđ",
-  },
-];
+  // More products...
+]
 
-function BrandStaticWidget() {
+export default function BrandStaticWidget() {
   return (
-    <div className="rounded-xl shadow-md overflow-hidden bg-white px-8 py-4">
-      <b>Thương hiệu chính hãng</b>
-      <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4 my-5 text-center">
-      {productLisst.map((item, index) => {
-        return (
-            <div key={index} className="border border-gray-300 rounded-xl p-4 h-full w-full shadow-md cursor-pointer">
-              <img src={item.src} alt="" />
-              <div className="flex flex-col justify-end items-center text-center">
-                <p className="text-xl font-bold">{item.name}</p>
-                <p className="text-red-500 text-base font-normal">
-                  {item.price}
-                </p>
+    <div className="bg-white rounded-xl shadow-md overflow-hidden">
+      <div className="max-w-full mx-auto py-10 px-4">
+        <h2 className="text-2xl font-extrabold text-gray-900 mb-10">Thương hiệu chính hãng</h2>
+
+        <div className="grid grid-cols-1 gap-y-10 sm:grid-cols-2 gap-x-6 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
+          {products.map((product) => (
+            <a key={product.id} href={product.href} className="group">
+              <div className="w-full aspect-w-1 aspect-h-1 bg-gray-200 rounded-lg overflow-hidden xl:aspect-w-7 xl:aspect-h-8">
+                <img
+                  src={product.imageSrc}
+                  alt={product.imageAlt}
+                  className="w-full h-full object-center object-cover group-hover:opacity-75"
+                />
               </div>
-            </div>
-        );
-      })}
+              <h3 className="mt-4 text-sm text-gray-700">{product.name}</h3>
+              <p className="mt-1 text-lg font-medium text-gray-900">{product.price}</p>
+            </a>
+          ))}
+        </div>
       </div>
     </div>
-  );
+  )
 }
-
-export default BrandStaticWidget;

@@ -1,28 +1,21 @@
-import React  from 'react';
-import './App.scss';
-import Home from './views/Home/Home';
-import Product from './views/Product/Product';
-import Cart from './views/Cart/Cart';
-import AllCategories from './views/Category/AllCategories';
-import Category from './views/Category/Category';
-import Order from './views/Order/Order';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from "react-router-dom";
-import Header from './components/Header/Header';
-import Footer from './components/Footer/Footer';
-import NotFound from './components/NotFound/index';
-
+import React from "react";
+import "./App.scss";
+import Home from "./views/Home/Home";
+import Product from "./views/Product/Product";
+import Cart from "./views/Cart/Cart";
+import Category from "./views/Category/Category";
+import Order from "./views/Order/Order";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import Header from "./components/Header/Header";
+import Footer from "./components/Footer/Footer";
+import NotFound from "./components/NotFound/index";
 
 function App() {
   return (
+    <div className="bg-gradient-to-r from-purple-300 to-blue-200">
       <Router>
-        <Header/>
+        <Header />
         <Switch>
-
           <Route path="/" exact>
             <Home />
           </Route>
@@ -32,28 +25,24 @@ function App() {
           </Route>
 
           <Route path="/cart">
-            <Cart/>
-          </Route>
-
-          <Route path="/all_categories">
-            <AllCategories />
+            <Cart />
           </Route>
 
           <Route path="/category">
-            <Category/>
+            <Category />
           </Route>
 
           <Route path="/order">
-            <Order/>
+            <Order />
           </Route>
 
           <Route>
-            <NotFound/>
+            <NotFound />
           </Route>
-
         </Switch>
-        <Footer/>
+        <Footer />
       </Router>
+    </div>
   );
 }
 

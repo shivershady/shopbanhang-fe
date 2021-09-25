@@ -13,9 +13,9 @@ const products = [
     email: "f•••@example.com",
     phone: "1•••••••••40",
     href: "#",
-    status: "Processing",
+    status: "Xử lý",
     step: 1,
-    date: "March 24, 2021",
+    date: "24/03/2021",
     datetime: "2021-03-24",
     imageSrc:
       "https://tailwindui.com/img/ecommerce-images/confirmation-page-04-product-01.jpg",
@@ -33,7 +33,7 @@ export default function Order() {
   const [open, setOpen] = useState(false);
 
   return (
-    <div className="bg-white">
+    <div className="container mx-auto bg-white shadow-md my-10 rounded-xl overflow-hidden">
       {/* Mobile menu */}
       <Transition.Root show={open} as={Fragment}>
         <Dialog
@@ -69,7 +69,6 @@ export default function Order() {
                   className="-m-2 p-2 rounded-md inline-flex items-center justify-center text-gray-400"
                   onClick={() => setOpen(false)}
                 >
-                  <span className="sr-only">Close menu</span>
                   <XIcon className="h-6 w-6" aria-hidden="true" />
                 </button>
               </div>
@@ -164,7 +163,7 @@ export default function Order() {
                     </div>
                   </dl>
                   <p className="font-medium text-gray-900 mt-6 md:mt-10">
-                    {product.status} on{" "}
+                    {product.status} từ{" "}
                     <time dateTime={product.datetime}>{product.date}</time>
                   </p>
                   <div className="mt-6">

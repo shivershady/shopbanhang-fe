@@ -1,125 +1,41 @@
-import React from "react";
+const incentives = [
+  {
+    name: 'Miễn phí vận chuyển',
+    description: "Nó không thực sự miễn phí, chúng tôi chỉ định giá nó vào các sản phẩm. Ai đó đang trả tiền cho nó, và đó không phải là chúng tôi.",
+    imageSrc: 'https://tailwindui.com/img/ecommerce/icons/icon-delivery-light.svg',
+  },
+  {
+    name: 'Hỗ trợ khách hàng 24/7',
+    description: 'Tiện ích trò chuyện AI của chúng tôi được hỗ trợ bởi một loạt các câu lệnh if / else ngây thơ. Đảm bảo không gây kích ứng.',
+    imageSrc: 'https://tailwindui.com/img/ecommerce/icons/icon-chat-light.svg',
+  },
+  {
+    name: 'Giỏ hàng nhanh',
+    description: "Hãy nhìn xem xe đẩy đó chạy nhanh như thế nào. Điều này có ý nghĩa gì đối với trải nghiệm thực tế? Tôi không biết.",
+    imageSrc: 'https://tailwindui.com/img/ecommerce/icons/icon-fast-checkout-light.svg',
+  },
+]
 
-const data = [
-  {
-    icon: (
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        className="h-14 w-14 text-yellow-600"
-        viewBox="0 0 20 20"
-        fill="currentColor"
-      >
-        <path d="M3 1a1 1 0 000 2h1.22l.305 1.222a.997.997 0 00.01.042l1.358 5.43-.893.892C3.74 11.846 4.632 14 6.414 14H15a1 1 0 000-2H6.414l1-1H14a1 1 0 00.894-.553l3-6A1 1 0 0017 3H6.28l-.31-1.243A1 1 0 005 1H3zM16 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM6.5 18a1.5 1.5 0 100-3 1.5 1.5 0 000 3z" />
-      </svg>
-    ),
-    detail: "Đi chợ online",
-  },
-  {
-    icon: (
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        className="h-14 w-14 text-yellow-600"
-        viewBox="0 0 20 20"
-        fill="currentColor"
-      >
-        <path d="M3 1a1 1 0 000 2h1.22l.305 1.222a.997.997 0 00.01.042l1.358 5.43-.893.892C3.74 11.846 4.632 14 6.414 14H15a1 1 0 000-2H6.414l1-1H14a1 1 0 00.894-.553l3-6A1 1 0 0017 3H6.28l-.31-1.243A1 1 0 005 1H3zM16 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM6.5 18a1.5 1.5 0 100-3 1.5 1.5 0 000 3z" />
-      </svg>
-    ),
-    detail: "Mã giảm giá",
-  },
-  {
-    icon: (
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        className="h-14 w-14 text-yellow-600"
-        viewBox="0 0 20 20"
-        fill="currentColor"
-      >
-        <path d="M3 1a1 1 0 000 2h1.22l.305 1.222a.997.997 0 00.01.042l1.358 5.43-.893.892C3.74 11.846 4.632 14 6.414 14H15a1 1 0 000-2H6.414l1-1H14a1 1 0 00.894-.553l3-6A1 1 0 0017 3H6.28l-.31-1.243A1 1 0 005 1H3zM16 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM6.5 18a1.5 1.5 0 100-3 1.5 1.5 0 000 3z" />
-      </svg>
-    ),
-    detail: "Dịch vụ và tiện ích",
-  },
-  {
-    icon: (
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        className="h-14 w-14 text-yellow-600"
-        viewBox="0 0 20 20"
-        fill="currentColor"
-      >
-        <path d="M3 1a1 1 0 000 2h1.22l.305 1.222a.997.997 0 00.01.042l1.358 5.43-.893.892C3.74 11.846 4.632 14 6.414 14H15a1 1 0 000-2H6.414l1-1H14a1 1 0 00.894-.553l3-6A1 1 0 0017 3H6.28l-.31-1.243A1 1 0 005 1H3zM16 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM6.5 18a1.5 1.5 0 100-3 1.5 1.5 0 000 3z" />
-      </svg>
-    ),
-    detail: "Gói hội viên",
-  },
-  {
-    icon: (
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        className="h-14 w-14 text-yellow-600"
-        viewBox="0 0 20 20"
-        fill="currentColor"
-      >
-        <path d="M3 1a1 1 0 000 2h1.22l.305 1.222a.997.997 0 00.01.042l1.358 5.43-.893.892C3.74 11.846 4.632 14 6.414 14H15a1 1 0 000-2H6.414l1-1H14a1 1 0 00.894-.553l3-6A1 1 0 0017 3H6.28l-.31-1.243A1 1 0 005 1H3zM16 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM6.5 18a1.5 1.5 0 100-3 1.5 1.5 0 000 3z" />
-      </svg>
-    ),
-    detail: "Giảm đến 50%",
-  },
-  {
-    icon: (
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        className="h-14 w-14 text-yellow-600"
-        viewBox="0 0 20 20"
-        fill="currentColor"
-      >
-        <path d="M3 1a1 1 0 000 2h1.22l.305 1.222a.997.997 0 00.01.042l1.358 5.43-.893.892C3.74 11.846 4.632 14 6.414 14H15a1 1 0 000-2H6.414l1-1H14a1 1 0 00.894-.553l3-6A1 1 0 0017 3H6.28l-.31-1.243A1 1 0 005 1H3zM16 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM6.5 18a1.5 1.5 0 100-3 1.5 1.5 0 000 3z" />
-      </svg>
-    ),
-    detail: "Hoàn tiền 15%",
-  },
-  {
-    icon: (
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        className="h-14 w-14 text-yellow-600"
-        viewBox="0 0 20 20"
-        fill="currentColor"
-      >
-        <path d="M3 1a1 1 0 000 2h1.22l.305 1.222a.997.997 0 00.01.042l1.358 5.43-.893.892C3.74 11.846 4.632 14 6.414 14H15a1 1 0 000-2H6.414l1-1H14a1 1 0 00.894-.553l3-6A1 1 0 0017 3H6.28l-.31-1.243A1 1 0 005 1H3zM16 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM6.5 18a1.5 1.5 0 100-3 1.5 1.5 0 000 3z" />
-      </svg>
-    ),
-    detail: "Ưu đãi thanh toán",
-  },
-  {
-    icon: (
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        className="h-14 w-14 text-yellow-600"
-        viewBox="0 0 20 20"
-        fill="currentColor"
-      >
-        <path d="M3 1a1 1 0 000 2h1.22l.305 1.222a.997.997 0 00.01.042l1.358 5.43-.893.892C3.74 11.846 4.632 14 6.414 14H15a1 1 0 000-2H6.414l1-1H14a1 1 0 00.894-.553l3-6A1 1 0 0017 3H6.28l-.31-1.243A1 1 0 005 1H3zM16 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM6.5 18a1.5 1.5 0 100-3 1.5 1.5 0 000 3z" />
-      </svg>
-    ),
-    detail: "Hẹn giao và lắp đặt",
-  },
-];
-
-function HomeQuicklinksTabContainer() {
+export default function HomeQuicklinksTabContainer() {
   return (
-    <div className="grid grid-cols-4 md:grid-cols-6 lg:grid-cols-8 rounded-xl shadow-md overflow-hidden bg-white p-4">
-      {data.map((items, index) => {
-        return (
-          <div key={index} className="grid cursor-pointer">
-            <div className=" mx-auto">{items.icon}</div>
-            <div className="font-semibold text-center h-10">{items.detail}</div>
-          </div>
-        );
-      })}
+    <div className="rounded-xl shadow-md overflow-hidden bg-white px-4 py-10">
+      <div className="max-w-full mx-auto">
+        <div className="max-w-2xl mx-auto px-4 grid grid-cols-1 gap-y-10 gap-x-8 lg:max-w-none lg:grid-cols-3">
+          {incentives.map((incentive) => (
+            <div key={incentive.name} className="text-center sm:flex sm:text-left lg:block lg:text-center">
+              <div className="sm:flex-shrink-0">
+                <div className="flow-root">
+                  <img className="w-28 h-24 mx-auto" src={incentive.imageSrc} alt="" />
+                </div>
+              </div>
+              <div className="mt-3 sm:mt-0 sm:ml-3 lg:mt-3 lg:ml-0">
+                <h3 className="text-sm font-medium text-gray-900">{incentive.name}</h3>
+                <p className="mt-2 text-sm text-gray-500">{incentive.description}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
     </div>
-  );
+  )
 }
-
-export default HomeQuicklinksTabContainer;

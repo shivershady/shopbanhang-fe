@@ -3,7 +3,7 @@ import React from 'react'
 function ProductDescription() {
     return (
         <div className="container mx-auto bg-white rounded-xl shadow-md overflow-hidden p-4 space-y-4">
-          <b>Mô tả sản phẩm</b>
+          <b className="text-2xl font-extrabold">Mô tả sản phẩm</b>
           <div>
             Màn hình: FHD Infinity-O 6.5 inch Hệ điều hành: Android 10 Camera
             sau: Chính 12 MP & Phụ 12 MP, 8 MP Camera trước: 32 MP CPU: Exynos

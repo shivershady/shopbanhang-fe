@@ -115,7 +115,7 @@ function ProductDetail() {
 
             <div className="p-8 border-l border-gray-300 space-y-2">
               {/* Title */}
-              <div className="uppercase tracking-wide text-2xl text-indigo-500 font-bold">
+              <div className="uppercase tracking-wide text-4xl text-indigo-500 font-extrabold">
                 Điện Thoại Samsung Galaxy S20 FE - Hàng Chính Hãng
               </div>
               <nav>

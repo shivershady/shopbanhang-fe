@@ -3,7 +3,7 @@ import React from 'react'
 function ProductInformation() {
     return (
         <div className="container mx-auto bg-white rounded-xl shadow-md overflow-hidden p-4 space-y-4">
-          <b>Thông tin chi tiết</b>
+          <b className="text-2xl font-extrabold">Thông tin chi tiết</b>
           <table className="table-fixed border-separate border border-gray-400 w-full text-center">
             <thead>
               <tr>
