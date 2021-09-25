@@ -1,20 +1,26 @@
 import React  from 'react';
 import './App.scss';
-import Home from './views/Home';
-import Product from './views/Product';
-import Cart from './views/Cart';
-import AllCategories from './views/AllCategories';
+import Home from './views/Home/Home';
+import Product from './views/Product/Product';
+import Cart from './views/Cart/Cart';
+import AllCategories from './views/Category/AllCategories';
+import Category from './views/Category/Category';
+import Order from './views/Order/Order';
 import {
   BrowserRouter as Router,
   Switch,
   Route,
   Link
 } from "react-router-dom";
-import Category from './views/Category';
+import Header from './components/Header/Header';
+import Footer from './components/Footer/Footer';
+import NotFound from './components/NotFound/index';
+
 
 function App() {
   return (
       <Router>
+        <Header/>
         <Switch>
 
           <Route path="/" exact>
@@ -37,7 +43,16 @@ function App() {
             <Category/>
           </Route>
 
+          <Route path="/order">
+            <Order/>
+          </Route>
+
+          <Route>
+            <NotFound/>
+          </Route>
+
         </Switch>
+        <Footer/>
       </Router>
   );
 }

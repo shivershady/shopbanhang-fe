@@ -1,16 +1,14 @@
 import React from "react";
-import Header from "./Header";
-import Footer from "./Footer";
-import ProductDetail from "../components/Product/ProductDetail";
-import ProductInformation from "../components/Product/ProductInformation";
-import ProductDescription from "../components/Product/ProductDescription";
-import ProductComment from "../components/Product/ProductComment";
+import Header from "../../components/Header/Header";
+import Footer from "../../components/Footer/Footer";
+import ProductDetail from "./components/ProductDetail";
+import ProductInformation from "./components/ProductInformation";
+import ProductDescription from "./components/ProductDescription";
+import ProductComment from "./components/ProductComment";
 
 export default function Product() {
   return (
-    <div className="container-fluid space-y-10">
-      <Header></Header>
-      <main className="container mx-auto space-y-4">
+      <main className="container mx-auto space-y-10 my-10">
         {/* ProductDetail */}
         <ProductDetail />
 
@@ -332,7 +330,5 @@ export default function Product() {
           </div>
         </div>
       </main>
-      <Footer></Footer>
-    </div>
   );
 }

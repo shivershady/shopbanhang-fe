@@ -99,6 +99,7 @@ export default function Header() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="flex justify-between items-center py-6 md:justify-start md:space-x-10">
+          {/* Logo */}
           <div className="flex justify-start lg:w-0 lg:flex-1">
             <a href="#">
               <img
@@ -108,7 +109,7 @@ export default function Header() {
               />
             </a>
           </div>
-
+          {/* Tìm kiếm */}
           <form className="container mx-auto flex space-x-4 px-4 w-2/3">
             <input
               className="bg-grey-lightest border-2 focus:border-orange p-2 rounded-lg shadow-inner w-full text-black"
@@ -130,8 +131,9 @@ export default function Header() {
               </svg>
             </button>
           </form>
-
+          {/* Right header */}
           <div className="-mr-2 -my-2 md:hidden space-x-1">
+            {/* Giỏ hàng mobile */}
             <a
               href="#"
               className="bg-purple-800 rounded-md p-2 inline-flex items-center justify-center text-white hover:bg-gray-200 hover:text-gray-800 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
@@ -145,12 +147,14 @@ export default function Header() {
                 <path d="M3 1a1 1 0 000 2h1.22l.305 1.222a.997.997 0 00.01.042l1.358 5.43-.893.892C3.74 11.846 4.632 14 6.414 14H15a1 1 0 000-2H6.414l1-1H14a1 1 0 00.894-.553l3-6A1 1 0 0017 3H6.28l-.31-1.243A1 1 0 005 1H3zM16 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM6.5 18a1.5 1.5 0 100-3 1.5 1.5 0 000 3z" />
               </svg>
             </a>
+            {/* Dropdown */}
             <Popover.Button className="bg-purple-800 rounded-md p-2 inline-flex items-center justify-center text-white hover:bg-gray-200 hover:text-gray-800 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
               <MenuIcon className="h-6 w-6" aria-hidden="true" />
             </Popover.Button>
           </div>
 
           <div className="hidden md:flex items-center justify-end md:flex-1">
+              {/* Giỏ hàng */}
             <a
               href="#"
               className="whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-purple-800 p-2 hover:bg-gray-200 hover:text-gray-800 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
@@ -164,6 +168,8 @@ export default function Header() {
                 <path d="M3 1a1 1 0 000 2h1.22l.305 1.222a.997.997 0 00.01.042l1.358 5.43-.893.892C3.74 11.846 4.632 14 6.414 14H15a1 1 0 000-2H6.414l1-1H14a1 1 0 00.894-.553l3-6A1 1 0 0017 3H6.28l-.31-1.243A1 1 0 005 1H3zM16 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM6.5 18a1.5 1.5 0 100-3 1.5 1.5 0 000 3z" />
               </svg>
             </a>
+
+            {/* Login */}
             <a
               href="#"
               className="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-purple-800 p-2 hover:bg-gray-200 hover:text-gray-800 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
@@ -174,6 +180,7 @@ export default function Header() {
         </div>
       </div>
 
+      {/* Dropdown item */}
       <Transition
         as={Fragment}
         enter="duration-200 ease-out"
