@@ -55,7 +55,7 @@ const resources = [
 
 export default function Header() {
   return (
-    <Popover className="relative bg-yellow-400 border shadow-md">
+    <Popover className="relative bg-gradient-to-r from-yellow-400 via-green-200 to-red-200 border shadow-md">
       <div className="hidden container mx-auto lg:flex justify-between mt-2 px-2">
         <nav>
           <ol className="flex space-x-4">
@@ -66,7 +66,7 @@ export default function Header() {
                 className="p-3 flex items-center rounded-md hover:bg-gray-50"
               >
                 <item.icon
-                  className="flex-shrink-0 h-6 w-6 text-purple-800"
+                  className="flex-shrink-0 h-6 w-6 text-indigo-600"
                   aria-hidden="true"
                 />
                 <span className="ml-3 text-base font-medium text-gray-900">
@@ -85,7 +85,7 @@ export default function Header() {
                 className="p-3 flex items-center rounded-md hover:bg-gray-50"
               >
                 <item.icon
-                  className="flex-shrink-0 h-6 w-6 text-purple-800"
+                  className="flex-shrink-0 h-6 w-6 text-indigo-600"
                   aria-hidden="true"
                 />
                 <span className="ml-3 text-base font-medium text-gray-900">
@@ -116,7 +116,7 @@ export default function Header() {
               placeholder="Tìm kiếm"
               type="text"
             />
-            <button className="whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-purple-800 p-2 hover:bg-gray-200 hover:text-gray-800 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
+            <button className="whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 p-2 hover:bg-gray-200 hover:text-gray-800 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
               <svg
                 xmlns="http:www.w3.org/2000/svg"
                 className="h-6 w-6"
@@ -132,11 +132,11 @@ export default function Header() {
             </button>
           </form>
           {/* Right header */}
-          <div className="-mr-2 -my-2 md:hidden space-x-1">
+          <div className="-mr-2 -my-2 lg:hidden space-x-1">
             {/* Giỏ hàng mobile */}
             <a
               href="#"
-              className="bg-purple-800 rounded-md p-2 inline-flex items-center justify-center text-white hover:bg-gray-200 hover:text-gray-800 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
+              className="bg-indigo-600 rounded-md p-2 inline-flex items-center justify-center text-white hover:bg-gray-200 hover:text-gray-800 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -148,16 +148,16 @@ export default function Header() {
               </svg>
             </a>
             {/* Dropdown */}
-            <Popover.Button className="bg-purple-800 rounded-md p-2 inline-flex items-center justify-center text-white hover:bg-gray-200 hover:text-gray-800 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
+            <Popover.Button className="bg-indigo-600 rounded-md p-2 inline-flex items-center justify-center text-white hover:bg-gray-200 hover:text-gray-800 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
               <MenuIcon className="h-6 w-6" aria-hidden="true" />
             </Popover.Button>
           </div>
 
-          <div className="hidden md:flex items-center justify-end md:flex-1">
+          <div className="hidden lg:flex items-center justify-end lg:flex-1">
               {/* Giỏ hàng */}
             <a
               href="#"
-              className="whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-purple-800 p-2 hover:bg-gray-200 hover:text-gray-800 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
+              className="whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 p-2 hover:bg-gray-200 hover:text-gray-800 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -172,7 +172,7 @@ export default function Header() {
             {/* Login */}
             <a
               href="#"
-              className="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-purple-800 p-2 hover:bg-gray-200 hover:text-gray-800 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
+              className="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 p-2 hover:bg-gray-200 hover:text-gray-800 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
             >
               Đăng nhập
             </a>
@@ -192,7 +192,7 @@ export default function Header() {
       >
         <Popover.Panel
           focus
-          className="absolute top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden"
+          className="top-0 inset-x-0 p-2 transition transform origin-top-right lg:hidden"
         >
           <div className="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 bg-white divide-y-2 divide-gray-50">
             <div className="pt-5 pb-6 px-5">

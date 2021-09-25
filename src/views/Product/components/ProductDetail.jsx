@@ -143,7 +143,7 @@ function ProductDetail() {
                   <div className="text-gray-500 line-through">
                     15.000.000 vnđ
                   </div>
-                  <div className="  text-red-500 text-xl font-bold border border-red-500">
+                  <div className="  text-red-500 text-xl font-bold border border-red-500 w-14 text-center">
                     -25%
                   </div>
                 </div>
@@ -188,7 +188,7 @@ function ProductDetail() {
                   />
                   <button className="w-10 h-8 border border-gray-300">+</button>
                 </div>
-                <button className="px-16 py-4 bg-purple-800 text-white font-bold uppercase text-xs rounded hover:bg-gray-200 hover:text-gray-800">
+                <button className="px-16 py-4 bg-indigo-600 text-white font-bold uppercase text-xs rounded hover:bg-gray-200 hover:text-gray-800">
                   Chọn Mua
                 </button>
               </div>
