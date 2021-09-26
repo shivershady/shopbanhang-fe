@@ -50,7 +50,7 @@ export default class Footer extends Component {
               <b>Kết nối với chúng tôi</b>
               <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
                 <img
-                  src="https://cdn.tgdd.vn/2020/03/GameApp/Facebook-200x200.jpg"
+                  src="https://www.facebook.com/images/fb_icon_325x325.png"
                   alt=""
                   className="h-5"
                 />
@@ -83,14 +83,8 @@ export default class Footer extends Component {
               </p>
             </div>
 
-            <div className="container mx-auto">
-              <img
-                className="px-32"
-                src="https://cdn.dangkywebsitevoibocongthuong.com/wp-content/uploads/2018/06/logo.png"
-                alt=""
-              />
-            </div>
-            <div className="text-center">
+            <div className="container mx-auto grid grid-cols-4">
+            <div className=" text-left col-span-3">
               <b>Thông tin liên hệ</b>
               <div>
                 <p>Địa chỉ :</p>
@@ -98,6 +92,13 @@ export default class Footer extends Component {
                 <p>Email: </p>
               </div>
             </div>
+              <img
+                className="flex"
+                src="https://cdn.dangkywebsitevoibocongthuong.com/wp-content/uploads/2018/06/logo.png"
+                alt=""
+              />
+            </div>
+            
             <div className="text-center">
               © 2015 - Bản quyền thuộc về Công ty TNHH
             </div>

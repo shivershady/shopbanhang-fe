@@ -10,140 +10,140 @@ function FeaturedCategorises() {
                   src="https://cdn.tgdd.vn/Products/Images/42/230529/iphone-13-pro-max-blue-600x600.jpg"
                   alt=""
                 />
-                <p>Điện thoại</p>
+                <p className="text-lg font-medium">Điện thoại</p>
               </div>
               <div>
                 <img
                   src="https://cdn.tgdd.vn/Products/Images/42/230529/iphone-13-pro-max-blue-600x600.jpg"
                   alt=""
                 />
-                <p>Điện thoại</p>
+                <p className="text-lg font-medium">Điện thoại</p>
               </div>
               <div>
                 <img
                   src="https://cdn.tgdd.vn/Products/Images/42/230529/iphone-13-pro-max-blue-600x600.jpg"
                   alt=""
                 />
-                <p>Điện thoại</p>
+                <p className="text-lg font-medium">Điện thoại</p>
               </div>
               <div>
                 <img
                   src="https://cdn.tgdd.vn/Products/Images/42/230529/iphone-13-pro-max-blue-600x600.jpg"
                   alt=""
                 />
-                <p>Điện thoại</p>
+                <p className="text-lg font-medium">Điện thoại</p>
               </div>
               <div>
                 <img
                   src="https://cdn.tgdd.vn/Products/Images/42/230529/iphone-13-pro-max-blue-600x600.jpg"
                   alt=""
                 />
-                <p>Điện thoại</p>
+                <p className="text-lg font-medium">Điện thoại</p>
               </div>
               <div>
                 <img
                   src="https://cdn.tgdd.vn/Products/Images/42/230529/iphone-13-pro-max-blue-600x600.jpg"
                   alt=""
                 />
-                <p>Điện thoại</p>
+                <p className="text-lg font-medium">Điện thoại</p>
               </div>
               <div>
                 <img
                   src="https://cdn.tgdd.vn/Products/Images/42/230529/iphone-13-pro-max-blue-600x600.jpg"
                   alt=""
                 />
-                <p>Điện thoại</p>
+                <p className="text-lg font-medium">Điện thoại</p>
               </div>
               <div>
                 <img
                   src="https://cdn.tgdd.vn/Products/Images/42/230529/iphone-13-pro-max-blue-600x600.jpg"
                   alt=""
                 />
-                <p>Điện thoại</p>
+                <p className="text-lg font-medium">Điện thoại</p>
               </div>
               <div>
                 <img
                   src="https://cdn.tgdd.vn/Products/Images/42/230529/iphone-13-pro-max-blue-600x600.jpg"
                   alt=""
                 />
-                <p>Điện thoại</p>
+                <p className="text-lg font-medium">Điện thoại</p>
               </div>
               <div>
                 <img
                   src="https://cdn.tgdd.vn/Products/Images/42/230529/iphone-13-pro-max-blue-600x600.jpg"
                   alt=""
                 />
-                <p>Điện thoại</p>
+                <p className="text-lg font-medium">Điện thoại</p>
               </div>
               <div>
                 <img
                   src="https://cdn.tgdd.vn/Products/Images/42/230529/iphone-13-pro-max-blue-600x600.jpg"
                   alt=""
                 />
-                <p>Điện thoại</p>
+                <p className="text-lg font-medium">Điện thoại</p>
               </div>
               <div>
                 <img
                   src="https://cdn.tgdd.vn/Products/Images/42/230529/iphone-13-pro-max-blue-600x600.jpg"
                   alt=""
                 />
-                <p>Điện thoại</p>
+                <p className="text-lg font-medium">Điện thoại</p>
               </div>
               <div>
                 <img
                   src="https://cdn.tgdd.vn/Products/Images/42/230529/iphone-13-pro-max-blue-600x600.jpg"
                   alt=""
                 />
-                <p>Điện thoại</p>
+                <p className="text-lg font-medium">Điện thoại</p>
               </div>
               <div>
                 <img
                   src="https://cdn.tgdd.vn/Products/Images/42/230529/iphone-13-pro-max-blue-600x600.jpg"
                   alt=""
                 />
-                <p>Điện thoại</p>
+                <p className="text-lg font-medium">Điện thoại</p>
               </div>
               <div>
                 <img
                   src="https://cdn.tgdd.vn/Products/Images/42/230529/iphone-13-pro-max-blue-600x600.jpg"
                   alt=""
                 />
-                <p>Điện thoại</p>
+                <p className="text-lg font-medium">Điện thoại</p>
               </div>
               <div>
                 <img
                   src="https://cdn.tgdd.vn/Products/Images/42/230529/iphone-13-pro-max-blue-600x600.jpg"
                   alt=""
                 />
-                <p>Điện thoại</p>
+                <p className="text-lg font-medium">Điện thoại</p>
               </div>
               <div>
                 <img
                   src="https://cdn.tgdd.vn/Products/Images/42/230529/iphone-13-pro-max-blue-600x600.jpg"
                   alt=""
                 />
-                <p>Điện thoại</p>
+                <p className="text-lg font-medium">Điện thoại</p>
               </div>
               <div>
                 <img
                   src="https://cdn.tgdd.vn/Products/Images/42/230529/iphone-13-pro-max-blue-600x600.jpg"
                   alt=""
                 />
-                <p>Điện thoại</p>
+                <p className="text-lg font-medium">Điện thoại</p>
               </div>
               <div>
                 <img
                   src="https://cdn.tgdd.vn/Products/Images/42/230529/iphone-13-pro-max-blue-600x600.jpg"
                   alt=""
                 />
-                <p>Điện thoại</p>
+                <p className="text-lg font-medium">Điện thoại</p>
               </div>
               <div>
                 <img
                   src="https://cdn.tgdd.vn/Products/Images/42/230529/iphone-13-pro-max-blue-600x600.jpg"
                   alt=""
                 />
-                <p>Điện thoại</p>
+                <p className="text-lg font-medium">Điện thoại</p>
               </div>
             </div>
           </div>

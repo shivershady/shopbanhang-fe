@@ -3,7 +3,7 @@ import React from 'react'
 function HomeQuicklinksTabContainer() {
     return (
         <div className="grid grid-cols-4 md:grid-cols-6 lg:grid-cols-8 rounded-xl shadow-md overflow-hidden bg-white space-y-4 py-4">
-            <div className="flex flex-col justify-end items-center text-center">
+            <div className="flex flex-col justify-end items-center text-center font-semibold">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-14 w-14 text-yellow-600"
@@ -14,7 +14,7 @@ function HomeQuicklinksTabContainer() {
               </svg>
               Thịt, rau củ
             </div>
-            <div className="flex flex-col justify-end items-center text-center">
+            <div className="flex flex-col justify-end items-center text-center font-semibold">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-14 w-14 text-yellow-600"
@@ -25,7 +25,7 @@ function HomeQuicklinksTabContainer() {
               </svg>
               Thịt, rau củ
             </div>
-            <div className="flex flex-col justify-end items-center text-center">
+            <div className="flex flex-col justify-end items-center text-center font-semibold">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-14 w-14 text-yellow-600"
@@ -36,7 +36,7 @@ function HomeQuicklinksTabContainer() {
               </svg>
               Thịt, rau củ
             </div>
-            <div className="flex flex-col justify-end items-center text-center">
+            <div className="flex flex-col justify-end items-center text-center font-semibold">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-14 w-14 text-yellow-600"
@@ -47,7 +47,7 @@ function HomeQuicklinksTabContainer() {
               </svg>
               Thịt, rau củ
             </div>
-            <div className="flex flex-col justify-end items-center text-center">
+            <div className="flex flex-col justify-end items-center text-center font-semibold">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-14 w-14 text-yellow-600"
@@ -58,7 +58,7 @@ function HomeQuicklinksTabContainer() {
               </svg>
               Thịt, rau củ
             </div>
-            <div className="flex flex-col justify-end items-center text-center">
+            <div className="flex flex-col justify-end items-center text-center font-semibold">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-14 w-14 text-yellow-600"
@@ -69,7 +69,7 @@ function HomeQuicklinksTabContainer() {
               </svg>
               Thịt, rau củ
             </div>
-            <div className="flex flex-col justify-end items-center text-center">
+            <div className="flex flex-col justify-end items-center text-center font-semibold">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-14 w-14 text-yellow-600"
@@ -80,7 +80,7 @@ function HomeQuicklinksTabContainer() {
               </svg>
               Thịt, rau củ
             </div>
-            <div className="flex flex-col justify-end items-center text-center">
+            <div className="flex flex-col justify-end items-center text-center font-semibold">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-14 w-14 text-yellow-600"

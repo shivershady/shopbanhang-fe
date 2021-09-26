@@ -1,9 +1,9 @@
 import React  from 'react';
 import './App.scss';
-import Home from './containers/Home';
-import Product from './containers/Product';
-import Cart from './containers/Cart';
-import
+import Home from './views/Home';
+import Product from './views/Product';
+import Cart from './views/Cart';
+import Category from './views/Category';
 import {
   BrowserRouter as Router,
   Switch,
@@ -28,8 +28,8 @@ function App() {
             <Cart/>
           </Route>
 
-          <Route path="/cart">
-            <Cart/>
+          <Route path="/category">
+            <Category/>
           </Route>
 
         </Switch>

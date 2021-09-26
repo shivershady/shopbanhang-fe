@@ -14,16 +14,22 @@ export default class Home extends Component {
       <div className="container-fluid space-y-10">
         <Header></Header>
         <main className="container mx-auto space-y-4">
+          
           {/* BANNER */}
           <Banner></Banner>
+
           {/* Trang chủ liên kết nhanh */}
           <HomeQuicklinksTabContainer/>
+
           {/* Thương hiệu chính hãng */}
           <BrandStaticWidget/>
+
           {/* Danh mục sản phẩm */}
           <FeaturedCategorises/>
+
           {/* Từ khóa */}
           <FeaturedKeywords/>
+          
           {/* Gợi ý hôm nay */}
           <InfiniteScroll/>
         </main>
