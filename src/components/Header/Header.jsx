@@ -12,6 +12,7 @@ import {
   XIcon,
 } from "@heroicons/react/outline";
 
+
 const solutions = [
   {
     name: "Kênh người bán",
@@ -55,7 +56,7 @@ const resources = [
 
 export default function Header() {
   return (
-    <Popover className="relative bg-gradient-to-r from-yellow-400 via-green-200 to-red-200 border shadow-md">
+    <Popover className="relative bg-gradient-to-br from-yellow-400 via-green-200 to-red-200 border shadow-md">
       <div className="hidden container mx-auto lg:flex justify-between mt-2 px-2">
         <nav>
           <ol className="flex space-x-4">
@@ -98,7 +99,7 @@ export default function Header() {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
-        <div className="flex justify-between items-center py-6 md:justify-start md:space-x-10">
+        <div className="flex justify-between items-center py-6 md:space-x-10">
           {/* Logo */}
           <div className="flex justify-start lg:w-0 lg:flex-1">
             <a href="#">
@@ -192,7 +193,7 @@ export default function Header() {
       >
         <Popover.Panel
           focus
-          className="top-0 inset-x-0 p-2 transition transform origin-top-right lg:hidden"
+          className="absolute top-0 z-50 inset-x-0 p-2 transition transform origin-top-right lg:hidden"
         >
           <div className="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 bg-white divide-y-2 divide-gray-50">
             <div className="pt-5 pb-6 px-5">
