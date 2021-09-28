@@ -50,18 +50,18 @@ export default class Footer extends Component {
               </div>
             </div>
           </div>
-          <div className="space-y-4">
+          <div className="space-y-4 px-8">
             <div className="flex justify-between">
-              <p className="uppercase border-r border-gray-300 text-center sm:pr-4 lg:pr-10 xl:pr-24 text-xs lg:text-sm">
+              <p className="uppercase border-r border-gray-300 text-center px-4 sm:pl-0 sm:pr-4 lg:pr-10 xl:pr-24 text-xs lg:text-sm">
                 Chính sách bảo mật
               </p>
-              <p className="uppercase border-r border-gray-300 text-center sm:pr-4 lg:pr-10 xl:pr-24 text-xs lg:text-sm">
+              <p className="uppercase border-r border-gray-300 text-center px-4 sm:pl-0 sm:pr-4 lg:pr-10 xl:pr-24 text-xs lg:text-sm">
                 Quy chế hoạt động
               </p>
-              <p className="uppercase border-r border-gray-300 text-center sm:pr-4 lg:pr-10 xl:pr-24 text-xs lg:text-sm">
+              <p className="uppercase border-r border-gray-300 text-center px-4 sm:pl-0 sm:pr-4 lg:pr-10 xl:pr-24 text-xs lg:text-sm">
                 Chính sách vận chuyển
               </p>
-              <p className="uppercase text-center text-xs lg:text-sm">
+              <p className="uppercase text-center text-xs lg:text-sm px-4 sm:px-0">
                 Chính sách trả hàng và hoàn tiền
               </p>
             </div>
