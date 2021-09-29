@@ -9,6 +9,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import NotFound from "./components/NotFound/index";
+import Login from "./views/Login";
 
 function App() {
   return (
@@ -34,6 +35,10 @@ function App() {
 
           <Route path="/order">
             <Order />
+          </Route>
+
+          <Route path="/login">
+            <Login />
           </Route>
 
           <Route>

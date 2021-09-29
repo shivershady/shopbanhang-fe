@@ -153,12 +153,6 @@ export default function Order() {
                       <dd className="mt-3 text-gray-500 space-y-3">
                         <p>{product.email}</p>
                         <p>{product.phone}</p>
-                        <button
-                          type="button"
-                          className="font-medium text-indigo-600 hover:text-indigo-500"
-                        >
-                          Sửa
-                        </button>
                       </dd>
                     </div>
                   </dl>
