@@ -32,7 +32,7 @@ function classNames(...classes) {
 export default function ProductComment() {
   return (
     <div className="bg-white rounded-xl shadow-md overflow-hidden">
-      <div className="max-w-full mx-auto px-4 py-10 lg:grid lg:grid-cols-12 lg:gap-x-8">
+      <div className="max-w-full mx-auto px-8 py-10 lg:grid lg:grid-cols-12 lg:gap-x-8">
         <div className="lg:col-span-4">
           <h2 className="text-2xl font-extrabold tracking-tight text-gray-900 mb-10">Phản hồi khách hàng</h2>
 

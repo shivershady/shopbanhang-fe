@@ -44,38 +44,46 @@ const filters = [
 const products = [
   {
     id: 1,
-    name: 'Bình đất',
-    href: '#',
-    price: '48.000 vnđ',
-    imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-01.jpg',
-    imageAlt: 'Chai sứ mảnh mai cao với phần thân bằng đất sét tự nhiên và nút chai.',
+    name: "Bình đất",
+    href: "#",
+    price: "48.000 vnđ",
+    imageSrc:
+      "https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-01.jpg",
+    imageAlt:
+      "Chai sứ mảnh mai cao với phần thân bằng đất sét tự nhiên và nút chai.",
   },
   {
     id: 2,
-    name: 'Bình bầu dục',
-    href: '#',
-    price: '35.000 vnđ',
-    imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-02.jpg',
-    imageAlt: 'Chai cách nhiệt màu xanh lá cây ô liu có nắp vặn loe và phần trên bằng phẳng.',
+    name: "Bình bầu dục",
+    href: "#",
+    price: "35.000 vnđ",
+    imageSrc:
+      "https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-02.jpg",
+    imageAlt:
+      "Chai cách nhiệt màu xanh lá cây ô liu có nắp vặn loe và phần trên bằng phẳng.",
   },
   {
     id: 3,
-    name: 'Giấy ghi chú',
-    href: '#',
-    price: '89.000 vnđ',
-    imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-03.jpg',
-    imageAlt: 'Người dùng bút để gạch ngang một nhiệm vụ trên thẻ giấy năng suất.',
+    name: "Giấy ghi chú",
+    href: "#",
+    price: "89.000 vnđ",
+    imageSrc:
+      "https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-03.jpg",
+    imageAlt:
+      "Người dùng bút để gạch ngang một nhiệm vụ trên thẻ giấy năng suất.",
   },
   {
     id: 4,
-    name: 'Bút chì cơ khí được gia công',
-    href: '#',
-    price: '35.000 vnđ',
-    imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-04.jpg',
-    imageAlt: 'Tay cầm bút chì cơ bằng thép gia công màu đen với đầu và đỉnh bằng đồng.',
+    name: "Bút chì cơ khí được gia công",
+    href: "#",
+    price: "35.000 vnđ",
+    imageSrc:
+      "https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-04.jpg",
+    imageAlt:
+      "Tay cầm bút chì cơ bằng thép gia công màu đen với đầu và đỉnh bằng đồng.",
   },
   // More products...
-]
+];
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -187,7 +195,7 @@ export default function Category() {
           </Dialog>
         </Transition.Root>
 
-        <main className="container mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:px-8">
+        <main className="container mx-auto py-10 px-4 sm:px-6 lg:px-8">
           <div className="border-b border-gray-200 pb-10">
             <h1 className="text-4xl font-extrabold tracking-tight text-gray-900">
               Danh mục sản phẩm
@@ -253,7 +261,7 @@ export default function Category() {
             {/* Product grid */}
             <div className="mt-6 lg:mt-0 lg:col-span-2 xl:col-span-3">
               {/* Replace with your content */}
-              <div className="border-4 border-dashed border-gray-200 rounded-lg h-96 lg:h-full">
+              <div className="border-4 border-dashed border-gray-200 rounded-lg h-full">
                 <div className="max-w-full mx-auto py-10 px-4">
                   <div className="grid grid-cols-1 gap-y-10 sm:grid-cols-2 gap-x-6 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
                     {products.map((product) => (

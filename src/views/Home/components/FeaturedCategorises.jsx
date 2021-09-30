@@ -22,12 +22,12 @@ const callouts = [
   },
 ]
 
-export default function Example() {
+export default function FeaturedCategorises() {
   return (
     <div className="rounded-xl shadow-md overflow-hidden bg-white">
-      <div className="max-w-full mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-full mx-auto px-8 sm:px-6 lg:px-8">
         <div className="max-w-2xl mx-auto py-10 lg:max-w-none">
-          <h2 className="text-2xl font-extrabold text-gray-900 mb-10">Bộ sưu tập</h2>
+          <h2 className="text-2xl font-extrabold text-gray-900 mb-10">Danh mục sản phẩm</h2>
 
           <div className="mt-6 space-y-12 lg:space-y-0 lg:grid lg:grid-cols-3 lg:gap-x-6">
             {callouts.map((callout) => (

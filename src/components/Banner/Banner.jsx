@@ -10,7 +10,7 @@ export default function Banner() {
               className="w-full h-full object-center object-cover"
             />
           </div>
-          <div className="relative bg-gray-900 bg-opacity-75 py-32 px-6 sm:py-40 sm:px-12 lg:px-16">
+          <div className="relative bg-gray-900 bg-opacity-75 py-6 px-6 sm:px-12 lg:px-16">
             <div className="relative max-w-3xl mx-auto flex flex-col items-center text-center">
               <h2 className="text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
                 <span className="block sm:inline">
