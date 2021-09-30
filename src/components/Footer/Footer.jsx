@@ -32,17 +32,17 @@ export default class Footer extends Component {
                 <img
                   src="https://luatvietan.vn/wp-content/uploads/2014/07/dich-vu-visa.jpg"
                   alt=""
-                  className="h-5"
+                  className="h-8"
                 />
                 <img
                   src="https://upload.wikimedia.org/wikipedia/vi/f/fe/MoMo_Logo.png"
                   alt=""
-                  className="h-5"
+                  className="h-8"
                 />
                 <img
                   src="http://2.bp.blogspot.com/-BOGW14riPcQ/VflMge_bUgI/AAAAAAAAA5I/SrpU4vCU5Lk/s400/paypal-la-gi.jpg"
                   alt=""
-                  className="h-5"
+                  className="h-8"
                 />
               </div>
             </div>
@@ -52,17 +52,17 @@ export default class Footer extends Component {
                 <img
                   src="https://www.facebook.com/images/fb_icon_325x325.png"
                   alt=""
-                  className="h-5"
+                  className="h-8"
                 />
                 <img
                   src="https://cdn.tgdd.vn/Files/2020/07/21/1272550/unnamed_800x480.png"
                   alt=""
-                  className="h-5"
+                  className="h-8"
                 />
                 <img
                   src="https://play-lh.googleusercontent.com/lMoItBgdPPVDJsNOVtP26EKHePkwBg-PkuY9NOrc-fumRtTFP4XhpUNk_22syN4Datc"
                   alt=""
-                  className="h-5"
+                  className="h-8"
                 />
               </div>
             </div>
