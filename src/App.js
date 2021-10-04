@@ -10,6 +10,7 @@ import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import NotFound from "./components/NotFound/index";
 import Login from "./views/Login";
+import Signup from "./views/Signup";
 
 function App() {
   return (
@@ -39,6 +40,10 @@ function App() {
 
           <Route path="/login">
             <Login />
+          </Route>
+
+          <Route path="/signup">
+            <Signup />
           </Route>
 
           <Route>

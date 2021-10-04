@@ -1,7 +1,7 @@
 import React from "react";
 
 
-const SignUp = () => {
+const Signup = () => {
   return (
 
 <div class=" bg-gray-50  min-h-screen w-screen flex flex-col justify-center items-center  font-sans  rounded-xl shadow-md overflow-hidden px-6 ">
@@ -34,4 +34,4 @@ const SignUp = () => {
   );
 };
 
-export default SignUp;
+export default Signup;
