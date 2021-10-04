@@ -1,4 +1,7 @@
-import { StarIcon } from '@heroicons/react/solid'
+import { StarIcon } from "@heroicons/react/solid";
+import { Fragment, useState } from 'react'
+import { Dialog, Transition } from '@headlessui/react'
+import { CheckIcon } from '@heroicons/react/outline'
 
 const reviews = {
   average: 4,
@@ -17,24 +20,27 @@ const reviews = {
       content: `
         <p>Đây là chiếc túi trong mơ của tôi. Tôi đã ăn nó vào kỳ nghỉ cuối cùng của mình và có thể ăn một lượng đồ ăn nhẹ vô lý cho những chuyến bay dài và đói.</p>
       `,
-      author: 'Trần Thị Hồng Ngân',
+      author: "Trần Thị Hồng Ngân",
       avatarSrc:
-        'https://images.unsplash.com/photo-1502685104226-ee32379fefbe?ixlib=rb-=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=256&h=256&q=80',
+        "https://images.unsplash.com/photo-1502685104226-ee32379fefbe?ixlib=rb-=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=256&h=256&q=80",
     },
     // More reviews...
   ],
-}
+};
 
 function classNames(...classes) {
-  return classes.filter(Boolean).join(' ')
+  return classes.filter(Boolean).join(" ");
 }
 
 export default function ProductComment() {
+  const [open, setOpen] = useState(false)
   return (
     <div className="bg-white rounded-xl shadow-md overflow-hidden">
       <div className="max-w-full mx-auto px-8 py-10 lg:grid lg:grid-cols-12 lg:gap-x-8">
         <div className="lg:col-span-4">
-          <h2 className="text-2xl font-extrabold tracking-tight text-gray-900 mb-10">Phản hồi khách hàng</h2>
+          <h2 className="text-2xl font-extrabold tracking-tight text-gray-900 mb-10">
+            Phản hồi khách hàng
+          </h2>
 
           <div className="mt-3 flex items-center">
             <div>
@@ -43,8 +49,10 @@ export default function ProductComment() {
                   <StarIcon
                     key={rating}
                     className={classNames(
-                      reviews.average > rating ? 'text-yellow-400' : 'text-gray-300',
-                      'flex-shrink-0 h-5 w-5'
+                      reviews.average > rating
+                        ? "text-yellow-400"
+                        : "text-gray-300",
+                      "flex-shrink-0 h-5 w-5"
                     )}
                     aria-hidden="true"
                   />
@@ -52,11 +60,12 @@ export default function ProductComment() {
               </div>
               <p className="">{reviews.average} trên 5 sao</p>
             </div>
-            <p className="ml-2 text-sm text-gray-900">Dựa trên {reviews.totalCount} đánh giá</p>
+            <p className="ml-2 text-sm text-gray-900">
+              Dựa trên {reviews.totalCount} đánh giá
+            </p>
           </div>
 
           <div className="mt-6">
-
             <dl className="space-y-3">
               {reviews.counts.map((count) => (
                 <div key={count.rating} className="flex items-center text-sm">
@@ -64,11 +73,14 @@ export default function ProductComment() {
                     <p className="w-3 font-medium text-gray-900">
                       {count.rating}
                     </p>
-                    <div aria-hidden="true" className="ml-1 flex-1 flex items-center">
+                    <div
+                      aria-hidden="true"
+                      className="ml-1 flex-1 flex items-center"
+                    >
                       <StarIcon
                         className={classNames(
-                          count.count > 0 ? 'text-yellow-400' : 'text-gray-300',
-                          'flex-shrink-0 h-5 w-5'
+                          count.count > 0 ? "text-yellow-400" : "text-gray-300",
+                          "flex-shrink-0 h-5 w-5"
                         )}
                         aria-hidden="true"
                       />
@@ -78,7 +90,9 @@ export default function ProductComment() {
                         {count.count > 0 ? (
                           <div
                             className="absolute inset-y-0 bg-yellow-400 border border-yellow-400 rounded-full"
-                            style={{ width: `calc(${count.count} / ${reviews.totalCount} * 100%)` }}
+                            style={{
+                              width: `calc(${count.count} / ${reviews.totalCount} * 100%)`,
+                            }}
                           />
                         ) : null}
                       </div>
@@ -93,17 +107,76 @@ export default function ProductComment() {
           </div>
 
           <div className="mt-10">
-            <h3 className="text-lg font-medium text-gray-900">Chia sẻ những suy nghĩ của bạn</h3>
+            <h3 className="text-lg font-medium text-gray-900">
+              Chia sẻ những suy nghĩ của bạn
+            </h3>
             <p className="mt-1 text-sm text-gray-600">
-            Nếu bạn đã sử dụng sản phẩm này, hãy chia sẻ suy nghĩ của bạn với những khách hàng khác
+              Nếu bạn đã sử dụng sản phẩm này, hãy chia sẻ suy nghĩ của bạn với
+              những khách hàng khác
             </p>
 
-            <a
+            <button
+              onClick={()=> setOpen(true)}
               href="#"
               className="mt-6 inline-flex w-full bg-white border border-gray-300 rounded-md py-2 px-8 items-center justify-center text-sm font-medium text-gray-900 hover:bg-gray-50 sm:w-auto lg:w-full"
             >
               Viết nhận xét
-            </a>
+            </button>
+            <Transition.Root show={open} as={Fragment}>
+              <Dialog
+                as="div"
+                className="fixed z-10 inset-0 overflow-y-auto"
+                onClose={setOpen}
+              >
+                <div className="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+                  <Transition.Child
+                    as={Fragment}
+                    enter="ease-out duration-300"
+                    enterFrom="opacity-0"
+                    enterTo="opacity-100"
+                    leave="ease-in duration-200"
+                    leaveFrom="opacity-100"
+                    leaveTo="opacity-0"
+                  >
+                    <Dialog.Overlay className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" />
+                  </Transition.Child>
+
+                  {/* This element is to trick the browser into centering the modal contents. */}
+                  <span
+                    className="hidden sm:inline-block sm:align-middle sm:h-screen"
+                    aria-hidden="true"
+                  >
+                    &#8203;
+                  </span>
+                  <Transition.Child
+                    as={Fragment}
+                    enter="ease-out duration-300"
+                    enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                    enterTo="opacity-100 translate-y-0 sm:scale-100"
+                    leave="ease-in duration-200"
+                    leaveFrom="opacity-100 translate-y-0 sm:scale-100"
+                    leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                  >
+                    <div className="inline-block align-bottom bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-sm sm:w-full sm:p-6">
+                      <form className="text-center space-y-8">
+                        <label className="text-2xl font-bold">Viết nhận xét của bạn</label>
+                        <textarea name="" id="" cols="40" rows="6"></textarea>
+                        
+                      </form>
+                      <div className="mt-5 sm:mt-6">
+                        <button
+                          type="button"
+                          className="inline-flex justify-center w-full rounded-md border border-transparent shadow-sm px-4 py-2 bg-indigo-600 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:text-sm"
+                          onClick={() => setOpen(false)}
+                        >
+                          Bình luận
+                        </button>
+                      </div>
+                    </div>
+                  </Transition.Child>
+                </div>
+              </Dialog>
+            </Transition.Root>
           </div>
         </div>
 
@@ -115,16 +188,24 @@ export default function ProductComment() {
               {reviews.featured.map((review) => (
                 <div key={review.id} className="py-12">
                   <div className="flex items-center">
-                    <img src={review.avatarSrc} alt={`${review.author}.`} className="h-12 w-12 rounded-full" />
+                    <img
+                      src={review.avatarSrc}
+                      alt={`${review.author}.`}
+                      className="h-12 w-12 rounded-full"
+                    />
                     <div className="ml-4">
-                      <h4 className="text-sm font-bold text-gray-900">{review.author}</h4>
+                      <h4 className="text-sm font-bold text-gray-900">
+                        {review.author}
+                      </h4>
                       <div className="mt-1 flex items-center">
                         {[0, 1, 2, 3, 4].map((rating) => (
                           <StarIcon
                             key={rating}
                             className={classNames(
-                              review.rating > rating ? 'text-yellow-400' : 'text-gray-300',
-                              'h-5 w-5 flex-shrink-0'
+                              review.rating > rating
+                                ? "text-yellow-400"
+                                : "text-gray-300",
+                              "h-5 w-5 flex-shrink-0"
                             )}
                             aria-hidden="true"
                           />
@@ -145,5 +226,5 @@ export default function ProductComment() {
         </div>
       </div>
     </div>
-  )
+  );
 }

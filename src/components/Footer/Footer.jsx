@@ -1,11 +1,5 @@
 import React, { Component } from "react";
-import facebook from "../../assets/images/icon/facebook.png";
-import zalo from "../../assets/images/icon/zalo.png";
-import youtube from "../../assets/images/icon/youtube.png";
-import paypal from "../../assets/images/icon/paypal.png";
-import bank from "../../assets/images/icon/debit-card.png";
-import visa from "../../assets/images/icon/visa.png";
-import registered from "../../assets/images/icon/Registered.png";
+import Icons from "../../constants/Icons";
 
 export default class Footer extends Component {
   render() {
@@ -36,32 +30,32 @@ export default class Footer extends Component {
             <div className="space-y-4">
               <b>Phương thức thanh toán</b>
               <div className="flex-row lg:flex justify-between space-y-4 lg:space-y-0 pr-8">
-                <img src={visa} alt="" className="h-8" />
-                <img src={bank} alt="" className="h-8" />
-                <img src={paypal} alt="" className="h-8" />
+                <img src={Icons.VS} alt="" className="h-8" />
+                <img src={Icons.B} alt="" className="h-8" />
+                <img src={Icons.PAY} alt="" className="h-8" />
               </div>
             </div>
             <div className="space-y-4">
               <b>Kết nối với chúng tôi</b>
               <div className="flex-row lg:flex justify-between space-y-4 lg:space-y-0 pr-8">
-                <img src={facebook} alt="" className="h-8" />
-                <img src={zalo} alt="" className="h-8" />
-                <img src={youtube} alt="" className="h-8" />
+                <img src={Icons.FB} alt="" className="h-8" />
+                <img src={Icons.ZL} alt="" className="h-8" />
+                <img src={Icons.YT} alt="" className="h-8" />
               </div>
             </div>
           </div>
           <div className="space-y-4 px-8">
-            <div className="flex justify-between">
-              <p className="uppercase border-r border-gray-300 text-center px-4 sm:pl-0 sm:pr-4 lg:pr-10 xl:pr-24 text-xs lg:text-sm">
+            <div className="grid grid-cols-4 gap-4 divide-x">
+              <p className="uppercase text-center p-4 text-xs lg:text-sm">
                 Chính sách bảo mật
               </p>
-              <p className="uppercase border-r border-gray-300 text-center px-4 sm:pl-0 sm:pr-4 lg:pr-10 xl:pr-24 text-xs lg:text-sm">
+              <p className="uppercase text-center p-4 text-xs lg:text-sm">
                 Quy chế hoạt động
               </p>
-              <p className="uppercase border-r border-gray-300 text-center px-4 sm:pl-0 sm:pr-4 lg:pr-10 xl:pr-24 text-xs lg:text-sm">
+              <p className="uppercase text-center p-4 text-xs lg:text-sm">
                 Chính sách vận chuyển
               </p>
-              <p className="uppercase text-center text-xs lg:text-sm px-4 sm:px-0">
+              <p className="uppercase text-center p-4 text-xs lg:text-sm ">
                 Chính sách trả hàng và hoàn tiền
               </p>
             </div>
@@ -75,7 +69,7 @@ export default class Footer extends Component {
                   <p>Email: </p>
                 </div>
               </div>
-              <img className="w-36 h-12" src={registered} alt="" />
+              <img className="w-36 h-12" src={Icons.RGT} alt="" />
             </div>
 
             <div className="text-center">
