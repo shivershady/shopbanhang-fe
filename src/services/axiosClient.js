@@ -1,5 +1,5 @@
 import axios from "axios";
-import queryString from "queryString";
+import queryString from "query-string";
 
 const axiosClient = axios.create({
   baseURL: process.env.REACT_APP_API_URL,
@@ -7,12 +7,12 @@ const axiosClient = axios.create({
   paramsSerializer: (params) => queryString.stringify(params),
 });
 
-axiosClient.interceptosr.request.use(async (config) => {
+axiosClient.interceptors.request.use(async (config) => {
   //Handle token here...
   return config;
 });
 
-axiosClient.interceptosr.response.use(
+axiosClient.interceptors.response.use(
   (response) => {
     if (response && response.data) {
       return response.data;
