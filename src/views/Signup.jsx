@@ -1,6 +1,11 @@
 import React from "react";
 
+<<<<<<< HEAD:src/views/SignUp.jsx
 const SignUp = () => {
+=======
+
+const Signup = () => {
+>>>>>>> d42b3916691bab6dc6dc4c80cd1484c575fc34b1:src/views/Signup.jsx
   return (
     <div class=" bg-gray-50  min-h-screen w-screen flex flex-col justify-center items-center  font-sans  rounded-xl shadow-md overflow-hidden px-6 ">
       <div class="bg-gray-100 shadow-none sm:shadow-lg h-auto w-full sm:w-8/12  md:w-7/12   lg:w-1/2  xl:w-1/3 sm:h-auto p-5  border border-transparent rounded-md  text-sm font-medium ">
@@ -48,4 +53,4 @@ const SignUp = () => {
   );
 };
 
-export default SignUp;
+export default Signup;

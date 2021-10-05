@@ -11,6 +11,7 @@ import Footer from "./components/Footer/Footer";
 import NotFound from "./components/NotFound/index";
 import Login from "./views/Login";
 import productApi  from "./services/productApi";
+import Signup from "./views/Signup";
 
 function App() {
   const [productList,setProductList] = useState([]);
@@ -55,6 +56,10 @@ function App() {
 
           <Route path="/login">
             <Login />
+          </Route>
+
+          <Route path="/signup">
+            <Signup />
           </Route>
 
           <Route>
