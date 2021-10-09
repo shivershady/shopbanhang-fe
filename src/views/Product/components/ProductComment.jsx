@@ -1,10 +1,9 @@
 import { StarIcon } from "@heroicons/react/solid";
-import { Fragment, useState } from 'react'
-import { Dialog, Transition } from '@headlessui/react'
-import { CheckIcon } from '@heroicons/react/outline'
+import { Fragment, useState } from "react";
+import { Dialog, Transition } from "@headlessui/react";
 
 const reviews = {
-  average: 4,
+  average: 3,
   totalCount: 1624,
   counts: [
     { rating: 5, count: 1019 },
@@ -33,7 +32,7 @@ function classNames(...classes) {
 }
 
 export default function ProductComment() {
-  const [open, setOpen] = useState(false)
+  const [open, setOpen] = useState(false);
   return (
     <div className="bg-white rounded-xl shadow-md overflow-hidden">
       <div className="max-w-full mx-auto px-8 py-10 lg:grid lg:grid-cols-12 lg:gap-x-8">
@@ -116,7 +115,7 @@ export default function ProductComment() {
             </p>
 
             <button
-              onClick={()=> setOpen(true)}
+              onClick={() => setOpen(true)}
               href="#"
               className="mt-6 inline-flex w-full bg-white border border-gray-300 rounded-md py-2 px-8 items-center justify-center text-sm font-medium text-gray-900 hover:bg-gray-50 sm:w-auto lg:w-full"
             >
@@ -157,21 +156,44 @@ export default function ProductComment() {
                     leaveFrom="opacity-100 translate-y-0 sm:scale-100"
                     leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
                   >
-                    <div className="inline-block align-bottom bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-sm sm:w-full sm:p-6">
-                      <form className="text-center space-y-8">
-                        <label className="text-2xl font-bold">Viết nhận xét của bạn</label>
-                        <textarea name="" id="" cols="40" rows="6"></textarea>
-                        
-                      </form>
-                      <div className="mt-5 sm:mt-6">
-                        <button
-                          type="button"
-                          className="inline-flex justify-center w-full rounded-md border border-transparent shadow-sm px-4 py-2 bg-indigo-600 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:text-sm"
-                          onClick={() => setOpen(false)}
+                    <div className="inline-block align-bottom bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle w-3/4 ">
+                      <form className="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
+                        <label
+                          htmlFor="about"
+                          className="block text-xl font-bold text-gray-700 sm:mt-px sm:pt-2"
                         >
                           Bình luận
-                        </button>
-                      </div>
+                        </label>
+                        <div className="mt-1 sm:mt-0 sm:col-span-2 space-y-4">
+                          <div className="flex items-center">
+                            {[0, 1, 2, 3, 4].map((rating) => (
+                              <StarIcon
+                                key={rating}
+                                className={classNames(
+                                  reviews.average > rating
+                                    ? "text-yellow-400"
+                                    : "text-gray-300",
+                                  "flex-shrink-0 h-5 w-5"
+                                )}
+                                aria-hidden="true"
+                              />
+                            ))}
+                          </div>
+                          <textarea
+                            id="about"
+                            name="about"
+                            rows={3}
+                            className="max-w-lg shadow-sm block w-full focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm border border-gray-300 rounded-md"
+                            defaultValue={""}
+                          />
+                          <p className="mt-2 text-sm text-gray-500">
+                            Viết nhận xét của bạn
+                          </p>
+                          <button className="bg-indigo-600 rounded-md p-2 inline-flex items-center justify-center text-white hover:bg-gray-200 hover:text-gray-800 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
+                            Bình luận
+                          </button>
+                        </div>
+                      </form>
                     </div>
                   </Transition.Child>
                 </div>
@@ -181,8 +203,7 @@ export default function ProductComment() {
         </div>
 
         <div className="mt-16 lg:mt-0 lg:col-start-6 lg:col-span-7">
-          <h3 className="sr-only">Recent reviews</h3>
-
+        {/* Recent reviews */}
           <div className="flow-root">
             <div className="-my-12 divide-y divide-gray-200">
               {reviews.featured.map((review) => (
@@ -211,7 +232,6 @@ export default function ProductComment() {
                           />
                         ))}
                       </div>
-                      <p className="sr-only">{review.rating} out of 5 stars</p>
                     </div>
                   </div>
 

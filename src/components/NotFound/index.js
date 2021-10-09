@@ -1,7 +1,6 @@
 import React from "react";
-import PropTypes from "prop-types";
 
-function NotFound(props) {
+function NotFound() {
   return (
       <div className="w-9/12 m-auto py-16 min-h-screen flex items-center justify-center">
         <div className="bg-white shadow overflow-hidden sm:rounded-lg pb-8">

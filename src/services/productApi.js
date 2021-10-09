@@ -1,4 +1,15 @@
 import axiosClient from "./axiosClient";
+import {Axios} from "./Axios";
+
+export function getData(){
+    return Axios.get('');
+}
+
+export function postData() {
+
+}
+
+
 
 const productApi = {
     getData : (params) =>{

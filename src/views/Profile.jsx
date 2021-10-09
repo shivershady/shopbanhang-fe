@@ -1,14 +1,24 @@
-import { Fragment } from "react";
+import {Fragment, useEffect, useState} from "react";
 import { Popover} from "@headlessui/react";
 import {MenuIcon,XIcon,} from "@heroicons/react/outline";
- function Profile() {
+import {getUser} from "../services/authService";
+
+function Profile() {
+    const [user, setUser] = useState({});
+    useEffect(() => {
+        getUser().then((resp) => {
+            setUser(resp.data);
+            console.log(resp.data);
+        });
+    });
+
   return (
     <Popover  class="grid grid-cols-5  h-screen lg:text-base text-sm  "> 
 
                           {/* LEFT  */}
-       <div class="grid-cols-1 col-start-1 row-start-1  hidden lg:block  ">
-       <div class=" bg-gray-100  z-10 py-4 xl:px-6 px-3  ">         
-       <h1 class="text-gray-900 text-center text-2xl leading-normal mt-0 mb-2 ">Hồ Sơ Của Tôi</h1>
+       <div class="grid-cols-1 col-start-1 row-start-1 hidden lg:block  ">
+       <div class=" bg-gray-100  z-10 py-4 xl:px-6 px-3 h-full ">         
+       <h1 class="text-gray-900 text-center text-3xl leading-normal mt-0 mb-2 ">Hồ Sơ Của Tôi</h1>
            <hr class="mt-6"  style={{ color: '#000000'}}/>
            <hr class="mt-8" style={{ color: '#0000'}}/>
            <ul class="  min-w-full text-lg  ">
@@ -25,8 +35,8 @@ import {MenuIcon,XIcon,} from "@heroicons/react/outline";
                                           {/* CENTER */}
              <div  class="col-span-4 lg:col-start-2  col-start-1 w-screen lg:w-full  "> 
              <div class="bg-white lg:py-4 py-1 px-3 h-screen ">
-             <h2 class=" text-black lg:text-xl text-lg  pt-1  ">Thông Tin Tài Khoản</h2>           
-             <p class="relative">Quản lý thông tin hồ sơ để bảo mật tài khoản</p>
+             <h2 class=" text-black lg:text-2xl text-lg  pt-1 lg:ml-6  ">Thông Tin Tài Khoản</h2>           
+             <p class="relative lg:text-lg  lg:ml-6">Quản lý thông tin hồ sơ để bảo mật tài khoản</p>
              <hr class="mt-5" style={{ color: '#0000'}}/> 
              <ul class=" flex flex-col relative list-none leading-10 lg:mt-9 mt-2">
                       <div class=" absolute lg:text-right text-left lg:ml-12 ml-2  ">
@@ -46,8 +56,8 @@ import {MenuIcon,XIcon,} from "@heroicons/react/outline";
                     <hr class="transform rotate-90 w-56 my-32  xl:mr-56 mr-32 lg:opacity-100 opacity-0  "/>
                       <img class="h-20  -my-56  ml-52 xl:ml-60  rounded-full w-20 hidden lg:block  " src="https://vnn-imgs-f.vgcloud.vn/2020/03/23/11/trend-avatar-1.jpg" alt=""/>
                       <div class="ml-28 hidden lg:block "> 
-                      <button class=" mt-56   text-gray-700 hover:text-red-600">Chọn Ảnh</button>
-                      <p class=" text-gray-400">Dụng lượng file tối đa 1 MB</p>
+                      <button class=" mt-56  text-gray-700 hover:text-red-600">Chọn Ảnh</button>
+                      <p class=" text-gray-400 -mb-2">Dụng lượng file tối đa 1 MB</p>
                       <p class=" text-gray-400">Định dạng:.JPEG, .PNG</p>
                   </div>
                 
@@ -89,9 +99,9 @@ import {MenuIcon,XIcon,} from "@heroicons/react/outline";
       </div>
              </div>
                   </ul>
-                                
+                        
      
-                                           {/* cot2 */}
+                                           {/* col2 */}
                     
                          <ul class="flex flex-col  list-none leading-10 ml-44   ">
                      <div class=" text-left lg:ml-12 -ml-9  ">

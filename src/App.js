@@ -1,34 +1,20 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.scss";
-import Home from "./views/Home/Home";
-import Product from "./views/Product/Product";
+import Footer from "./components/Footer/Footer";
+import Header from "./components/Header/Header";
+import NotFound from "./components/NotFound/index";
 import Cart from "./views/Cart/Cart";
 import Category from "./views/Category/Category";
-import Order from "./views/Order/Order";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import Header from "./components/Header/Header";
-import Footer from "./components/Footer/Footer";
-import NotFound from "./components/NotFound/index";
+import Home from "./views/Home/Home";
 import Login from "./views/Login";
-import productApi from "./services/productApi";
-import Signup from "./views/Signup";
+import Order from "./views/Order/Order";
+import Product from "./views/Product/Product";
 import Profile from "./views/Profile";
+import Signup from "./views/Signup";
+
 
 function App() {
-  const [productList, setProductList] = useState([]);
-
-  useEffect(() => {
-    const fetchProductList = async () => {
-      try {
-        const response = await productApi.getData();
-        console.log(response);
-      } catch (error) {
-        console.log("Thêm thất bại", error);
-      }
-    };
-    fetchProductList();
-  }, []);
-
   return (
     <div className="bg-gradient-to-r from-purple-300 to-blue-200">
       <Router>
