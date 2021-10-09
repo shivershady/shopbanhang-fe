@@ -1,7 +1,17 @@
-import { Fragment } from "react";
+import {Fragment, useEffect, useState} from "react";
 import { Popover} from "@headlessui/react";
 import {MenuIcon,XIcon,} from "@heroicons/react/outline";
- function Profile() {
+import {getUser} from "../services/authService";
+
+function Profile() {
+    const [user, setUser] = useState({});
+    useEffect(() => {
+        getUser().then((resp) => {
+            setUser(resp.data);
+            console.log(resp.data);
+        });
+    });
+
   return (
     <Popover  class="grid grid-cols-5  h-screen lg:text-base text-sm  "> 
 
