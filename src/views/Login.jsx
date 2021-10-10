@@ -79,7 +79,7 @@ const Login = () => {
                   />
                   <div className=" text-center  py-4">
                     <button
-                      className=" w-3/ h-11 border border-transparent rounded-md shadow-sm text-base  text-white bg-indigo-600 p-1 hover:bg-gray-200 hover:text-gray-800 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white "
+                      className=" w-3/5 h-11 border border-transparent rounded-md shadow-sm text-base  text-white bg-indigo-600 p-1 hover:bg-gray-200 hover:text-gray-800 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white "
                       type="submit"
                     >
                       Đăng Nhập
