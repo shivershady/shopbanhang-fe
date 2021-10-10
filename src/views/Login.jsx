@@ -1,5 +1,50 @@
+import { FastField, Form, Formik } from "formik";
 import React from "react";
+import { useHistory } from "react-router-dom";
+import * as yup from "yup";
+import InputField from "../cutom-fields/InputField/InputField";
+import { login } from "../services/authService";
+
+
+const schema = yup.object().shape({
+  email: yup
+    .string()
+    .email("Email không hợp lệ")
+    .required("Vui lòng nhập email"),
+  password: yup
+    .string()
+    .min(8, "Mật khẩu từ 8 - 16 ký tự")
+    .max(16)
+    .required("Vui lòng nhập mật khẩu"),
+});
+
 const Login = () => {
+  const initialValues = {
+    email: "",
+    password: "",
+  };
+
+  let history = useHistory()
+  const doLogin = async function (data) {
+    try {
+      await login({
+        email: data.email,
+        password: data.password,
+      });
+      //xử lý tiếp,
+      // đưa ra thông báo
+      alert("Đăng nhập thành công");
+      // chuyển sang trang verify otp
+      setTimeout(()=> {
+          history.push('/');
+      },2000)
+
+    } catch (e) {
+      //đưa ra thông báo lỗi
+      alert("Đăng ký thất bại", e);
+    }
+  };
+
   return (
     <header>
       <div class="bg-gray-50  min-h-screen w-screen flex flex-col justify-center items-center  font-sans  rounded-xl shadow-md overflow-hidden px-6  ">
@@ -11,41 +56,39 @@ const Login = () => {
             </h1>
           </div>
           <div class="w-full bg-gray-200 my-3 h-px"> </div>
-          <form>
-            <div>
-              <div class="flex flex-col gap-4 px-0 py-1 ">
-                <p>
-                  {" "}
-                  <label class="text-gray-700  ">Tài Khoản</label>
-                  <input
-                    class="py-2 pl-3 border border-transparent rounded-md shadow-sm text-sm  w-full text-left my-2 "
-                    placeholder="Số điện thoại hoặc Email"
-                    type="text"
+          <Formik
+            initialValues={initialValues}
+            validationSchema={schema}
+            onSubmit={doLogin}
+          >
+            {(formikProps) => {
+              return (
+                <Form className="flex flex-col gap-4 px-0 py-1 ">
+                  <FastField
+                    name="email"
+                    type="email"
+                    component={InputField}
+                    placeholder="Email"
                   />
-                </p>
-              </div>
-            </div>
 
-            <div>
-              <div>
-                {" "}
-                <label class="text-gray-700">Mật khẩu </label>
-                <input
-                  class="py-2 pl-3 border border-transparent rounded-md shadow-sm text-sm  w-full my-2"
-                  placeholder="Mật Khẩu"
-                  type="text"
-                />
-              </div>
-            </div>
-
-            <div>
-            <div class=" text-center  py-4">
-                <button class=" w-3/5 h-11 border border-transparent rounded-md shadow-sm text-base  text-white bg-red-600 p-1 hover:bg-gray-200 hover:text-gray-800 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white ">
-                 
-                  Đăng Nhập
-                </button>
-              </div>
-            </div>
+                  <FastField
+                    name="password"
+                    type="password"
+                    component={InputField}
+                    placeholder="Mật khẩu"
+                  />
+                  <div className=" text-center  py-4">
+                    <button
+                      className=" w-1/3 h-11 border border-transparent rounded-md shadow-sm text-base  text-white bg-indigo-600 p-1 hover:bg-gray-200 hover:text-gray-800 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white "
+                      type="submit"
+                    >
+                      Đăng Nhập
+                    </button>
+                  </div>
+                </Form>
+              );
+            }}
+          </Formik>
 
             <div>
               <div class="w-full flex flex-row justify-center ">
@@ -88,7 +131,6 @@ const Login = () => {
                 </span>
               </p>
             </div>
-          </form>
         </div>
       </div>
     </header>

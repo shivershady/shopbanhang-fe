@@ -3,6 +3,7 @@ import { signup } from "../services/authService";
 import * as yup from "yup";
 import { FastField, Form, Formik } from "formik";
 import InputField from "../cutom-fields/InputField/InputField";
+import { useHistory } from "react-router-dom";
 
 const schema = yup.object().shape({
   name: yup.string().required("Vui lòng nhập tên"),
@@ -29,6 +30,7 @@ const Signup = () => {
     confirmPassword: "",
   };
 
+  let history = useHistory()
   const doSignup = async function (data) {
     try {
       await signup({
@@ -40,7 +42,10 @@ const Signup = () => {
       // đưa ra thông báo tạo tk thành công
       alert("Đăng ký thành công");
       // chuyển sang trang verify otp
-      
+      setTimeout(()=> {
+          history.push('/');
+      },2000)
+
     } catch (e) {
       //đưa ra thông báo lỗi
       alert("Đăng ký thất bại", e);
