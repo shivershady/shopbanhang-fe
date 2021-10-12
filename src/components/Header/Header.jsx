@@ -69,7 +69,6 @@ export default function Header() {
       };
       getUser(config).then((resp) => {
         setUser(resp);
-        console.log(resp);
       });
     }
   }, []);
@@ -89,7 +88,7 @@ export default function Header() {
               <img
                 className="h-8 w-auto sm:h-10"
                 src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg"
-                alt=""
+                alt="Logo"
               />
             </Link>
           </div>
@@ -124,19 +123,19 @@ export default function Header() {
           <div className="hidden lg:flex items-center justify-center lg:flex-1">
             <Cart />
             {/* User */}
-            { !user.name && (
-              <div className ="flex">
+            {!user.name && (
+              <div className="flex">
                 <Login />
                 <Signup />
               </div>
             )}
 
-            {user.name && <User user = {user}/>}
+            {user.name && <User user={user} />}
           </div>
         </div>
       </div>
 
-      <DropdownItem solutions={solutions} resources={resources} />
+      <DropdownItem solutions={solutions} resources={resources} user={user} />
     </Popover>
   );
 }

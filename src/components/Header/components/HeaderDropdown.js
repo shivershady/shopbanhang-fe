@@ -1,10 +1,7 @@
 import { Popover, Transition } from "@headlessui/react";
-import {
-  MenuIcon,
-  XIcon,
-} from "@heroicons/react/outline";
+import { MenuIcon, XIcon } from "@heroicons/react/outline";
 import { Fragment } from "react";
-import { LoginItem, SignupItem } from "./HeaderUser";
+import { LoginItem, SignupItem, User } from "./HeaderUser";
 import { SolutionsItem, ResourcesItem } from "./HeaderTitle";
 
 export function Dropdown() {
@@ -16,7 +13,7 @@ export function Dropdown() {
 }
 
 export function DropdownItem(props) {
-  const { solutions, resources } = props;
+  const { solutions, resources , user } = props;
   return (
     <Transition
       as={Fragment}
@@ -56,9 +53,16 @@ export function DropdownItem(props) {
           <div className="py-6 px-5 space-y-6">
             <ResourcesItem resources={resources} />
 
-            <div>
-              <LoginItem />
-              <SignupItem />
+            <div className="text-center">
+              {/* User */}
+              {!user.name && (
+                <div >
+                  <LoginItem />
+                  <SignupItem />
+                </div>
+              )}
+
+              {user.name && <User user={user} />}
             </div>
           </div>
         </div>
