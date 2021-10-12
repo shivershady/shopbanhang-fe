@@ -4,18 +4,13 @@ import {MenuIcon,XIcon,} from "@heroicons/react/outline";
 import {getUser} from "../services/authService";
 
 function Profile() {
-  const [user, setUser] = useState({});
-  useEffect(() => {
-    const config = {
-      headers:{
-        Authorization: 'Bearer ' + localStorage.getItem('token')
-      }
-    }
-    getUser(config).then((resp) => {
-      setUser(resp);
-      console.log(resp);
+    const [user, setUser] = useState({});
+    useEffect(() => {
+        getUser().then((resp) => {
+            setUser(resp.data);
+            console.log(resp.data);
+        });
     });
-  },[]);
 
   return (
     <Popover  class="grid grid-cols-5  h-screen lg:text-base text-sm  "> 
@@ -42,7 +37,8 @@ function Profile() {
              <div class="bg-white lg:py-4 py-1 px-3 h-screen ">
              <h2 class=" text-black lg:text-2xl text-lg  pt-1 lg:ml-6  ">Thông Tin Tài Khoản</h2>           
              <p class="relative lg:text-lg  lg:ml-6">Quản lý thông tin hồ sơ để bảo mật tài khoản</p>
-             <hr class="mt-5" style={{ color: '#0000'}}/> 
+             <hr class="mt-5 3" style={{ color: '#0000'}}/> 
+             
              <ul class=" flex flex-col relative list-none leading-10 lg:mt-9 mt-2">
                       <div class=" absolute lg:text-right text-left lg:ml-12 ml-2  ">
                      <li class="  rounded-lg mb-5  ">Tên Đăng Nhập</li>  
@@ -54,6 +50,7 @@ function Profile() {
                      <li class="rounded-lg mb-5 ">Ngày Sinh</li>
                  </div>
                          </ul>
+                         
 
                          {/* AVARTA */}
              <ul class=" flex flex-col  list-none leading-10 text-center  ">
@@ -68,28 +65,27 @@ function Profile() {
                 
 
                                   {/* MENU Dropdown */}
-                  <Popover.Button className=" ml-12 relative lg:hidden ">
-              <MenuIcon className=" h-6 w-6 -mt-80 ml-96  " aria-hidden="true " />
+                <Popover.Button className="mt-16 ml-72 lg:hidden ">
+              <img src="https://vnn-imgs-f.vgcloud.vn/2020/03/23/11/trend-avatar-1.jpg" className=" h-10 w-10 -mt-96 ml-8 rounded-full  " aria-hidden="true " />
             </Popover.Button>
-             <div as={Fragment} className=" w-2/3  ml-36 -mt-80" >
+             <div as={Fragment} className=" w-2/3  ml-24 -mt-96" >
         
-        <Popover.Panel focus className=" top-0 z-50 m inset-x-0 p-2  "
+        <Popover.Panel focus className=" top-0 z-50 m inset-x-0 mt-12 "
         >
           <div className="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 bg-white divide-y-2 divide-gray-50 ">
             <div className="ml-6  pb-6 px-5">
               <div className="flex items-center justify-between">
                 <div className="mx-2 opacity-20  ">
-                  <Popover.Button className=" absolute">
+                  <Popover.Button className="absolute -mt-14 -ml-4  opacity-0  ">
                     <span className="sr-only   ">Close menu</span>
-                    <XIcon className="h-10 w-10 -mt-8 ml-56 opacity-0 " aria-hidden="true" />
+                    <XIcon className="h-14 w-14 -mt-8 ml-44" aria-hidden="true" />
                   </Popover.Button>
                 </div>
               </div>
               <div className="mt-6 -ml-6" >
                 <nav className="grid gap-y-4 ">
-                  <p class="ml-10 ">Tên khách hàng <a href="" class="text-indigo-500 ml-5  underline"  >Thay đổi</a></p>
-                  <img src="https://vnn-imgs-f.vgcloud.vn/2020/03/23/11/trend-avatar-1.jpg " className="w-10 h-10 rounded-full ml-2 -mt-14" /> 
-                  <ul class="  min-w-full text-sm text-left ml-2 -mt-2 ">
+                 
+                  <ul class="  min-w-full text-sm text-left ml-2  ">
              <li class=" mb-8 "><a class=" items-center gap-4  text-gray-700 hover:text-red-600   " href="" >Tài Khoản Của Tôi</a></li>
               <li class=" mb-8">  <a class=" items-center gap-4  text-gray-800 hover:text-red-600    " href="">   Đơn Đặt Hàng</a> </li>
               <li class=" mb-8">  <a class=" items-center gap-4  text-gray-800 hover:text-red-600    " href=""> Thông Báo</a>  </li>
@@ -102,6 +98,7 @@ function Profile() {
           </div>
         </Popover.Panel>
       </div>
+     
              </div>
                   </ul>
                         
@@ -110,34 +107,29 @@ function Profile() {
                     
                          <ul class="flex flex-col  list-none leading-10 ml-44   ">
                      <div class=" text-left lg:ml-12 -ml-9  ">
-                         <li class="  rounded-lg mb-5  ">*****</li>  
-                         <li class=" rounded-lg mb-5  "> < input class=" lg:w-1/2 md:1/3  w-full h-10 border border-transparent rounded-md shadow-sm border-gray-100 bg-white pl-1 " type="text" placeholder="Họ và Tên" /></li>
+                         <li class="  rounded-lg mb-5 border-b w-1/2 border-gray-100  "> <p class="ml-5">Hoàng Văn A</p> </li>  
+                         <li class=" rounded-lg mb-4 border-b w-1/2 border-gray-100 "><p class="ml-5">Văn A</p></li>
 
-                         <li class="rounded-lg mb-5  ">*****@gmail.com
-                             <a class="text-indigo-600 underline ml-2" href="">Thay đổi</a>
+                         <li class="rounded-lg mb-5 border-b lg:w-1/2 w-full  border-gray-100  "><p class="ml-5">HoangVanA123@gmail.com</p>
+                           
                          </li>
 
-                         <li class="rounded-lg mb-5  ">098765**** 
-                            <a class="text-indigo-600 underline ml-2" href="">Thay đổi</a>
+                         <li class="rounded-lg mb-5 border-b w-1/2 border-gray-100  "><p class="ml-5">0987654321</p>
+                          
                          </li>
-                     <li class=" rounded-lg mb-5 ">  <input class=" lg:w-1/2 w-full h-10 border border-transparent rounded-md shadow-sm border-gray-100  bg-white pl-1 " type="text" placeholder="Tên Shop" /></li>
+                     <li class=" rounded-lg mb-5 border-b w-1/2 border-gray-100 "><p class="ml-5">Van A Shop</p></li>
          
-                         <li class="rounded-lg mb-5   ">
-                              <input type="radio" id="Nam" name="fav_language" value="Nam"/>
-                              <label for="Nam" class="ml-1">Nam</label>
-                              <input type="radio" id="Nữ" class="ml-3" name="fav_language" value="Nữ"/>
-                              <label for="Nữ" class="ml-1">Nữ</label>
-                             <input type="radio" id="Khác" class="ml-3" name="fav_language" value="Khác"/>
-                             <label for="Khác" class="ml-1">Khác</label>
+                         <li class="rounded-lg mb-5  border-b w-1/2 border-gray-100 ">
+                           
+                              <label for="Nam" class="ml-5 ">Nam</label>
+                             
                          </li>
                          
-                         <li class="rounded-lg mb-5  ">     
-                             <input class="lg:w-1/6 w-1/3 h-10 border border-transparent rounded-md shadow-sm border-gray-100  bg-white  text-center " type="number" placeholder="01"/> 
-                             <input class="lg:w-1/6 w-1/3 h-10 border border-transparent rounded-md shadow-sm border-gray-100  bg-white text-center  " type="number" placeholder="01"/> 
-                             <input class="lg:w-1/6 w-1/3 h-10 border border-transparent rounded-md shadow-sm border-gray-100  bg-white text-center  " type="number" placeholder="1999" /> 
+                         <li class="rounded-lg mb-5 border-b w-1/2 border-gray-100 ">     
+                          <p class="ml-5">11/11/1999</p>
                          </li>
-                         <li class="bg-red-600 hover:bg-red-400 w-16 text-center text-white border border-transparent rounded-md shadow-sm  display-flex justify-center " > 
-                             <button  >Lưu</button>
+                         <li class="bg-red-600 hover:bg-red-400 w-24 text-center text-white border border-transparent rounded-md shadow-sm  display-flex justify-center ml-5" > 
+                             <button   >Thay đổi</button>
                          </li>
                      </div>
                       </ul> 
@@ -145,7 +137,6 @@ function Profile() {
                   </div>
               </div>
          </Popover>
-    
   );
 }
 export default Profile ;
