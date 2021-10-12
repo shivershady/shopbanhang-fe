@@ -43,7 +43,7 @@ const Signup = () => {
       alert("Đăng ký thành công");
       // chuyển sang trang verify otp
       setTimeout(()=> {
-          history.push('/');
+          history.push('/login');
       },2000)
 
     } catch (e) {

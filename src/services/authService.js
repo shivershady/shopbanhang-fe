@@ -5,7 +5,7 @@ export function login(payload) {
 }
 
 export function logout() {
-
+    return localStorage.removeItem('token');
 }
 
 
@@ -14,8 +14,8 @@ export function signup(payload) {
     return Axios.post(`user/register`, payload);
 }
 
-export function getUser() {
-    return Axios.get(`user`);
+export function getUser(payload) {
+    return Axios.get(`user`, payload ? payload : null);
 }
 
 const authService = {

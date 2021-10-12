@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import productApi from "../../../services/productApi";
 
 const products = [
   {
@@ -47,24 +46,7 @@ const products = [
 ];
 
 export default function BrandStaticWidget() {
-  const [productList, setProductList] = useState([]);
 
-  useEffect(() => {
-    const fetchProductList = async () => {
-      try {
-        const params = {
-          _page: 1,
-          _limit: 10,
-        };
-        const response = await productApi.getData(params);
-        console.log(response);
-        setProductList(response.data);
-      } catch (error) {
-        console.log("Thêm thất bại", error);
-      }
-    };
-    fetchProductList();
-  }, []);
   return (
     <div className="bg-white rounded-xl shadow-md overflow-hidden">
       <div className="max-w-full mx-auto py-10 px-8 space-y-8 grid grid-row-3 ">

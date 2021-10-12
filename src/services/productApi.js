@@ -1,46 +1,21 @@
-import axiosClient from "./axiosClient";
-import {Axios} from "./Axios";
+
+import {Axios} from './Axios';
+const url = "product";
 
 export function getData(){
-    return Axios.get('');
+    return Axios.get(url);
 }
 
-export function postData() {
-
+export function add(payload){
+    return Axios.post(url,payload);
 }
 
-
-
-const productApi = {
-    getData : (params) =>{
-        const url = '/posts/post.php';
-        return axiosClient.get(url, { params });
-    },
-    get : (id) =>{
-        const url = `./posts/post.php/${id}`;
-        return axiosClient.get(url);
-    },
+export function del(id){
+    return Axios.del(url,id);
 }
 
-export default productApi
-
-// import {Axios} from './Axios';
-// const url = "posts/post.php";
-
-// export function getData(){
-//     return Axios.get(url);
-// }
-
-// export function add(payload){
-//     return Axios.post(url,payload);
-// }
-
-// export function del(id){
-//     return Axios.del(url,id);
-// }
-
-// export const productApi = {
-//     getData,
-//     add,
-//     del
-// }
+export const productApi = {
+    getData,
+    add,
+    del
+}

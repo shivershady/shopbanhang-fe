@@ -1,6 +1,5 @@
 import { FastField, Form, Formik } from "formik";
 import React from "react";
-import { useHistory } from "react-router-dom";
 import * as yup from "yup";
 import InputField from "../cutom-fields/InputField/InputField";
 import { login } from "../services/authService";
@@ -24,24 +23,20 @@ const Login = () => {
     password: "",
   };
 
-  let history = useHistory()
   const doLogin = async function (data) {
     try {
-      await login({
-        email: data.email,
-        password: data.password,
-      });
+      await login(data);
       //xử lý tiếp,
       // đưa ra thông báo
       alert("Đăng nhập thành công");
       // chuyển sang trang verify otp
       setTimeout(()=> {
-          history.push('/');
-      },2000)
+        window.location.href = "/profile";
+      },1000)
 
     } catch (e) {
       //đưa ra thông báo lỗi
-      alert("Đăng ký thất bại", e);
+      alert("Đăng nhập thất bại", e);
     }
   };
 
