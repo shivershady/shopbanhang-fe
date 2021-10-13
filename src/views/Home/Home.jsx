@@ -8,7 +8,9 @@ import InfiniteScroll from "./components/InfiniteScroll";
 
 
 
-function Home() {
+function Home(props) {
+  const { doGetUser } = props;
+  doGetUser();
   return (
     <main className="container mx-auto space-y-4 my-10 space-y-8">
           {/* BANNER */}

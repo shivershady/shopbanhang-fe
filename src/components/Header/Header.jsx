@@ -57,21 +57,8 @@ const resources = [
   },
 ];
 
-export default function Header() {
-  const [user, setUser] = useState({});
-  useEffect(() => {
-    const token = localStorage.getItem("token");
-    if (token) {
-      const config = {
-        headers: {
-          Authorization: "Bearer " + token,
-        },
-      };
-      getUser(config).then((resp) => {
-        setUser(resp);
-      });
-    }
-  }, []);
+export default function Header(props) {
+  const {user} = props;
 
   return (
     <Popover className="relative bg-gradient-to-br from-yellow-400 via-green-200 to-red-200 border shadow-md">

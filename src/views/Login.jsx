@@ -4,7 +4,6 @@ import * as yup from "yup";
 import InputField from "../cutom-fields/InputField/InputField";
 import { login } from "../services/authService";
 
-
 const schema = yup.object().shape({
   email: yup
     .string()
@@ -25,15 +24,15 @@ const Login = () => {
 
   const doLogin = async function (data) {
     try {
-      await login(data);
+      const response = await login(data);
       //xử lý tiếp,
+      localStorage.setItem("token", response.token);
       // đưa ra thông báo
       alert("Đăng nhập thành công");
       // chuyển sang trang verify otp
-      setTimeout(()=> {
-        window.location.href = "/profile";
-      },1000)
-
+      setTimeout(() => {
+        window.location.href = "/";
+      }, 1000);
     } catch (e) {
       //đưa ra thông báo lỗi
       alert("Đăng nhập thất bại", e);
@@ -85,47 +84,47 @@ const Login = () => {
             }}
           </Formik>
 
-            <div>
-              <div class="w-full flex flex-row justify-center ">
-                <a
-                  class="text-blue-600 hover:text-blue-800 hover:underline  "
-                  href="#"
-                >
-                  Quên mật khẩu?{" "}
-                </a>
-              </div>
+          <div>
+            <div class="w-full flex flex-row justify-center ">
+              <a
+                class="text-blue-600 hover:text-blue-800 hover:underline  "
+                href="#"
+              >
+                Quên mật khẩu?{" "}
+              </a>
             </div>
+          </div>
 
-            <div>
-              <div class="my-2 flex flex-row justify-center py-2">
-                <span class="absolute bg-white px-4">hoặc</span>
-                <div class="w-full bg-gray-200 mt-3 h-px"></div>
-              </div>
+          <div>
+            <div class="my-2 flex flex-row justify-center py-2">
+              <span class="absolute bg-white px-4">hoặc</span>
+              <div class="w-full bg-gray-200 mt-3 h-px"></div>
             </div>
+          </div>
 
-            <div>
-              <div class="w-full flex flex-col gap-2 py-2  ">
-                <button class=" border border-transparent rounded-md shadow-sm text-base  text-white bg-red-600 p-1  hover:bg-gray-200 hover:text-gray-800 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white  font-medium">
-                  {" "}
-                  Đăng nhập bằng Google{" "}
-                </button>
-                <button class=" border border-transparent rounded-md shadow-sm text-base  text-white bg-indigo-600 p-1 hover:bg-gray-200 hover:text-gray-800 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white font-medium ">
-                  {" "}
-                  Đăng nhập bằng Facebook{" "}
-                </button>
-              </div>
-            </div>
-
-            <div>
-              <p class="mt-3 text-center ">
+          <div>
+            <div class="w-full flex flex-col gap-2 py-2  ">
+              <button class=" border border-transparent rounded-md shadow-sm text-base  text-white bg-red-600 p-1  hover:bg-gray-200 hover:text-gray-800 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white  font-medium">
                 {" "}
-                Không có tài khoản ?{" "}
-                <span class="cursor-pointer text-sm text-blue-600 hover:underline">
-                  {" "}
-                  Đăng ký để nhận ưu đãi
-                </span>
-              </p>
+                Đăng nhập bằng Google{" "}
+              </button>
+              <button class=" border border-transparent rounded-md shadow-sm text-base  text-white bg-indigo-600 p-1 hover:bg-gray-200 hover:text-gray-800 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white font-medium ">
+                {" "}
+                Đăng nhập bằng Facebook{" "}
+              </button>
             </div>
+          </div>
+
+          <div>
+            <p class="mt-3 text-center ">
+              {" "}
+              Không có tài khoản ?{" "}
+              <span class="cursor-pointer text-sm text-blue-600 hover:underline">
+                {" "}
+                Đăng ký để nhận ưu đãi
+              </span>
+            </p>
+          </div>
         </div>
       </div>
     </header>
@@ -133,4 +132,3 @@ const Login = () => {
 };
 
 export default Login;
-

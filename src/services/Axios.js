@@ -9,8 +9,9 @@ const axiosInstance = axios.create({
 
 axiosInstance.interceptors.request.use(async (config) => {
   //Handle token here...
+
   if (config.url.indexOf("login") == -1 && config.url.indexOf("signup") == -1) {
-    const token = localStorage.getItem("token");
+    const token = await localStorage.getItem("token");
     config.headers.Authorization = token ? `Bearer ${token}` : "";
   }
   return config;
@@ -19,9 +20,6 @@ axiosInstance.interceptors.request.use(async (config) => {
 axiosInstance.interceptors.response.use(
   (response) => {
     if (response && response.data) {
-      if(response.data.token){
-        localStorage.setItem('token',response.data.token);
-      }
       return response.data;
     }
     return response;

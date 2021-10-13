@@ -2,17 +2,16 @@ import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.scss";
 import Footer from "./components/Footer/Footer";
-import Header from "./components/Header/Header";
+import Header from "./store/container/Header";
 import NotFound from "./components/NotFound/index";
 import Cart from "./views/Cart/Cart";
 import Category from "./views/Category/Category";
-import Home from "./views/Home/Home";
+import Home from "./store/container/GetUser";
 import Login from "./views/Login";
 import Order from "./views/Order/Order";
 import Product from "./views/Product/Product";
-import Profile from "./views/Profile";
+import Profile from "./store/container/Profile";
 import Signup from "./views/Signup";
-
 
 function App() {
   return (
