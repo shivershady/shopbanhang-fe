@@ -10,7 +10,6 @@ import {
   ViewGridIcon,
 } from "@heroicons/react/outline";
 import { Link } from "react-router-dom";
-import { getUser } from "../../services/authService";
 import { Dropdown, DropdownItem } from "./components/HeaderDropdown";
 import { Cart, CartItem } from "./components/HeaderCart";
 import { Login, Signup, User } from "./components/HeaderUser";
@@ -59,6 +58,8 @@ const resources = [
 
 export default function Header(props) {
   const {user} = props;
+  console.log(user);
+  // const [user , setUser] = useState({});
 
   return (
     <Popover className="relative bg-gradient-to-br from-yellow-400 via-green-200 to-red-200 border shadow-md">

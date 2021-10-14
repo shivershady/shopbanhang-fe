@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Icons from "../../constants/Icons";
+import Icons from "../../../constants/Icons";
 
 export default class Footer extends Component {
   render() {

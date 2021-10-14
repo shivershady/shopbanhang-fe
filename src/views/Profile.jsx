@@ -1,10 +1,21 @@
 import { Fragment, useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
 import { Popover } from "@headlessui/react";
 import { MenuIcon, XIcon } from "@heroicons/react/outline";
-import { getUser } from "../services/authService";
+import { getUser } from "../store/userSlice";
+import { unwrapResult } from "@reduxjs/toolkit";
 
-function Profile(props) {
-  const { user } = props;
+function Profile() {
+  // const {user} = props;
+  const [user , setUser] = useState({});
+
+  const dispatch = useDispatch();
+  useEffect(async () => {
+    const actionResult =  await dispatch(getUser());
+    const currentUser = unwrapResult(actionResult);
+      // console.log("Logged in user : ", currentUser); 
+      setUser(currentUser.user);
+  },[])
 
   return (
     <Popover class="grid grid-cols-5  h-screen lg:text-base text-sm container mx-auto my-8 ">
