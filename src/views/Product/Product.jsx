@@ -1,4 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
+
+import Footer from "components/Footers/Footer";
+import Header from "components/Headers/Header";
 import ProductDetail from "./components/ProductDetail";
 import ProductInformation from "./components/ProductInformation";
 import ProductDescription from "./components/ProductDescription";
@@ -8,8 +11,9 @@ import ViewedProducts from "./components/ViewedProducts";
 import MoreProducts from "./components/MoreProducts";
 
 export default function Product() {
-
   return (
+    <div>
+      <Header />
       <main className="container mx-auto space-y-10 my-10">
         {/* ProductDetail */}
         <ProductDetail />
@@ -27,11 +31,12 @@ export default function Product() {
         <ProductComment />
 
         {/* Khám phá thêm */}
-        <MoreProducts/>
+        <MoreProducts />
 
         {/* Sản phẩm đã xem */}
-        <ViewedProducts/>
-
+        <ViewedProducts />
       </main>
+      <Footer />
+    </div>
   );
 }

@@ -4,6 +4,8 @@ import { XIcon } from "@heroicons/react/outline";
 import { ChevronDownIcon, PlusSmIcon } from "@heroicons/react/solid";
 
 import ProductGrid from "./components/ProductGrid";
+import Footer from "components/Footers/Footer";
+import Header from "components/Headers/Header";
 
 const filters = [
   {
@@ -43,7 +45,6 @@ const filters = [
   },
 ];
 
-
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
@@ -52,8 +53,9 @@ export default function Category() {
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
 
   return (
-    <div className="container mx-auto bg-white rounded-xl shadow-md overflow-hidden my-10">
-      <div>
+    <div>
+      <Header/>
+      <div className="container mx-auto bg-white rounded-xl shadow-md overflow-hidden my-10">
         {/* Mobile filter dialog */}
         <Transition.Root show={mobileFiltersOpen} as={Fragment}>
           <Dialog
@@ -217,11 +219,11 @@ export default function Category() {
               </div>
             </aside>
 
-            <ProductGrid/>
-            
+            <ProductGrid />
           </div>
         </main>
       </div>
+      <Footer/>
     </div>
   );
 }
