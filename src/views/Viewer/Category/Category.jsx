@@ -54,7 +54,7 @@ export default function Category() {
 
   return (
     <div>
-      <Header/>
+      <Header />
       <div className="container mx-auto bg-white rounded-xl shadow-md overflow-hidden my-10">
         {/* Mobile filter dialog */}
         <Transition.Root show={mobileFiltersOpen} as={Fragment}>
@@ -223,7 +223,7 @@ export default function Category() {
           </div>
         </main>
       </div>
-      <Footer/>
+      <Footer />
     </div>
   );
 }

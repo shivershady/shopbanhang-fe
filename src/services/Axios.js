@@ -28,7 +28,7 @@ axiosInstance.interceptors.response.use(
     //Handle error
     if (error.response.status === 401 || error.response.status == 403) {
       alert("Bạn chưa xác thực");
-      window.location.href = "/auth/login";
+      window.location.href = "/login";
     }
     throw error;
   }

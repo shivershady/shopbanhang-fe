@@ -1,5 +1,6 @@
-import React from "react";
-import { Switch, Route, Redirect } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Router, Switch, Route, Redirect } from "react-router-dom";
+import { getUser } from "services/authService";
 
 // components
 
@@ -7,25 +8,33 @@ import Footer from "components/Footers/Footer";
 import Header from "components/Headers/Header";
 
 // views
-import Login from "views/Auth/Login";
-import Signup from "views/Auth/Signup";
 import Profile from "views/Auth/Profile";
+import Cart from "views/Auth/Cart/Cart";
+import Order from "views/Auth/Order/Order";
 
 export default function Auth() {
+  const [user, setUser] = useState({});
+
+  useEffect(async () => {
+    await getUser().then((resp)=>{
+      setUser(resp.user);
+    });
+  }, []);
   return (
     <>
-      <Header transparent />
+    <div>
+
+      <Header />
       <main>
-        <section className="relative w-full h-full py-8 min-h-screen">
-          <Switch>
-            <Route path="/auth/login" exact component={Login} />
-            <Route path="/auth/signup" exact component={Signup} />
-            <Route path="/auth/profile" exact component={Profile} />
-            <Redirect from="/auth" to="/auth/login" />
-          </Switch>
-        </section>
-        <Footer absolute />
+        <Switch>
+          <Route path="/auth/profile" exact component={Profile} />
+          <Route path="/auth/cart" exact component={Cart} />
+          <Route path="/auth/order" exact component={Order} />
+          <Redirect from="/auth" to="/auth/profile" />
+        </Switch>
       </main>
+      <Footer />
+    </div>
     </>
   );
 }

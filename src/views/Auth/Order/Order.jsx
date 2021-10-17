@@ -2,9 +2,6 @@ import { Fragment, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { XIcon } from "@heroicons/react/outline";
 
-import Footer from "components/Footers/Footer";
-import Header from "components/Headers/Header";
-
 const products = [
   {
     id: 1,
@@ -36,8 +33,6 @@ export default function Order() {
   const [open, setOpen] = useState(false);
 
   return (
-    <div>
-      <Header/>
       <div className="container mx-auto bg-white shadow-md my-10 rounded-xl overflow-hidden">
       {/* Mobile menu */}
       <Transition.Root show={open} as={Fragment}>
@@ -275,8 +270,6 @@ export default function Order() {
           </div>
         </section>
       </main>
-    </div>
-    <Footer/>
     </div>
   );
 }

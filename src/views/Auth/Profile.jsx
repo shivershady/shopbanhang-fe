@@ -7,12 +7,6 @@ import { getUser } from "services/authService";
 function Profile() {
   const [user, setUser] = useState({});
 
-  useEffect(async () => {
-    await getUser().then((resp)=>{
-      setUser(resp.user);
-    });
-  }, []);
-
   return (
     <Popover class="grid grid-cols-5  h-screen lg:text-base text-sm container mx-auto my-8"
     >
