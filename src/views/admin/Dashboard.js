@@ -2,10 +2,10 @@ import React from "react";
 
 // components
 
-import CardLineChart from "components/Cards/CardLineChart";
-import CardBarChart from "components/Cards/CardBarChart";
-import CardPageVisits from "components/Cards/CardPageVisits";
-import CardSocialTraffic from "components/Cards/CardSocialTraffic";
+import CardLineChart from "components/ShopManager/CardLineChart";
+import CardBarChart from "components/ShopManager/CardBarChart";
+import CardPageVisits from "components/ShopManager/CardPageVisits";
+import CardThingTodo from "components/ShopManager/CardThingTodo";
 
 export default function Dashboard() {
   return (
@@ -23,7 +23,7 @@ export default function Dashboard() {
           <CardPageVisits />
         </div>
         <div className="w-full xl:w-4/12 px-4">
-          <CardSocialTraffic />
+          <CardThingTodo />
         </div>
       </div>
     </>

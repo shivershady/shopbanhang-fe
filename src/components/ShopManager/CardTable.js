@@ -25,7 +25,7 @@ export default function CardTable({ color }) {
                   (color === "light" ? "text-blue-700" : "text-white")
                 }
               >
-                Card Tables
+                Bảng thẻ
               </h3>
             </div>
           </div>
@@ -43,7 +43,7 @@ export default function CardTable({ color }) {
                       : "bg-blue-800 text-blue-300 border-blue-700")
                   }
                 >
-                  Project
+                  Dự án
                 </th>
                 <th
                   className={
@@ -53,7 +53,7 @@ export default function CardTable({ color }) {
                       : "bg-blue-800 text-blue-300 border-blue-700")
                   }
                 >
-                  Budget
+                  Ngân sách
                 </th>
                 <th
                   className={
@@ -63,7 +63,7 @@ export default function CardTable({ color }) {
                       : "bg-blue-800 text-blue-300 border-blue-700")
                   }
                 >
-                  Status
+                  Trạng thái
                 </th>
                 <th
                   className={
@@ -73,7 +73,7 @@ export default function CardTable({ color }) {
                       : "bg-blue-800 text-blue-300 border-blue-700")
                   }
                 >
-                  Users
+                  Người tham gia công
                 </th>
                 <th
                   className={
@@ -83,7 +83,7 @@ export default function CardTable({ color }) {
                       : "bg-blue-800 text-blue-300 border-blue-700")
                   }
                 >
-                  Completion
+                  Hoàn thành
                 </th>
                 <th
                   className={

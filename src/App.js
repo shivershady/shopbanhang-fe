@@ -1,5 +1,6 @@
 import React from "react";
 import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
+
 import "@fortawesome/fontawesome-free/css/all.min.css";
 
 // layouts
@@ -15,7 +16,6 @@ import Home from "views/Viewer/Home/Home";
 import NotFound from "components/NotFound/index";
 import Category from "views/Viewer/Category/Category";
 import Product from "views/Viewer/Product/Product";
-import { getUser } from "services/authService";
 
 function App() {
   return (

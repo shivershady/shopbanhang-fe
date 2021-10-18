@@ -25,19 +25,13 @@ export default function CardProfile() {
                   <span className="text-xl font-bold block uppercase tracking-wide text-blue-600">
                     22
                   </span>
-                  <span className="text-sm text-blue-400">Friends</span>
-                </div>
-                <div className="mr-4 p-3 text-center">
-                  <span className="text-xl font-bold block uppercase tracking-wide text-blue-600">
-                    10
-                  </span>
-                  <span className="text-sm text-blue-400">Photos</span>
+                  <span className="text-sm text-blue-400">Người theo dõi</span>
                 </div>
                 <div className="lg:mr-4 p-3 text-center">
                   <span className="text-xl font-bold block uppercase tracking-wide text-blue-600">
                     89
                   </span>
-                  <span className="text-sm text-blue-400">Comments</span>
+                  <span className="text-sm text-blue-400">Đánh giá</span>
                 </div>
               </div>
             </div>
@@ -63,18 +57,18 @@ export default function CardProfile() {
             <div className="flex flex-wrap justify-center">
               <div className="w-full lg:w-9/12 px-4">
                 <p className="mb-4 text-lg leading-relaxed text-blue-700">
-                  An artist of considerable range, Jenna the name taken by
-                  Melbourne-raised, Brooklyn-based Nick Murphy writes, performs
-                  and records all of his own music, giving it a warm, intimate
-                  feel with a solid groove structure. An artist of considerable
-                  range.
+                  Một nghệ sĩ tầm cỡ, Jenna cái tên được lấy bởi Nick Murphy,
+                  sống ở Brooklyn, lớn lên ở Melbourne, viết, biểu diễn và ghi
+                  lại tất cả các bản nhạc của chính anh ấy, tạo cho nó một sự ấm
+                  cúng, thân mật cảm giác với một cấu trúc rãnh vững chắc. Một
+                  nghệ sĩ đáng kể phạm vi.
                 </p>
                 <a
                   href="#pablo"
                   className="font-normal text-lightBlue-500"
                   onClick={(e) => e.preventDefault()}
                 >
-                  Show more
+                  Cho xem nhiều hơn
                 </a>
               </div>
             </div>

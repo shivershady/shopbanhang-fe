@@ -14,7 +14,7 @@ export default function Navbar() {
             href="#pablo"
             onClick={(e) => e.preventDefault()}
           >
-            Dashboard
+            Logo
           </a>
           {/* Form */}
           <form className="md:flex hidden flex-row flex-wrap items-center lg:ml-auto mr-3">
@@ -24,7 +24,7 @@ export default function Navbar() {
               </span>
               <input
                 type="text"
-                placeholder="Search here..."
+                placeholder="Tìm kiếm..."
                 className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 relative bg-white bg-white rounded text-sm shadow outline-none focus:outline-none focus:ring w-full pl-10"
               />
             </div>
