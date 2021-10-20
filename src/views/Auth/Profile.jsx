@@ -1,7 +1,6 @@
 import { Fragment, useEffect, useState } from "react";
 import { Popover } from "@headlessui/react";
 import { XIcon } from "@heroicons/react/outline";
-import { getUser } from "services/authService";
 
 
 function Profile() {

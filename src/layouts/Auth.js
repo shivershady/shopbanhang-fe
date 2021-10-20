@@ -9,12 +9,11 @@ import Header from "components/Headers/Header";
 
 // views
 import Profile from "views/Auth/Profile";
-import Cart from "views/Auth/Cart/Cart";
-import Order from "views/Auth/Order/Order";
+import Cart from "views/Auth/Cart";
+import Order from "views/Auth/Order";
 
 export default function Auth() {
   const [user, setUser] = useState({});
-
   useEffect(async () => {
     await getUser().then((resp)=>{
       setUser(resp.user);
@@ -27,7 +26,7 @@ export default function Auth() {
       <Header />
       <main>
         <Switch>
-          <Route path="/auth/profile" exact component={Profile} />
+          <Route path="/auth/profile" exact component={Profile} user={user} />
           <Route path="/auth/cart" exact component={Cart} />
           <Route path="/auth/order" exact component={Order} />
           <Redirect from="/auth" to="/auth/profile" />

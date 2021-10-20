@@ -1,5 +1,5 @@
 import { FastField, Form, Formik } from "formik";
-import React from "react";
+import React, { useState } from "react";
 import * as yup from "yup";
 
 import Footer from "components/Footers/Footer";
@@ -7,6 +7,7 @@ import Header from "components/Headers/Header";
 
 import InputField from "cutom-fields/InputField/InputField";
 import { login } from "services/authService";
+import Alert from "components/Feedback/Alert";
 
 const schema = yup.object().shape({
   email: yup
@@ -26,27 +27,33 @@ const Login = () => {
     password: "",
   };
 
+  const [message, setMessage] = useState(null);
+  const [statusMessage, setStatusMessage] = useState(null);
   const doLogin = async function (data) {
-    try {
-      const response = await login(data);
-      //xử lý tiếp,
-      localStorage.setItem("token", response.token);
-      // đưa ra thông báo
-      alert("Đăng nhập thành công");
-      // chuyển sang trang verify otp
-      setTimeout(() => {
-        window.location.href = "/";
-      }, 1000);
-    } catch (e) {
-      //đưa ra thông báo lỗi
-      alert("Đăng nhập thất bại", e);
-    }
+    await login(data).then((response) => {
+        //xử lý tiếp,
+        localStorage.setItem("token", response.token);
+        // đưa ra thông báo
+        setStatusMessage("success");
+        setMessage(`Đăng nhập thành công`);
+        setTimeout(() => {
+          window.location.href = "/";
+        }, 2000);
+      })
+      .catch((error) => {
+        //đưa ra thông báo lỗi
+        const err = error.response.data.message;
+        setStatusMessage("error");
+        setMessage(err);
+        // alert.error('Đăng nhập thất bại');
+      });
   };
 
   return (
     <div>
       <Header />
-      <header>
+      <header className="relative">
+        <Alert message={message} status={statusMessage} />
         <div class="bg-gray-50  min-h-screen w-screen flex flex-col justify-center items-center  font-sans  rounded-xl shadow-md overflow-hidden px-6  ">
           <div class=" bg-gray-100 shadow-none sm:shadow-lg h-auto w-full sm:w-8/12  md:w-7/12   lg:w-1/2  xl:w-2/5 sm:h-auto p-5  border border-transparent rounded-md  text-sm font-medium py-12   ">
             <div>

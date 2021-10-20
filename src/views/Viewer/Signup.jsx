@@ -1,13 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import * as yup from "yup";
 import { FastField, Form, Formik } from "formik";
 import { useHistory } from "react-router-dom";
+// import { withAlert } from 'react-alert'
 
 import Footer from "components/Footers/Footer";
 import Header from "components/Headers/Header";
 
 import InputField from "cutom-fields/InputField/InputField";
 import { signup } from "services/authService";
+import Alert from "components/Feedback/Alert";
 
 const schema = yup.object().shape({
   name: yup.string().required("Vui lòng nhập tên"),
@@ -26,7 +28,8 @@ const schema = yup.object().shape({
     .required("Vui lòng nhập mật khẩu"),
 });
 
-const Signup = () => {
+const Signup = (props) => {
+  // const {alert}=props;
   const initialValues = {
     name: "",
     email: "",
@@ -35,30 +38,35 @@ const Signup = () => {
   };
 
   let history = useHistory();
+  const [message, setMessage] = useState(null);
+  const [statusMessage, setStatusMessage] = useState(null);
   const doSignup = async function (data) {
-    try {
-      await signup({
-        name: data.name,
-        email: data.email,
-        password: data.password,
+    await signup({
+      name: data.name,
+      email: data.email,
+      password: data.password,
+    })
+      .then((response) => {
+        setStatusMessage("success");
+        setMessage(`Đăng ký thành công`);
+        // chuyển sang trang verify otp
+        setTimeout(() => {
+          history.push("/login");
+        }, 1000);
+      })
+      .catch((error) => {
+        //đưa ra thông báo lỗi
+        const err = error.response.data.message;
+        setStatusMessage("error");
+        setMessage(err);
       });
-      //xử lý tiếp,
-      // đưa ra thông báo tạo tk thành công
-      alert("Đăng ký thành công");
-      // chuyển sang trang verify otp
-      setTimeout(() => {
-        history.push("/login");
-      }, 2000);
-    } catch (e) {
-      //đưa ra thông báo lỗi
-      alert("Đăng ký thất bại", e);
-    }
   };
 
   return (
     <div>
       <Header />
       <header>
+        <Alert message={message} status={statusMessage} />
         <div className="bg-gray-50  min-h-screen w-screen flex flex-col justify-center items-center   rounded-xl shadow-md overflow-hidden px-6  ">
           <div className=" bg-gray-100 shadow-none sm:shadow-lg h-auto w-full sm:w-8/12  md:w-7/12   lg:w-1/2  xl:w-2/5 sm:h-auto p-5  border border-transparent rounded-md  text-sm font-medium py-12   ">
             <h1 className=" text-center w-full text-3xl text-gray-600 mb-8 ">

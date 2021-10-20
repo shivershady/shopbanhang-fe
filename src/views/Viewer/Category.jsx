@@ -3,7 +3,7 @@ import { Dialog, Disclosure, Transition } from "@headlessui/react";
 import { XIcon } from "@heroicons/react/outline";
 import { ChevronDownIcon, PlusSmIcon } from "@heroicons/react/solid";
 
-import ProductGrid from "./components/ProductGrid";
+import ProductGrid from "components/Category/ProductGrid";
 import Footer from "components/Footers/Footer";
 import Header from "components/Headers/Header";
 

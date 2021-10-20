@@ -1,6 +1,5 @@
 import React from "react";
 import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
-
 import "@fortawesome/fontawesome-free/css/all.min.css";
 
 // layouts
@@ -10,12 +9,12 @@ import Auth from "layouts/Auth";
 
 // views without layouts
 
+import NotFound from "components/NotFound/index";
 import Login from "views/Viewer/Login";
 import Signup from "views/Viewer/Signup";
-import Home from "views/Viewer/Home/Home";
-import NotFound from "components/NotFound/index";
-import Category from "views/Viewer/Category/Category";
-import Product from "views/Viewer/Product/Product";
+import Home from "views/Viewer/Home";
+import Category from "views/Viewer/Category";
+import Product from "views/Viewer/Product";
 
 function App() {
   return (

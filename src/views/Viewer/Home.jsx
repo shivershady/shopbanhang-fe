@@ -3,11 +3,11 @@ import React from "react";
 import Footer from "components/Footers/Footer";
 import Header from "components/Headers/Header";
 import Banner from "components/Banner/Banner";
-import HomeQuicklinksTabContainer from "./components/HomeQuicklinksTabContainer";
-import BrandStaticWidget from "./components/BrandStaticWidget";
-import FeaturedCategorises from "./components/FeaturedCategorises";
-import FeaturedKeywords from "./components/FeaturedKeywords";
-import InfiniteScroll from "./components/InfiniteScroll";
+import HomeQuicklinksTabContainer from "components/Home/HomeQuicklinksTabContainer";
+import BrandStaticWidget from "components/Home/BrandStaticWidget";
+import FeaturedCategorises from "components/Home/FeaturedCategorises";
+import FeaturedKeywords from "components/Home/FeaturedKeywords";
+import InfiniteScroll from "components/Home/InfiniteScroll";
 
 function Home() {
   return (

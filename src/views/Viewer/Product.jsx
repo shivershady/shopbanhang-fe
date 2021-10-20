@@ -2,13 +2,13 @@ import React from "react";
 
 import Footer from "components/Footers/Footer";
 import Header from "components/Headers/Header";
-import ProductDetail from "./components/ProductDetail";
-import ProductInformation from "./components/ProductInformation";
-import ProductDescription from "./components/ProductDescription";
-import ProductComment from "./components/ProductComment";
-import SimilarProduct from "./components/SimilarProduct";
-import ViewedProducts from "./components/ViewedProducts";
-import MoreProducts from "./components/MoreProducts";
+import ProductDetail from "components/Product/ProductDetail";
+import ProductInformation from "components/Product/ProductInformation";
+import ProductDescription from "components/Product/ProductDescription";
+import ProductComment from "components/Product/ProductComment";
+import SimilarProduct from "components/Product/SimilarProduct";
+import ViewedProducts from "components/Product/ViewedProducts";
+import MoreProducts from "components/Product/MoreProducts";
 
 export default function Product() {
   return (

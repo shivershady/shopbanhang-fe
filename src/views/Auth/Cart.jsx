@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
-import AllProductCart from "./components/AllProductCart";
-import SummaryCart from "./components/SummaryCart";
+import AllProductCart from "components/Cart/AllProductCart";
+import SummaryCart from "components/Cart/SummaryCart";
 
 export default class Cart extends Component {
   render() {

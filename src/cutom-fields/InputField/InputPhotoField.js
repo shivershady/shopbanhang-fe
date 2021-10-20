@@ -40,7 +40,7 @@ function InputPhotoField(props) {
           src={profileImg}
           alt=""
           id="img"
-          className="h-48 w-64 mx-auto object-cover"
+          className="h-48 w-48 mx-auto object-cover"
         />
       </div>
       <input

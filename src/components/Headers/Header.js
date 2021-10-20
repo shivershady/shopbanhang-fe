@@ -12,6 +12,7 @@ import {
   BellIcon,
 } from "@heroicons/react/outline";
 import { Disclosure, Menu, Popover, Transition } from "@headlessui/react";
+// import { withAlert } from 'react-alert'
 
 import { getUser } from "services/authService";
 import { logout } from "services/authService";
@@ -53,34 +54,8 @@ const resources = [
   },
 ];
 
-const buttons = [
-  {
-    name: "Home",
-    to: "/",
-  },
-  {
-    name: "Tìm kiếm",
-    to: "",
-  },
-  {
-    name: "Giỏ hàng",
-    to: "/auth/cart",
-  },
-  {
-    name: "Đăng nhập",
-    to: "/login",
-  },
-  {
-    name: "Đăng ký",
-    to: "/signup",
-  },
-  {
-    name: "Hồ sơ của bạn",
-    to: "/auth/profile",
-  },
-];
-
-export default function Header() {
+ function Header(props) {
+  // const {alert}= props;
   const [user, setUser] = useState({});
 
   useEffect(async () => {
@@ -97,11 +72,13 @@ export default function Header() {
       //xử lý tiếp,
       localStorage.removeItem("token");
       // đưa ra thông báo
-      alert("Đăng xuất thành công");
-      window.location.href = "/login";
+      // alert.success("Đăng xuất thành công");
+      setTimeout(() => {
+        window.location.href = "/login";
+      }, 1000);
     } catch (e) {
       //đưa ra thông báo lỗi
-      alert("Đăng nhập thất bại", e);
+      // alert.error("Đăng xuất thất bại");
     }
   };
 
@@ -158,7 +135,7 @@ export default function Header() {
         <div className="flex justify-between items-center py-6 md:space-x-10">
           {/* Logo */}
           <div className="flex justify-center w-1/4 lg:w-0 lg:flex-1">
-            <Link to={buttons[0].to}>
+            <Link to="/">
               <img
                 className="h-8 w-auto sm:h-10"
                 src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg"
@@ -192,7 +169,7 @@ export default function Header() {
           <div className="-mr-2 -my-2 lg:hidden space-x-1 w-1/3">
             {/* Cart mobile*/}
             <Link
-              to={buttons[2].to}
+              to="/auth/cart"
               className="bg-indigo-600 rounded-md p-2 inline-flex items-center justify-center text-white hover:bg-gray-200 hover:text-gray-800 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
             >
               <svg
@@ -213,7 +190,7 @@ export default function Header() {
           <div className="hidden lg:flex items-center justify-center lg:flex-1">
             {/* Cart */}
             <Link
-              to={buttons[2].to}
+              to="/auth/cart"
               className="whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 p-2 hover:bg-gray-200 hover:text-gray-800 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
             >
               <svg
@@ -229,16 +206,16 @@ export default function Header() {
             {!user.name && (
               <div className="flex">
                 <Link
-                  to={buttons[3].to}
+                  to="/login"
                   className="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 p-2 hover:bg-gray-200 hover:text-gray-800 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
                 >
-                  {buttons[3].name}
+                  Đăng Nhập
                 </Link>
                 <Link
-                  to={buttons[4].to}
+                  to="/signup"
                   className="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 p-2 hover:bg-gray-200 hover:text-gray-800 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
                 >
-                  {buttons[4].name}
+                  Đăng ký
                 </Link>
               </div>
             )}
@@ -279,13 +256,13 @@ export default function Header() {
                     <Menu.Item>
                       {({ active }) => (
                         <Link
-                          to={buttons[5].to}
+                          to="/auth/profile"
                           className={classNames(
                             active ? "bg-gray-100" : "",
                             "block px-4 py-2 text-sm text-gray-700"
                           )}
                         >
-                          {buttons[5].name}
+                          Hồ sơ của tôi
                         </Link>
                       )}
                     </Menu.Item>
@@ -384,19 +361,19 @@ export default function Header() {
                   <div>
                     {/* Login */}
                     <Link
-                      to={buttons[3].to}
+                      to="/login"
                       className="w-full inline-flex items-center justify-center p-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700"
                     >
-                      {buttons[3].name}
+                      Đăng nhập
                     </Link>
                     {/* Signup */}
                     <p className="mt-6 text-center text-base font-medium text-gray-500">
                       Bạn chưa có tài khoản?{" "}
                       <Link
-                        to={buttons[4].to}
+                        to="/signup"
                         className="text-indigo-600 hover:text-indigo-500"
                       >
-                        {buttons[4].name}
+                        Đăng ký
                       </Link>
                     </p>
                   </div>
@@ -439,10 +416,10 @@ export default function Header() {
                     </div>
                     <div className="mt-3 px-2 space-y-1">
                       <Link
-                        to={buttons[5].to}
+                        to="/auth/profile"
                         className="block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-700"
                       >
-                        {buttons[5].name}
+                        Hồ sơ của tôi
                       </Link>
                       <button
                         onClick={doLogout}
@@ -461,3 +438,5 @@ export default function Header() {
     </Popover>
   );
 }
+
+export default Header;
