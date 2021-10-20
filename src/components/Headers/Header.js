@@ -17,6 +17,7 @@ import { Disclosure, Menu, Popover, Transition } from "@headlessui/react";
 import { getUser } from "services/authService";
 import { logout } from "services/authService";
 import Icons from "constants/Icons";
+import { useNotification } from "Notifications/NotificationProvider";
 
 const solutions = [
   {
@@ -66,19 +67,27 @@ const resources = [
     });
   }, []);
 
+  const dispatch = useNotification();
   const doLogout = async () => {
     try {
       await logout();
       //xử lý tiếp,
       localStorage.removeItem("token");
       // đưa ra thông báo
-      // alert.success("Đăng xuất thành công");
+      dispatch({
+        type: "success",
+        message: "Đăng xuất thành công",
+      })
       setTimeout(() => {
         window.location.href = "/login";
       }, 1000);
     } catch (e) {
       //đưa ra thông báo lỗi
-      // alert.error("Đăng xuất thất bại");
+      const err = e.response.data.message;
+        dispatch({
+          type: "error",
+          message: "Đăng xuất thất bại" + err,
+        })
     }
   };
 

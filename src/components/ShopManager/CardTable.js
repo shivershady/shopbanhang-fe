@@ -5,7 +5,7 @@ import Images from "../../constants/Images";
 
 // components
 
-import TableDropdown from "components/Dropdowns/TableDropdown.js";
+import TableDropdown from "components/Dropdowns/CategoryDropdown.js";
 
 export default function CardTable({ color }) {
   return (

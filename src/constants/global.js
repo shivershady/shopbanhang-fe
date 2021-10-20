@@ -1,9 +1,9 @@
-export const TEST_OPTIONS = [
-    {value: 1 , label: 'một'},
-    {value: 2 , label: 'hai'},
-    {value: 3 , label: 'ba'},
-    {value: 4 , label: 'bốn'},
-    {value: 5 , label: 'năm'},
+export const iNDUSTRY_OPTION = [
+    {value: 1 , label: 'Quần áo'},
+    {value: 2 , label: 'Sức khỏe'},
+    {value: 3 , label: 'Sắc đẹp'},
+    {value: 4 , label: 'Phụ kiện'},
+    {value: 5 , label: 'Di động'},
 ];
 
 export const Style = {

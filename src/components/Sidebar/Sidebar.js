@@ -164,16 +164,16 @@ export default function Sidebar() {
                 <Link
                   className={
                     "text-xs uppercase py-3 font-bold block " +
-                    (window.location.href.indexOf("/admin/dashboard") !== -1
+                    (window.location.href.indexOf("/admin/products-show") !== -1
                       ? "text-blue-500 hover:text-blue-600"
                       : "text-gray-700 hover:text-gray-500")
                   }
-                  to="/admin/dashboard"
+                  to="/admin/products-show"
                 >
                   <i
                     className={
                       "fas fa-shopping-bag mr-2 text-sm " +
-                      (window.location.href.indexOf("/admin/dashboard") !== -1
+                      (window.location.href.indexOf("/admin/products-show") !== -1
                         ? "opacity-75"
                         : "text-gray-300")
                     }
@@ -186,16 +186,16 @@ export default function Sidebar() {
                 <Link
                   className={
                     "text-xs uppercase py-3 font-bold block " +
-                    (window.location.href.indexOf("/admin/settings") !== -1
+                    (window.location.href.indexOf("/admin/products-add") !== -1
                       ? "text-blue-500 hover:text-blue-600"
                       : "text-gray-700 hover:text-gray-500")
                   }
-                  to="/admin/settings"
+                  to="/admin/products-add"
                 >
                   <i
                     className={
                       "fas fa-plus-square mr-2 text-sm " +
-                      (window.location.href.indexOf("/admin/settings") !== -1
+                      (window.location.href.indexOf("/admin/products-add") !== -1
                         ? "opacity-75"
                         : "text-gray-300")
                     }
@@ -218,16 +218,16 @@ export default function Sidebar() {
                 <Link
                   className={
                     "text-xs uppercase py-3 font-bold block " +
-                    (window.location.href.indexOf("/admin/dashboard") !== -1
+                    (window.location.href.indexOf("/admin/orders-show") !== -1
                       ? "text-blue-500 hover:text-blue-600"
                       : "text-gray-700 hover:text-gray-500")
                   }
-                  to="/admin/dashboard"
+                  to="/admin/orders-show"
                 >
                   <i
                     className={
                       "fas fa-file-alt mr-2 text-sm " +
-                      (window.location.href.indexOf("/admin/dashboard") !== -1
+                      (window.location.href.indexOf("/admin/orders-show") !== -1
                         ? "opacity-75"
                         : "text-gray-300")
                     }
@@ -240,16 +240,16 @@ export default function Sidebar() {
                 <Link
                   className={
                     "text-xs uppercase py-3 font-bold block " +
-                    (window.location.href.indexOf("/admin/settings") !== -1
+                    (window.location.href.indexOf("/admin/orders-exit") !== -1
                       ? "text-blue-500 hover:text-blue-600"
                       : "text-gray-700 hover:text-gray-500")
                   }
-                  to="/admin/settings"
+                  to="/admin/orders-exit"
                 >
                   <i
                     className={
                       "fas fa-times-circle mr-2 text-sm " +
-                      (window.location.href.indexOf("/admin/settings") !== -1
+                      (window.location.href.indexOf("/admin/orders-exit") !== -1
                         ? "opacity-75"
                         : "text-gray-300")
                     }
@@ -262,16 +262,16 @@ export default function Sidebar() {
                 <Link
                   className={
                     "text-xs uppercase py-3 font-bold block " +
-                    (window.location.href.indexOf("/admin/tables") !== -1
+                    (window.location.href.indexOf("/admin/orders-return") !== -1
                       ? "text-blue-500 hover:text-blue-600"
                       : "text-gray-700 hover:text-gray-500")
                   }
-                  to="/admin/tables"
+                  to="/admin/orders-return"
                 >
                   <i
                     className={
                       "fas fa-hand-holding-usd mr-2 text-sm " +
-                      (window.location.href.indexOf("/admin/tables") !== -1
+                      (window.location.href.indexOf("/admin/orders-return") !== -1
                         ? "opacity-75"
                         : "text-gray-300")
                     }
@@ -294,16 +294,16 @@ export default function Sidebar() {
                 <Link
                   className={
                     "text-xs uppercase py-3 font-bold block " +
-                    (window.location.href.indexOf("/admin/dashboard") !== -1
+                    (window.location.href.indexOf("/admin/ship-management") !== -1
                       ? "text-blue-500 hover:text-blue-600"
                       : "text-gray-700 hover:text-gray-500")
                   }
-                  to="/admin/dashboard"
+                  to="/admin/ship-management"
                 >
                   <i
                     className={
                       "fas fa-store mr-2 text-sm " +
-                      (window.location.href.indexOf("/admin/dashboard") !== -1
+                      (window.location.href.indexOf("/admin/ship-management") !== -1
                         ? "opacity-75"
                         : "text-gray-300")
                     }
@@ -316,16 +316,16 @@ export default function Sidebar() {
                 <Link
                   className={
                     "text-xs uppercase py-3 font-bold block " +
-                    (window.location.href.indexOf("/admin/settings") !== -1
+                    (window.location.href.indexOf("/admin/ship-method") !== -1
                       ? "text-blue-500 hover:text-blue-600"
                       : "text-gray-700 hover:text-gray-500")
                   }
-                  to="/admin/settings"
+                  to="/admin/ship-method"
                 >
                   <i
                     className={
                       "fas fa-shipping-fast mr-2 text-sm " +
-                      (window.location.href.indexOf("/admin/settings") !== -1
+                      (window.location.href.indexOf("/admin/ship-method") !== -1
                         ? "opacity-75"
                         : "text-gray-300")
                     }
@@ -338,16 +338,16 @@ export default function Sidebar() {
                 <Link
                   className={
                     "text-xs uppercase py-3 font-bold block " +
-                    (window.location.href.indexOf("/admin/tables") !== -1
+                    (window.location.href.indexOf("/admin/ship-setting") !== -1
                       ? "text-blue-500 hover:text-blue-600"
                       : "text-gray-700 hover:text-gray-500")
                   }
-                  to="/admin/tables"
+                  to="/admin/ship-setting"
                 >
                   <i
                     className={
                       "fas fa-tools mr-2 text-sm " +
-                      (window.location.href.indexOf("/admin/tables") !== -1
+                      (window.location.href.indexOf("/admin/ship-setting") !== -1
                         ? "opacity-75"
                         : "text-gray-300")
                     }

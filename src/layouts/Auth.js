@@ -11,12 +11,20 @@ import Header from "components/Headers/Header";
 import Profile from "views/Auth/Profile";
 import Cart from "views/Auth/Cart";
 import Order from "views/Auth/Order";
+import { useNotification } from "Notifications/NotificationProvider";
 
 export default function Auth() {
   const [user, setUser] = useState({});
+  const dispatch = useNotification();
   useEffect(async () => {
-    await getUser().then((resp)=>{
-      setUser(resp.user);
+    await getUser().then((response)=>{
+      setUser(response.user);
+    }).catch((error) => {
+      const err = error.response.data.message;
+      dispatch({
+        type: "error",
+        message: err,
+      })
     });
   }, []);
   return (

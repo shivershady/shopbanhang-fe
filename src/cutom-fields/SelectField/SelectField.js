@@ -40,7 +40,7 @@ function SelectField(props) {
     <div>
       {label && <label for={label}>{label}</label>}
       <Select
-        className="py-2 pl-3 border border-transparent rounded-md shadow-sm text-sm h-11 w-full text-left my-2"
+        className="py-2 border border-transparent rounded-md shadow-sm text-sm h-11 w-full text-left my-2"
         id={name}
         {...field}
         value={selectedOption}

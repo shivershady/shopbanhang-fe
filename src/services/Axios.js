@@ -27,20 +27,18 @@ axiosInstance.interceptors.response.use(
   },
   (error) => {
     //Handle error
-    // const status = error.response.status;
-    // switch (status) {
-    //   case 401 :
-    //     alert("Truy cập thất bại");
-    //     window.location.href = "/login";
-    //     break;
-    //   case 403 :
-    //     alert("Bạn không có quyền truy cập");
-    //     window.location.href = "/login";
-    //     break;
-    //   default:
-    //     useHistory().push("/notfound");
-    //     break;
-    // }
+    const status = error.response.status;
+    switch (status) {
+      case 401 :
+        window.location.href = "/login";
+        break;
+      case 403 :
+        window.location.href = "/login";
+        break;
+      default:
+        useHistory().push("/notfound");
+        break;
+    }
     throw error;
   }
 );
