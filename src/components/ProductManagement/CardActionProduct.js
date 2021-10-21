@@ -11,7 +11,7 @@ export default function CardActionProduct({ color }) {
   return (
       <div
         className={
-          "flex justify-between min-w-0 break-words w-full mb-6 px-8 py-10 shadow-lg rounded-lg " +
+          "flex justify-between min-w-0 break-words w-full px-8 py-10 shadow-lg rounded-lg " +
           (color === "light" ? "bg-white" : "bg-blue-700 text-white")
         }
       >

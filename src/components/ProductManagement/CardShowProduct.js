@@ -1,281 +1,83 @@
 import React from "react";
-import PropTypes from "prop-types";
-import Images from "constants/Images";
 
+const products = [
+  {
+    id: 1,
+    name: "Bình đất",
+    href: "#",
+    price: "48.000 vnđ",
+    imageSrc:
+      "https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-01.jpg",
+    imageAlt:
+      "Chai sứ mảnh mai cao với phần thân bằng đất sét tự nhiên và nút chai.",
+  },
+  {
+    id: 2,
+    name: "Bình bầu dục",
+    href: "#",
+    price: "35.000 vnđ",
+    imageSrc:
+      "https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-02.jpg",
+    imageAlt:
+      "Chai cách nhiệt màu xanh lá cây ô liu có nắp vặn loe và phần trên bằng phẳng.",
+  },
+  {
+    id: 3,
+    name: "Giấy ghi chú",
+    href: "#",
+    price: "89.000 vnđ",
+    imageSrc:
+      "https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-03.jpg",
+    imageAlt:
+      "Người dùng bút để gạch ngang một nhiệm vụ trên thẻ giấy năng suất.",
+  },
+  {
+    id: 4,
+    name: "Bút chì cơ khí được gia công",
+    href: "#",
+    price: "35.000 vnđ",
+    imageSrc:
+      "https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-04.jpg",
+    imageAlt:
+      "Tay cầm bút chì cơ bằng thép gia công màu đen với đầu và đỉnh bằng đồng.",
+  },
+  // More products...
+];
 
-// components
-
-import TabelDropdown from "components/Dropdowns/TabelDropdown.js";
-
-export default function CardShowProduct({ color }) {
+export default function CardShowProduct() {
   return (
-      <div
-        className={
-          "relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg " +
-          (color === "light" ? "bg-white" : "bg-blue-700 text-white")
-        }
-      >
-        <div className="rounded-t mb-0 px-4 py-3 border-0">
-          <div className="flex flex-wrap items-center">
-            <div className="relative w-full px-4 max-w-full flex-grow flex-1">
-              <h3
-                className={
-                  "font-semibold text-lg " +
-                  (color === "light" ? "text-blue-700" : "text-white")
-                }
-              >
-                Bảng thẻ
-              </h3>
-            </div>
+    <div className="mt-6 lg:mt-0 lg:col-span-2 xl:col-span-3">
+      {/* Replace with your content */}
+      <div className="bg-white border border-gray-200 rounded-lg h-full">
+        <div className="max-w-full mx-auto py-10 px-4">
+          <div className="grid grid-cols-1 gap-y-10 sm:grid-cols-2 gap-x-6 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
+            {products.map((product) => (
+              <a key={product.id} href={product.href} className="group">
+                <div className="w-full aspect-w-1 aspect-h-1 bg-gray-200 rounded-lg overflow-hidden xl:aspect-w-7 xl:aspect-h-8">
+                  <img
+                    src={product.imageSrc}
+                    alt={product.imageAlt}
+                    className="w-full h-full object-center object-cover group-hover:opacity-75"
+                  />
+                </div>
+                <h3 className="mt-4 text-sm text-gray-700">{product.name}</h3>
+                <p className="mt-1 text-lg font-medium text-gray-900">
+                  {product.price}
+                </p>
+                <div className="flex text-gray-400 space-x-24">
+                  <p>Kho : 20</p>
+                  <p>Bán : 10</p>
+                </div>
+                <div className="space-x-2">
+                  <button className="border border-transparent rounded-md shadow-sm text-base  text-white bg-indigo-600 p-1  hover:bg-gray-200 hover:text-gray-800 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white  font-medium">Sửa</button>
+                  <button className="border border-transparent rounded-md shadow-sm text-base  text-white bg-red-600 p-1  hover:bg-gray-200 hover:text-gray-800 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white  font-medium">Xóa</button>
+                </div>
+              </a>
+            ))}
           </div>
         </div>
-        <div className="block w-full overflow-x-auto">
-          {/* Projects table */}
-          <table className="items-center w-full bg-transparent border-collapse">
-            <thead>
-              <tr>
-                <th
-                  className={
-                    "px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left " +
-                    (color === "light"
-                      ? "bg-gray-50 text-gray-500 border-gray-100"
-                      : "bg-blue-800 text-blue-300 border-blue-700")
-                  }
-                >
-                  Hình ảnh
-                </th>
-                <th
-                  className={
-                    "px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left " +
-                    (color === "light"
-                      ? "bg-gray-50 text-gray-500 border-gray-100"
-                      : "bg-blue-800 text-blue-300 border-blue-700")
-                  }
-                >
-                  Tên sản phẩm
-                </th>
-                <th
-                  className={
-                    "px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left " +
-                    (color === "light"
-                      ? "bg-gray-50 text-gray-500 border-gray-100"
-                      : "bg-blue-800 text-blue-300 border-blue-700")
-                  }
-                >
-                  Danh mục
-                </th>
-                <th
-                  className={
-                    "px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left " +
-                    (color === "light"
-                      ? "bg-gray-50 text-gray-500 border-gray-100"
-                      : "bg-blue-800 text-blue-300 border-blue-700")
-                  }
-                >
-                  Kho
-                </th>
-                <th
-                  className={
-                    "px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left " +
-                    (color === "light"
-                      ? "bg-gray-50 text-gray-500 border-gray-100"
-                      : "bg-blue-800 text-blue-300 border-blue-700")
-                  }
-                >
-                  Đã bán
-                </th>
-                <th
-                  className={
-                    "px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left " +
-                    (color === "light"
-                      ? "bg-gray-50 text-gray-500 border-gray-100"
-                      : "bg-blue-800 text-blue-300 border-blue-700")
-                  }
-                >
-                  Trạng thái
-                </th>
-                <th
-                  className={
-                    "px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left " +
-                    (color === "light"
-                      ? "bg-gray-50 text-gray-500 border-gray-100"
-                      : "bg-blue-800 text-blue-300 border-blue-700")
-                  }
-                ></th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left flex items-center">
-                <div className="flex">
-                    <img
-                      src={Images.team_1_800x800}
-                      alt="..."
-                      className="w-10 h-10 rounded-full border-2 border-gray-50 shadow"
-                    ></img>
-                    <img
-                      src={Images.team_2_800x800}
-                      alt="..."
-                      className="w-10 h-10 rounded-full border-2 border-gray-50 shadow -ml-4"
-                    ></img>
-                    <img
-                      src={Images.team_3_800x800}
-                      alt="..."
-                      className="w-10 h-10 rounded-full border-2 border-gray-50 shadow -ml-4"
-                    ></img>
-                    <img
-                      src={Images.team_4_470x470}
-                      alt="..."
-                      className="w-10 h-10 rounded-full border-2 border-gray-50 shadow -ml-4"
-                    ></img>
-                  </div>
-                  
-                </th>
-                <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                <span
-                    className={
-                      "font-bold " +
-                      +(color === "light" ? "text-gray-600" : "text-white")
-                    }
-                  >
-                    Quần áo
-                  </span>
-                </td>
-                <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                  Danh mục
-                </td>
-                <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                  20
-                </td>
-                <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                  10
-                </td>
-                <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                  <i className="fas fa-circle text-green-500 mr-2"></i>on
-                </td>
-                
-                <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-right">
-                  <TabelDropdown />
-                </td>
-              </tr>
-              
-              <tr>
-                <th className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left flex items-center">
-                <div className="flex">
-                    <img
-                      src={Images.team_1_800x800}
-                      alt="..."
-                      className="w-10 h-10 rounded-full border-2 border-gray-50 shadow"
-                    ></img>
-                    <img
-                      src={Images.team_2_800x800}
-                      alt="..."
-                      className="w-10 h-10 rounded-full border-2 border-gray-50 shadow -ml-4"
-                    ></img>
-                    <img
-                      src={Images.team_3_800x800}
-                      alt="..."
-                      className="w-10 h-10 rounded-full border-2 border-gray-50 shadow -ml-4"
-                    ></img>
-                    <img
-                      src={Images.team_4_470x470}
-                      alt="..."
-                      className="w-10 h-10 rounded-full border-2 border-gray-50 shadow -ml-4"
-                    ></img>
-                  </div>
-                  
-                </th>
-                <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                <span
-                    className={
-                      "font-bold " +
-                      +(color === "light" ? "text-gray-600" : "text-white")
-                    }
-                  >
-                    Quần áo
-                  </span>
-                </td>
-                <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                  Danh mục
-                </td>
-                <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                  20
-                </td>
-                <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                  10
-                </td>
-                <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                  <i className="fas fa-circle text-red-500 mr-2"></i>off
-                </td>
-                
-                <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-right">
-                  <TabelDropdown />
-                </td>
-              </tr>
-              <tr>
-                <th className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left flex items-center">
-                <div className="flex">
-                    <img
-                      src={Images.team_1_800x800}
-                      alt="..."
-                      className="w-10 h-10 rounded-full border-2 border-gray-50 shadow"
-                    ></img>
-                    <img
-                      src={Images.team_2_800x800}
-                      alt="..."
-                      className="w-10 h-10 rounded-full border-2 border-gray-50 shadow -ml-4"
-                    ></img>
-                    <img
-                      src={Images.team_3_800x800}
-                      alt="..."
-                      className="w-10 h-10 rounded-full border-2 border-gray-50 shadow -ml-4"
-                    ></img>
-                    <img
-                      src={Images.team_4_470x470}
-                      alt="..."
-                      className="w-10 h-10 rounded-full border-2 border-gray-50 shadow -ml-4"
-                    ></img>
-                  </div>
-                  
-                </th>
-                <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                <span
-                    className={
-                      "font-bold " +
-                      +(color === "light" ? "text-gray-600" : "text-white")
-                    }
-                  >
-                    Quần áo
-                  </span>
-                </td>
-                <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                  Danh mục
-                </td>
-                <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                  20
-                </td>
-                <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                  10
-                </td>
-                <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                  <i className="fas fa-circle text-green-500 mr-2"></i>on
-                </td>
-                
-                <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-right">
-                  <TabelDropdown />
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
       </div>
+      {/* /End replace */}
+    </div>
   );
 }
-
-CardShowProduct.defaultProps = {
-  color: "light",
-};
-
-CardShowProduct.propTypes = {
-  color: PropTypes.oneOf(["light", "dark"]),
-};

@@ -19,11 +19,15 @@ export default function CardAddProduct() {
     photoProduct5: null,
     photoProduct6: null,
     photoProduct7: null,
+    colorProduct: "",
+    sizeProduct: "",
+    priceProduct: "",
+    wareHouseProduct: "",
     category: "",
     industry: "",
     ProductDescription: "",
   };
-  const doSumit=data => console.log(data);
+  const doSumit = (data) => console.log(data);
   return (
     <>
       <div className="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-blue-100 border-0">
@@ -98,21 +102,58 @@ export default function CardAddProduct() {
                     />
                   </div>
 
-                  <FastField
-                    name="category"
-                    label="Danh mục"
-                    component={SelectField}
-                    placeholder="Ngành hàng"
-                    options={iNDUSTRY_OPTION}
-                  />
+                  <div className="grid grid-cols-2 gap-4">
+                    <FastField
+                      name="colorProduct"
+                      type="number"
+                      label="Màu sắc"
+                      component={InputField}
+                      placeholder="Nhập màu hàng, ví dụ: Trắng, Đỏ v.v"
+                    />
+                    <FastField
+                      name="sizeProduct"
+                      type="number"
+                      label="Kích thước"
+                      component={InputField}
+                      placeholder="Nhập kích thước hàng, ví dụ: 10cm, 20cm v.v"
+                    />
+                  </div>
 
-                  <FastField
-                    name="industry"
-                    label="Ngành hàng"
-                    component={SelectField}
-                    placeholder="Ngành hàng"
-                    options={iNDUSTRY_OPTION}
-                  />
+                  <div className="grid grid-cols-2 gap-4">
+                    <FastField
+                      name="priceProduct"
+                      type="number"
+                      label="Giá sản phẩm"
+                      component={InputField}
+                      placeholder="100.000 vnđ"
+                    />
+
+                    <FastField
+                      name="wareHouseProduct"
+                      type="number"
+                      label="Kho"
+                      component={InputField}
+                      placeholder="0"
+                    />
+                  </div>
+
+                  <div className="grid grid-cols-2 gap-4">
+                    <FastField
+                      name="category"
+                      label="Danh mục"
+                      component={SelectField}
+                      placeholder="Ngành hàng"
+                      options={iNDUSTRY_OPTION}
+                    />
+
+                    <FastField
+                      name="industry"
+                      label="Ngành hàng"
+                      component={SelectField}
+                      placeholder="Ngành hàng"
+                      options={iNDUSTRY_OPTION}
+                    />
+                  </div>
 
                   <FastField
                     label="Mô tả"
