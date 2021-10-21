@@ -1,11 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
-import Images from "../../constants/Images";
+import Images from "constants/Images";
 
 
 // components
 
-import CategoryDropdown from "components/Dropdowns/CategoryDropdown.js";
+import TabelDropdown from "components/Dropdowns/TabelDropdown.js";
 
 export default function CardShowCategory({ color }) {
   return (
@@ -141,7 +141,7 @@ export default function CardShowCategory({ color }) {
                   </div>
                 </td>
                 <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-right">
-                  <CategoryDropdown />
+                  <TabelDropdown />
                 </td>
               </tr>
               
@@ -190,7 +190,7 @@ export default function CardShowCategory({ color }) {
                   </div>
                 </td>
                 <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-right">
-                  <CategoryDropdown />
+                  <TabelDropdown />
                 </td>
               </tr>
             </tbody>
@@ -205,5 +205,5 @@ CardShowCategory.defaultProps = {
 };
 
 CardShowCategory.propTypes = {
-  color: PropTypes.oneOf(["light", "blue"]),
+  color: PropTypes.oneOf(["light", "dark"]),
 };

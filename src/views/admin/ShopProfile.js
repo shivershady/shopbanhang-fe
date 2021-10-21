@@ -5,7 +5,7 @@ import React from "react";
 import CardShopSettings from "components/ShopManager/CardShopSettings.js";
 import CardShopProfile from "components/ShopManager/CardShopProfile.js";
 
-export default function Settings() {
+export default function ShopProfile() {
   return (
     <>
       <div className="flex flex-wrap">

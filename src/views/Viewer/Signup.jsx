@@ -9,7 +9,6 @@ import Header from "components/Headers/Header";
 
 import InputField from "cutom-fields/InputField/InputField";
 import { signup } from "services/authService";
-import Alert from "components/Feedback/Alert";
 
 const schema = yup.object().shape({
   name: yup.string().required("Vui lòng nhập tên"),

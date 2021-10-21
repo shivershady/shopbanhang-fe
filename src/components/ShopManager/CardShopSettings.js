@@ -1,18 +1,17 @@
 import React from "react";
 import { FastField, Form, Formik } from "formik";
-import { useHistory } from "react-router-dom";
 import InputField from "cutom-fields/InputField/InputField";
 import InputPhotoField from "cutom-fields/InputField/InputPhotoField";
 import TextareaField from "cutom-fields/InputField/TextareaField";
 
 // components
 
-export default function CardSettings() {
+export default function CardShopSettings() {
   const initialValues = {
     nameShop: "",
     photoShop: "",
     addressShop: "",
-    confirmPassword: "",
+    descriptionShop: "",
   };
   return (
     <>
@@ -44,7 +43,6 @@ export default function CardSettings() {
                     name="photoShop"
                     title="Tải ảnh"
                     component={InputPhotoField}
-                    placeholder="Email"
                   />
 
                   <FastField
@@ -57,7 +55,7 @@ export default function CardSettings() {
                   
                   <FastField
                     label="Về tôi"
-                    name="confirmPassword"
+                    name="descriptionShop"
                     type="text"
                     component={TextareaField}
                     placeholder="Nhập mô tả hoặc thông tin về shop của bạn tại đây"

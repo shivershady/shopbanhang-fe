@@ -11,9 +11,9 @@ export default function CardAddCategory() {
   };
   return (
     <>
-      <div className="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-blue-100 border-0">
-        <div className="flex-auto px-4 lg:px-10 py-10 pt-0">
-          <h6 className="text-blue-400 text-sm mt-3 mb-6 font-bold uppercase">
+      <div className="relative flex flex-col min-w-0 break-words w-full shadow-lg rounded-lg bg-blue-100 border-0">
+        <div className="flex-auto px-4 lg:px-10 py-2">
+          <h6 className="text-blue-400 text-sm my-3 font-bold uppercase">
             Thêm danh mục
           </h6>
           <Formik initialValues={initialValues}>

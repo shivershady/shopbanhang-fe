@@ -1,7 +1,7 @@
 import React from "react";
 import { createPopper } from "@popperjs/core";
 
-const NotificationDropdown = () => {
+const TabelDropdown = () => {
   // dropdown props
   const [dropdownPopoverShow, setDropdownPopoverShow] = React.useState(false);
   const btnDropdownRef = React.createRef();
@@ -51,7 +51,7 @@ const NotificationDropdown = () => {
           }
           onClick={(e) => e.preventDefault()}
         >
-          Thêm sản phẩm
+          Sửa
         </a>
         <a
           href="#pablo"
@@ -67,4 +67,4 @@ const NotificationDropdown = () => {
   );
 };
 
-export default NotificationDropdown;
+export default TabelDropdown;

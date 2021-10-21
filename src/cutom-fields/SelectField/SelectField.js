@@ -38,7 +38,7 @@ function SelectField(props) {
   }
   return (
     <div>
-      {label && <label for={label}>{label}</label>}
+      {label && <label className="text-base font-semibold" for={label}>{label}</label>}
       <Select
         className="py-2 border border-transparent rounded-md shadow-sm text-sm h-11 w-full text-left my-2"
         id={name}

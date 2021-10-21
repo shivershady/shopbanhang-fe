@@ -5,7 +5,7 @@ import React from "react";
 import CardShowCategory from "components/ShopManager/CardShowCategory";
 import CardAddCategory from "components/ShopManager/CardAddCategory";
 
-export default function Tables() {
+export default function ShopCategory() {
   return (
     <>
       <div className="flex flex-wrap mt-4">
