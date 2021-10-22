@@ -27,6 +27,7 @@ const Login = () => {
       const response = await login(data);
       //xử lý tiếp,
       localStorage.setItem("token", response.token);
+
       // đưa ra thông báo
       alert("Đăng nhập thành công");
       // chuyển sang trang verify otp
