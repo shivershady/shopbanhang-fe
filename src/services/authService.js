@@ -6,7 +6,12 @@ export function login(payload) {
 }
 
 export function logout() {
-  return localStorage.removeItem("token");
+  const url = "user/logout";
+  return Axios.get(url, {
+    headers: {
+      Authorization: "Bearer " + localStorage.getItem("token"),
+    },
+  });
 }
 
 //đăng ký

@@ -1,5 +1,6 @@
 import axios from "axios";
 import queryString from "query-string";
+import { useHistory } from "react-router";
 
 const axiosInstance = axios.create({
   baseURL: process.env.REACT_APP_API_URL,
@@ -26,9 +27,17 @@ axiosInstance.interceptors.response.use(
   },
   (error) => {
     //Handle error
-    if (error.response.status === 401 || error.response.status == 403) {
-      alert("Bạn chưa xác thực");
-      window.location.href = "/login";
+    const status = error.response.status;
+    switch (status) {
+      case 401 :
+        window.location.href = "/login";
+        break;
+      case 403 :
+        window.location.href = "/login";
+        break;
+      default:
+        useHistory().push("/notfound");
+        break;
     }
     throw error;
   }
