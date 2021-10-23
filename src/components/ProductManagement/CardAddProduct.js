@@ -105,14 +105,14 @@ export default function CardAddProduct() {
                   <div className="grid grid-cols-2 gap-4">
                     <FastField
                       name="colorProduct"
-                      type="number"
+                      type="text"
                       label="Màu sắc"
                       component={InputField}
                       placeholder="Nhập màu hàng, ví dụ: Trắng, Đỏ v.v"
                     />
                     <FastField
                       name="sizeProduct"
-                      type="number"
+                      type="text"
                       label="Kích thước"
                       component={InputField}
                       placeholder="Nhập kích thước hàng, ví dụ: 10cm, 20cm v.v"
@@ -160,7 +160,7 @@ export default function CardAddProduct() {
                     name="ProductDescription"
                     type="text"
                     component={TextareaField}
-                    placeholder="Nhập mô tả hoặc thông tin về shop của bạn tại đây"
+                    placeholder="Nhập mô tả hoặc thông tin về sản phẩm của bạn tại đây"
                   />
                   <div className=" text-center  py-4">
                     <button

@@ -31,7 +31,8 @@ function InputPhotoField(props) {
       };
       reader.readAsDataURL(e.target.files[0]);
     }
-    form.setFieldValue( name , e.target.files[0]);
+    const objectURL = URL.createObjectURL(e.target.files[0]);
+    form.setFieldValue( name , objectURL);
     setLoading(false);
   };
 

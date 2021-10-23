@@ -12,7 +12,6 @@ import FooterAdmin from "components/Footers/FooterAdmin";
 
 import Dashboard from "views/admin/Dashboard";
 import ShopProfile from "views/admin/ShopProfile";
-import ShopCategory from "views/admin/ShopCategory";
 import ProductShow from "views/admin/ProductShow";
 import ProductAdd from "views/admin/ProductAdd";
 // import OrderShow from "views/admin/OrderShow";
@@ -34,7 +33,6 @@ export default function Admin() {
           <Switch>
             <Route path="/admin/dashboard" exact component={Dashboard} />
             <Route path="/admin/shop-profile" exact component={ShopProfile} />
-            <Route path="/admin/shop-category" exact component={ShopCategory} />
             <Route path="/admin/products-show" exact component={ProductShow} />
             <Route path="/admin/products-add" exact component={ProductAdd} />
             {/* <Route path="/admin/orders-show" exact component={OrderShow} />

@@ -128,27 +128,6 @@ export default function Sidebar() {
                 </Link>
               </li>
 
-              <li className="items-center">
-                <Link
-                  className={
-                    "text-xs uppercase py-3 font-bold block " +
-                    (window.location.href.indexOf("/admin/shop-category") !== -1
-                      ? "text-blue-500 hover:text-blue-600"
-                      : "text-gray-700 hover:text-gray-500")
-                  }
-                  to="/admin/shop-category"
-                >
-                  <i
-                    className={
-                      "fas fa-table mr-2 text-sm " +
-                      (window.location.href.indexOf("/admin/shop-category") !== -1
-                        ? "opacity-75"
-                        : "text-gray-300")
-                    }
-                  ></i>{" "}
-                  Danh mục
-                </Link>
-              </li>
             </ul>
 
             {/* Divider */}
