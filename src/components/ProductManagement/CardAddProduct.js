@@ -27,6 +27,17 @@ export default function CardAddProduct() {
     industry: "",
     ProductDescription: "",
   };
+
+
+/*  export function updateAvatar(file) {
+    Axios.setHeaders({
+      'Content-Type': 'multipart/form-data'
+    })
+    let formData = new FormData();
+    formData.append('file', file);
+    return Axios.post(`user/avatar`, formData);
+  }*/
+
   const doSumit = (data) => console.log(data);
   return (
     <>
