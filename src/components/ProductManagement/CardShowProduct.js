@@ -46,9 +46,25 @@ const products = [
 
 export default function CardShowProduct() {
   return (
-    <div className="mt-6 lg:mt-0 lg:col-span-2 xl:col-span-3">
+    <div className="mt-6 lg:mt-0 lg:col-span-2 xl:col-span-3 bg-white">
+       <div
+        className=
+          "flex justify-between min-w-0 break-words w-full mb-1 px-8 py-10 shadow-sm "
+      >
+          <button  className="inline-flex items-center justify-center border rounded-lg shadow-sm text-base font-medium text-white bg-indigo-600 p-2 hover:bg-blue-200 hover:text-blue-800 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">Thêm sản phẩm</button>
+          <form className="flex w-48 flex-wrap items-stretch">
+              <span className="z-10 h-full leading-snug font-normal absolute text-center text-blue-300   bg-transparent rounded text-base items-center justify-center w-8 pl-3 py-3">
+                <i className="fas fa-search"></i>
+              </span>
+              <input
+                type="text"
+                placeholder="Tìm kiếm..."
+                className="border-0 px-3 py-3 placeholder-blue-300 text-blue-600 bg-white rounded text-sm shadow outline-none focus:outline-none focus:ring w-full pl-10"
+              />
+            </form>
+      </div>
       {/* Replace with your content */}
-      <div className="bg-white border border-gray-200 rounded-lg h-full">
+      <div className="h-full">
         <div className="max-w-full mx-auto py-10 px-4">
           <div className="grid grid-cols-1 gap-y-10 sm:grid-cols-2 gap-x-6 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
             {products.map((product) => (

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 import Footer from "components/Footers/Footer";
 import Header from "components/Headers/Header";
@@ -8,8 +8,22 @@ import BrandStaticWidget from "components/Home/BrandStaticWidget";
 import FeaturedCategorises from "components/Home/FeaturedCategorises";
 import FeaturedKeywords from "components/Home/FeaturedKeywords";
 import InfiniteScroll from "components/Home/InfiniteScroll";
+import { useNotification } from "Notifications/NotificationProvider";
+import { getProduct } from "services/productService";
 
 function Home() {
+  const [listProduct, setListProduct] = useState([]);
+  const dispatch = useNotification();
+  useEffect(async () => {
+    await getProduct().then((response)=>{
+      setListProduct(response.products);
+    }).catch((error) => {
+      dispatch({
+        type: "error",
+        message: error,
+      })
+    });
+  }, []);
   return (
     <div>
       <Header />
@@ -30,7 +44,7 @@ function Home() {
         <FeaturedKeywords />
 
         {/* Gợi ý hôm nay */}
-        <InfiniteScroll />
+        <InfiniteScroll  listProduct={listProduct}/>
       </main>
       <Footer />
     </div>

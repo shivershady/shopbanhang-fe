@@ -20,10 +20,9 @@ export default function Auth() {
     await getUser().then((response)=>{
       setUser(response.user);
     }).catch((error) => {
-      const err = error.response.data.message;
-      dispatch({
+       dispatch({
         type: "error",
-        message: err,
+        message: "Bạn chưa đăng nhập",
       })
     });
   }, []);

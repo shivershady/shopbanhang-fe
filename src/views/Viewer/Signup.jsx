@@ -56,10 +56,9 @@ const Signup = (props) => {
       })
       .catch((error) => {
         //đưa ra thông báo lỗi
-        const err = error.response.data.message;
         dispatch({
           type: "error",
-          message: "Đăng ký thất bại" + err,
+          message: "Đăng ký thất bại",
         })
       });
   };

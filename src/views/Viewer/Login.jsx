@@ -30,8 +30,8 @@ const Login = () => {
   const dispatch = useNotification();
   const doLogin = async function (data) {
     await login(data).then((response) => {
-        //xử lý tiếp,
-        if(response.token){localStorage.setItem("token", response.token);}
+        if(response.token){
+        localStorage.setItem("token", response.token);
         // đưa ra thông báo
         dispatch({
           type: "success",
@@ -40,13 +40,12 @@ const Login = () => {
         setTimeout(() => {
           window.location.href = "/";
         }, 1000);
+      }
       })
       .catch((error) => {
-        //đưa ra thông báo lỗi
-        const err = error.response.data.message;
         dispatch({
           type: "error",
-          message: "Đăng nhập thất bại " + err,
+          message: "Đăng nhập thất bại ",
         })
         // alert.error('Đăng nhập thất bại');
       });
