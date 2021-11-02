@@ -19,7 +19,6 @@
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
-    "autoprefixer": "10.2.5",
     "axios": "^0.22.0",
     "chart.js": "2.9.4",
     "classnames": "^2.3.1",
@@ -27,7 +26,6 @@
     "gulp": "4.0.2",
     "gulp-append-prepend": "1.0.8",
     "node-sass": "^6.0.1",
-    "postcss": "8.2.8",
     "prop-types": "^15.7.2",
     "query-string": "^7.0.1",
     "react": "^17.0.2",
@@ -42,7 +40,6 @@
     "react-select": "^5.1.0",
     "redux": "^4.1.1",
     "styled-components": "^5.3.1",
-    "tailwindcss": "2.0.4",
     "uuid": "^8.3.2",
     "web-vitals": "^1.1.2",
     "yup": "^0.32.9"
@@ -72,8 +69,8 @@
     ]
   },
   "devDependencies": {
-    "autoprefixer": "^9.8.6",
-    "postcss": "^7.0.36",
-    "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.2.14"
+    "autoprefixer": "^9.8.8",
+    "postcss": "^7.0.39",
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.2.17"
   }
 }

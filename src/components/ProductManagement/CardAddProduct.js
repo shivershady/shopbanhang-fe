@@ -4,7 +4,10 @@ import InputField from "cutom-fields/InputField/InputField";
 import InputPhotoField from "cutom-fields/InputField/InputPhotoField";
 import TextareaField from "cutom-fields/InputField/TextareaField";
 import SelectField from "cutom-fields/SelectField/SelectField";
-import { iNDUSTRY_OPTION } from "constants/global";
+import { INDUSTRY_OPTION } from "constants/global";
+import { ACTIVE_OPTION } from "constants/global";
+import { useNotification } from "Notifications/NotificationProvider";
+import { addProduct } from "services/productService";
 
 // components
 
@@ -26,9 +29,6 @@ export default function CardAddProduct() {
     iHot: "",
     iPay: "",
     description: "",
-    description_seo: "",
-    keyword_seo: "",
-    title_seo: "",
     content: "",
   };
 
@@ -40,8 +40,24 @@ export default function CardAddProduct() {
     formData.append('file', file);
     return Axios.post(`user/avatar`, formData);
   }*/
+  
+  const dispatch = useNotification();
+  const doAddProduct = async (data) => {
+    try {
+      await addProduct(data);
 
-  const doSumit = (data) => console.log(data);
+      dispatch({
+        type: "success",
+        message: "Thêm sản phẩm thành công",
+      })
+
+    } catch (error) {
+      dispatch({
+          type: "error",
+          message: "Thêm sản phẩm thất bại",
+        })
+    }
+  };
   return (
     <>
       <div className="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-blue-100 border-0">
@@ -54,7 +70,7 @@ export default function CardAddProduct() {
           <h6 className="text-blue-400 text-sm mt-3 mb-6 font-bold uppercase">
             Thông tin cơ bản
           </h6>
-          <Formik initialValues={initialValues} onSubmit={doSumit}>
+          <Formik initialValues={initialValues} onSubmit={doAddProduct}>
             {(formikProps) => {
               return (
                 <Form className="flex flex-col gap-4 px-0 py-1 ">
@@ -140,7 +156,7 @@ export default function CardAddProduct() {
                       label="Danh mục"
                       component={SelectField}
                       placeholder="Danh mục"
-                      options={iNDUSTRY_OPTION}
+                      options={INDUSTRY_OPTION}
                     />
 
                     <FastField
@@ -148,7 +164,7 @@ export default function CardAddProduct() {
                       label="Trạng thái"
                       component={SelectField}
                       placeholder="Trạng thái"
-                      options={iNDUSTRY_OPTION}
+                      options={ACTIVE_OPTION}
                     />
                   </div>
 

@@ -1,6 +1,11 @@
 import { Axios } from "./Axios";
 
 export function addProduct(payload) {
+  // Axios.setHeaders({
+  //   'Content-Type': 'multipart/form-data'
+  // })
+  // let formData = new FormData();
+  // formData.append('file', payload);
   const url = "product/add";
   return Axios.post(url, payload);
 }

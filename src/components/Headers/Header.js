@@ -55,8 +55,7 @@ const resources = [
   },
 ];
 
- function Header(props) {
-  // const {alert}= props;
+ function Header() {
   const [user, setUser] = useState({});
 
   useEffect(async () => {
@@ -83,10 +82,9 @@ const resources = [
       }, 1000);
     } catch (e) {
       //đưa ra thông báo lỗi
-      const err = e.response.data.message;
         dispatch({
           type: "error",
-          message: "Đăng xuất thất bại" + err,
+          message: "Đăng xuất thất bại",
         })
     }
   };
@@ -208,14 +206,14 @@ const resources = [
               <Menu as="div" className="ml-3 relative">
                 <div>
                   <Menu.Button className="max-w-xs rounded-md p-2 inline-flex items-center justify-center hover:bg-gray-200 hover:text-gray-800 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-whit space-x-4">
-                    {!user.images == [] && (
+                    {!user.images && (
                       <img
                         className="rounded-full h-6 w-6"
                         src={Icons.userIcon}
                         alt=""
                       />
                     )}
-                    {user.images == [] && (
+                    {user.images && (
                       <img
                         className="rounded-full h-6 w-6"
                         src={user.images}
@@ -368,14 +366,14 @@ const resources = [
                   <div className="pt-4 pb-3 border-t border-gray-700">
                     <div className="flex items-center px-5">
                       <div className="flex-shrink-0">
-                        {!user.images == [] && (
+                        {!user.images && (
                           <img
                             className="rounded-full h-6 w-6"
                             src={Icons.userIcon}
                             alt=""
                           />
                         )}
-                        {user.images == [] && (
+                        {user.images && (
                           <img
                             className="rounded-full h-6 w-6"
                             src={user.images}
@@ -395,7 +393,6 @@ const resources = [
                         type="button"
                         className="ml-auto bg-gray-800 flex-shrink-0 p-1 rounded-full text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
                       >
-                        <span className="sr-only">View notifications</span>
                         <BellIcon className="h-6 w-6" aria-hidden="true" />
                       </button>
                     </div>

@@ -1,10 +1,23 @@
 import { Fragment, useEffect, useState } from "react";
 import { Popover } from "@headlessui/react";
 import { XIcon } from "@heroicons/react/outline";
+import { useNotification } from "Notifications/NotificationProvider";
+import { getUser } from "services/authService";
 
 
 function Profile() {
   const [user, setUser] = useState({});
+  const dispatch = useNotification();
+  useEffect(async () => {
+    await getUser().then((response)=>{
+      setUser(response.user);
+    }).catch((error) => {
+       dispatch({
+        type: "error",
+        message: "Bạn chưa đăng nhập",
+      })
+    });
+  }, []);
 
   return (
     <Popover class="grid grid-cols-5  h-screen lg:text-base text-sm container mx-auto my-8"
