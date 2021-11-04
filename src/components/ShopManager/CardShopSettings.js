@@ -3,6 +3,8 @@ import { FastField, Form, Formik } from "formik";
 import InputField from "cutom-fields/InputField/InputField";
 import InputPhotoField from "cutom-fields/InputField/InputPhotoField";
 import TextareaField from "cutom-fields/InputField/TextareaField";
+import { editShop } from "services/authService";
+import { useNotification } from "Notifications/NotificationProvider";
 
 // components
 
@@ -10,9 +12,21 @@ export default function CardShopSettings() {
   const initialValues = {
     nameShop: "",
     photoShop: "",
-    addressShop: "",
-    descriptionShop: "",
+    address_line1: "",
+    address_line2: "",
+    city:"",
+    province:"",
+    description: "",
   };
+  const dispatch = useNotification();
+  const doSettingShop = async (data) => {
+    await editShop(data).then(() => {
+      dispatch({
+        type: "success",
+        message: "Đăng nhập thành công",
+      })
+    })
+  }
   return (
     <>
       <div className="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-blue-100 border-0">
@@ -27,7 +41,10 @@ export default function CardShopSettings() {
           <h6 className="text-blue-400 text-sm mt-3 mb-6 font-bold uppercase">
             Thông tin shop
           </h6>
-          <Formik initialValues={initialValues}>
+          <Formik 
+          initialValues={initialValues}
+          onSubmit={doSettingShop}
+          >
             {(formikProps) => {
               return (
                 <Form className="flex flex-col gap-4 px-0 py-1 ">
@@ -46,16 +63,40 @@ export default function CardShopSettings() {
                   />
 
                   <FastField
-                    label="Địa chỉ"
-                    name="addressShop"
+                    label="Địa chỉ 1"
+                    name="address_line1"
                     type="text"
                     component={InputField}
                     placeholder="Địa chỉ shop"
                   />
+
+                  <FastField
+                    label="Địa chỉ 2"
+                    name="address_line2"
+                    type="text"
+                    component={InputField}
+                    placeholder="Địa chỉ shop"
+                  />
+
+                  <FastField
+                    label="Huyện"
+                    name="province"
+                    type="text"
+                    component={InputField}
+                    placeholder="Huyện"
+                  />
+
+                  <FastField
+                    label="Thành phố"
+                    name="city"
+                    type="text"
+                    component={InputField}
+                    placeholder="Thành phố"
+                  />
                   
                   <FastField
                     label="Về tôi"
-                    name="descriptionShop"
+                    name="description"
                     type="text"
                     component={TextareaField}
                     placeholder="Nhập mô tả hoặc thông tin về shop của bạn tại đây"

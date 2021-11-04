@@ -10,9 +10,11 @@ import FeaturedKeywords from "components/Home/FeaturedKeywords";
 import InfiniteScroll from "components/Home/InfiniteScroll";
 import { useNotification } from "Notifications/NotificationProvider";
 import { getProduct } from "services/productService";
+import { getCategory } from "services/categorySevice";
 
 function Home() {
   const [listProduct, setListProduct] = useState([]);
+  const [categories, setCategories] = useState([]);
   const dispatch = useNotification();
   useEffect(async () => {
     await getProduct().then((response)=>{
@@ -24,6 +26,17 @@ function Home() {
       })
     });
   }, []);
+
+  useEffect( async () => {
+    await getCategory().then((response)=>{
+      setCategories(response.category);
+    }).catch((error) => {
+      dispatch({
+        type: "error",
+        message: error,
+      })
+    })
+  },[])
   return (
     <div>
       <Header />
@@ -35,13 +48,13 @@ function Home() {
         <HomeQuicklinksTabContainer />
 
         {/* Thương hiệu chính hãng */}
-        <BrandStaticWidget />
+        <BrandStaticWidget listProduct={listProduct}/>
 
         {/* Danh mục sản phẩm */}
-        <FeaturedCategorises />
+        <FeaturedCategorises categories={categories}/>
 
-        {/* Từ khóa */}
-        <FeaturedKeywords />
+        {/* Tìm kiếm nổi bật*/}
+        <FeaturedKeywords listProduct={listProduct}/>
 
         {/* Gợi ý hôm nay */}
         <InfiniteScroll  listProduct={listProduct}/>

@@ -14,7 +14,6 @@ export function logout() {
   });
 }
 
-//đăng ký
 export function signup(payload) {
   const url = "user/register";
   return Axios.post(url, payload);
@@ -29,11 +28,23 @@ export function getUser() {
   });
 }
 
+export function editProfile(payload) {
+  const url = "user/update-profile";
+  return Axios.post(url, payload);
+}
+
+export function editShop(payload) {
+  const url = "user/update-shop";
+  return Axios.post(url, payload);
+}
+
 const authService = {
   login,
   logout,
   signup,
   getUser,
+  editProfile,
+  editShop,
 };
 
 export default authService;

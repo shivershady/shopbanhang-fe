@@ -58,7 +58,7 @@ const Signup = (props) => {
         //đưa ra thông báo lỗi
         dispatch({
           type: "error",
-          message: "Đăng ký thất bại",
+          message: "Đăng ký thất bại" + error,
         })
       });
   };

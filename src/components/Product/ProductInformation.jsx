@@ -1,10 +1,12 @@
 import React from 'react'
 
-function ProductInformation() {
-    return (
+function ProductInformation(props) {
+  const {content}=props;
+  return (
         <div className="container mx-auto bg-white rounded-xl shadow-md overflow-hidden p-8 space-y-4">
           <b className="text-2xl font-extrabold">Thông tin chi tiết</b>
-          <table className="table-fixed border-separate border border-gray-400 w-full text-center">
+          <p>{content}</p>
+          {/* <table className="table-fixed border-separate border border-gray-400 w-full text-center">
             <thead>
               <tr>
                 <th className="border border-gray-200">Tiêu đề</th>
@@ -30,7 +32,7 @@ function ProductInformation() {
                 </td>
               </tr>
             </tbody>
-          </table>
+          </table> */}
         </div>
     )
 }

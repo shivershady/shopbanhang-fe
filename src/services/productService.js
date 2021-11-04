@@ -15,6 +15,11 @@ export function getProduct() {
   return Axios.get(url);
 }
 
+export function getProductById(id) {
+  const url = "product-details";
+  return Axios.get(url+'/'+id);
+}
+
 const productService = {
   addProduct,
   getProduct,

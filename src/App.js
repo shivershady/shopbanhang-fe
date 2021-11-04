@@ -31,7 +31,7 @@ function App() {
           <Route path="/signup" exact component={Signup} />
           <Route path="/" exact component={Home} />
           <Route path="/category" exact component={Category} />
-          <Route path="/product" exact component={Product} />
+          <Route path="/product/:id" exact component={Product} />
           <Route path="/notfound" exact component={NotFound} />
           <Redirect from="*" to="/" />
         </Switch>
