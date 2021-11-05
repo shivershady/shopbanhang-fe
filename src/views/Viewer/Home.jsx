@@ -15,14 +15,14 @@ function Home() {
   const [listProduct, setListProduct] = useState([]);
   const dispatch = useNotification();
   useEffect(async () => {
-    await getProduct().then((response)=>{
+/*    await getProduct().then((response)=>{
       setListProduct(response.products);
     }).catch((error) => {
       dispatch({
         type: "error",
         message: error,
       })
-    });
+    });*/
   }, []);
   return (
     <div>
