@@ -31,14 +31,14 @@ export default function CardAddProduct() {
         description: "",
         content: "",
     };
-    /*  export function updateAvatar(file) {
+    export function updateAvatar(file) {
       Axios.setHeaders({
         'Content-Type': 'multipart/form-data'
       })
       let formData = new FormData();
       formData.append('file', file);
       return Axios.post(`user/avatar`, formData);
-    }*/
+    }
 
     const dispatch = useNotification();
     const doAddProduct = async (data) => {
