@@ -10,8 +10,8 @@ import { useNotification } from "Notifications/NotificationProvider";
 
 export default function CardShopSettings() {
   const initialValues = {
-    nameShop: "",
-    photoShop: "",
+    // nameShop: "",
+    // photoShop: "",
     address_line1: "",
     address_line2: "",
     city:"",
@@ -23,7 +23,12 @@ export default function CardShopSettings() {
     await editShop(data).then(() => {
       dispatch({
         type: "success",
-        message: "Đăng nhập thành công",
+        message: "Thêm thành công",
+      })
+    }).catch((e) => {
+      dispatch({
+        type: "error",
+        message: "Thêm thất bại" + e,
       })
     })
   }
@@ -48,19 +53,19 @@ export default function CardShopSettings() {
             {(formikProps) => {
               return (
                 <Form className="flex flex-col gap-4 px-0 py-1 ">
-                  <FastField
+                  {/* <FastField
                     name="nameShop"
                     type="text"
                     label="Tên Shop"
                     component={InputField}
                     placeholder="abc shop"
-                  />
+                  /> */}
 
-                  <FastField
+                  {/* <FastField
                     name="photoShop"
                     title="Tải ảnh"
                     component={InputPhotoField}
-                  />
+                  /> */}
 
                   <FastField
                     label="Địa chỉ 1"

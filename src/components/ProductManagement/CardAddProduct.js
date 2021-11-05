@@ -54,7 +54,7 @@ export default function CardAddProduct() {
     } catch (error) {
       dispatch({
           type: "error",
-          message: "Thêm sản phẩm thất bại",
+          message: "Thêm sản phẩm thất bại" + error,
         })
     }
   };
