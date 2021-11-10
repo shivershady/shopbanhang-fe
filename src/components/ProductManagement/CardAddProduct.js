@@ -40,6 +40,7 @@ export default function CardAddProduct(props) {
     formData.append("category_id", data.category);
     formData.append("quantity", data.quantity);
     formData.append("price", data.price);
+    formData.append("active", data.active);
     formData.append("iHot", data.iHot);
     formData.append("discount_id", data.discount);
     formData.append("iPay", data.iPay);
