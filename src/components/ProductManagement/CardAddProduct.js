@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { FastField, Form, Formik ,Field} from "formik";
+import { FastField, Form, Formik, Field } from "formik";
 import InputField from "cutom-fields/InputField/InputField";
 import InputPhotoField from "cutom-fields/InputField/InputPhotoField";
 import TextareaField from "cutom-fields/InputField/TextareaField";
@@ -11,8 +11,8 @@ import { addProduct } from "services/productService";
 // components
 
 export default function CardAddProduct(props) {
-  const { categories , user } = props; 
-  const optionsCategory = categories.map(category=> ({
+  const { categories, user } = props;
+  const optionsCategory = categories.map((category) => ({
     value: category.id,
     label: category.name,
   }));
@@ -24,6 +24,7 @@ export default function CardAddProduct(props) {
     category: "",
     active: "",
     iHot: "",
+    discount:"",
     iPay: "",
     description: "",
     content: "",
@@ -40,6 +41,7 @@ export default function CardAddProduct(props) {
     formData.append("quantity", data.quantity);
     formData.append("price", data.price);
     formData.append("iHot", data.iHot);
+    formData.append("discount_id", data.discount);
     formData.append("iPay", data.iPay);
     formData.append("description", data.description);
     formData.append("content", data.content);
@@ -66,7 +68,6 @@ export default function CardAddProduct(props) {
           </div>
         </div>
         <div className="flex-auto px-4 lg:px-10 py-10 pt-0">
-
           <h6 className="text-blue-400 text-sm mt-3 mb-6 font-bold uppercase">
             Thông tin cơ bản
           </h6>
@@ -116,7 +117,7 @@ export default function CardAddProduct(props) {
                       placeholder="Danh mục"
                       options={optionsCategory}
                     />
-                    
+
                     <FastField
                       name="active"
                       label="Trạng thái"
@@ -136,13 +137,20 @@ export default function CardAddProduct(props) {
                     />
 
                     <FastField
-                      name="iPay"
-                      type="text"
-                      label="iPay"
+                      name="discount"
+                      type="number"
+                      label="Chiết khấu"
                       component={InputField}
                       placeholder="25%"
                     />
                   </div>
+                  <FastField
+                    name="iPay"
+                    type="text"
+                    label="Phương thức thanh toán"
+                    component={InputField}
+                    placeholder="Thêm phương thức thanh toán cho sản phẩm của bạn"
+                  />
 
                   <FastField
                     label="Chi tiết sản phẩm"

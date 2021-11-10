@@ -21,6 +21,7 @@ export default function Product() {
   useEffect(async () => {
     await getProductById(id)
       .then((response) => {
+        console.log(response);
         setProduct(response.productDetails[0]);
       })
       .catch((error) => {

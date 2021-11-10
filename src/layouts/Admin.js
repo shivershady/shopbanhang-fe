@@ -28,7 +28,7 @@ export default function Admin() {
   const dispatch = useNotification();
   useEffect(async () => {
     await getUser().then((response)=>{
-      setUser(response.user[0]);
+      setUser(response.data[0]);
     }).catch((error) => {
       dispatch({
         type: "error",

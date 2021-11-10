@@ -62,7 +62,7 @@ function Header() {
     const hasToken = localStorage.getItem("token");
     if (!hasToken) return;
     await getUser().then((resp) => {
-      setUser(resp.user[0]);
+      setUser(resp.data[0]);
     });
   }, []);
 
