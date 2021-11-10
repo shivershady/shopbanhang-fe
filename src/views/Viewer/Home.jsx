@@ -18,7 +18,7 @@ function Home() {
   const dispatch = useNotification();
   useEffect(async () => {
     await getProduct().then((response)=>{
-      setListProduct(response.products);
+      setListProduct(response.data);
     }).catch((error) => {
       dispatch({
         type: "error",
@@ -29,7 +29,7 @@ function Home() {
 
   useEffect( async () => {
     await getCategory().then((response)=>{
-      setCategories(response.category);
+      setCategories(response.data);
     }).catch((error) => {
       dispatch({
         type: "error",
