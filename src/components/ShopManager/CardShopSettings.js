@@ -10,10 +10,10 @@ import { useNotification } from "Notifications/NotificationProvider";
 
 export default function CardShopSettings() {
   const initialValues = {
-    // nameShop: "",
+    nameShop: "",
     // photoShop: "",
     address_line1: "",
-    address_line2: "",
+    // address_line2: "",
     city:"",
     province:"",
     description: "",
@@ -53,13 +53,13 @@ export default function CardShopSettings() {
             {(formikProps) => {
               return (
                 <Form className="flex flex-col gap-4 px-0 py-1 ">
-                  {/* <FastField
+                  <FastField
                     name="nameShop"
                     type="text"
                     label="Tên Shop"
                     component={InputField}
                     placeholder="abc shop"
-                  /> */}
+                  />
 
                   {/* <FastField
                     name="photoShop"
@@ -68,20 +68,20 @@ export default function CardShopSettings() {
                   /> */}
 
                   <FastField
-                    label="Địa chỉ 1"
+                    label="Địa chỉ "
                     name="address_line1"
                     type="text"
                     component={InputField}
                     placeholder="Địa chỉ shop"
                   />
 
-                  <FastField
+                  {/* <FastField
                     label="Địa chỉ 2"
                     name="address_line2"
                     type="text"
                     component={InputField}
                     placeholder="Địa chỉ shop"
-                  />
+                  /> */}
 
                   <FastField
                     label="Huyện"
