@@ -45,7 +45,7 @@ const Login = () => {
       .catch((error) => {
         dispatch({
           type: "error",
-          message: "Đăng nhập thất bại ",
+          message: "Đăng nhập thất bại " + error,
         })
         // alert.error('Đăng nhập thất bại');
       });

@@ -55,14 +55,14 @@ const resources = [
   },
 ];
 
- function Header() {
+function Header() {
   const [user, setUser] = useState({});
 
   useEffect(async () => {
     const hasToken = localStorage.getItem("token");
-    if(!hasToken) return;
-    await getUser().then((resp)=>{
-      setUser(resp.user);
+    if (!hasToken) return;
+    await getUser().then((resp) => {
+      setUser(resp.user[0]);
     });
   }, []);
 
@@ -76,16 +76,16 @@ const resources = [
       dispatch({
         type: "success",
         message: "Đăng xuất thành công",
-      })
+      });
       setTimeout(() => {
         window.location.href = "/login";
       }, 1000);
     } catch (e) {
       //đưa ra thông báo lỗi
-        dispatch({
-          type: "error",
-          message: "Đăng xuất thất bại",
-        })
+      dispatch({
+        type: "error",
+        message: "Đăng xuất thất bại",
+      });
     }
   };
 
@@ -158,7 +158,7 @@ const resources = [
               type="text"
             />
             <button className="inline-flex items-center justify-center border rounded-lg shadow-sm text-base font-medium text-white bg-indigo-600 py-2 px-3 hover:bg-gray-200 hover:text-gray-800 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
-            <i className="fas fa-search text-base"></i>
+              <i className="fas fa-search text-base"></i>
             </button>
           </form>
           {/* Right header */}

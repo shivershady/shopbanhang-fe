@@ -73,7 +73,9 @@ const slider = [
     );
   };
 
-function ProductDetail() {
+function ProductDetail(props) {
+  const {name , price , iHot , iPay , quantity , view , image }= props;
+  console.log(image);
     return (
         <div className="bg-white rounded-xl shadow-md overflow-hidden ">
           <div className="lg:flex">
@@ -116,7 +118,7 @@ function ProductDetail() {
             <div className="p-8 border-l border-gray-300 space-y-2">
               {/* Title */}
               <div className="uppercase tracking-wide text-4xl text-indigo-500 font-extrabold">
-                Điện Thoại Samsung Galaxy S20 FE - Hàng Chính Hãng
+                {name}
               </div>
               <nav>
                 <ol className="list-reset rounded flex bg-grey-light text-grey space-x-4 justify-start">
@@ -138,20 +140,20 @@ function ProductDetail() {
               <div className="border-b py-4 space-y-4">
                 <div className="bg-gray-100 md:flex items-center space-x-4 p-4">
                   <div className="text-red-500 text-4xl font-bold">
-                    12.000.000 vnđ
+                    {price} vnđ
                   </div>
                   <div className="text-gray-500 line-through">
-                    15.000.000 vnđ
+                    {iHot} vnđ
                   </div>
-                  <div className="  text-red-500 text-xl font-bold border border-red-500 w-14 text-center">
-                    -25%
+                  <div className="text-red-500 text-xl font-bold border border-red-500 text-center w-24 ">
+                    -{iPay}%
                   </div>
                 </div>
 
                 {/* variants */}
                 <div className="space-y-4">
                   <div className="lg:flex items-center space-x-6 space-y-2">
-                    <div className="font-bold">Màu:</div>
+                    {/* <div className="font-bold">Màu:</div>
                     <button className="bg-blue-300 border border-yellow-400 focus:border-green-400 py-4 px-8 font-bold uppercase text-xs rounded">
                       Xanh
                     </button>
@@ -160,11 +162,11 @@ function ProductDetail() {
                     </button>
                     <button className="bg-yellow-300 border border-yellow-400 focus:border-green-400 py-4 px-8 font-bold uppercase text-xs rounded">
                       Vàng
-                    </button>
+                    </button> */}
                   </div>
                   <div className="flex space-x-4">
-                    <div className="font-bold">Dung lượng :</div>
-                    <nav>
+                    <div className="font-bold">Trong kho :</div>
+                    {/* <nav>
                       <ol className="list-reset rounded flex bg-grey-light text-grey space-x-4 justify-start">
                         <li className="text-gray-400 space-x-2 cursor-pointer">8Gb</li>
                         <li>|</li>
@@ -172,12 +174,13 @@ function ProductDetail() {
                         <li>|</li>
                         <li className="text-gray-400 space-x-2 cursor-pointer">32Gb</li>
                       </ol>
-                    </nav>
+                    </nav> */}
+                    <p className="text-gray-400">{quantity}</p>
                   </div>
                 </div>
               </div>
 
-              {/* quantity&button */}
+              {/* quantity & button */}
               <div className="p-4 space-y-4 text-center">
                 <div className="flex justify-center space-x-2">
                   <button className="w-10 h-8 border border-gray-300">-</button>
