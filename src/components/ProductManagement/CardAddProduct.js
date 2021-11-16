@@ -34,7 +34,7 @@ export default function CardAddProduct(props) {
     let formData = new FormData();
     const file_name = data.photoCover;
     for (let i = 0; i < file_name.length; i++) {
-      formData.append("file_name[]", file_name[i]);
+      formData.append("img[]", file_name[i]);
     }
     formData.append("name", data.name);
     formData.append("category_id", data.category);

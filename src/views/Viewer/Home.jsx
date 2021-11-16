@@ -9,7 +9,7 @@ import FeaturedCategorises from "components/Home/FeaturedCategorises";
 import FeaturedKeywords from "components/Home/FeaturedKeywords";
 import InfiniteScroll from "components/Home/InfiniteScroll";
 import { useNotification } from "Notifications/NotificationProvider";
-import { getProduct } from "services/productService";
+import { getAllProduct } from "services/productService";
 import { getCategory } from "services/categorySevice";
 
 function Home() {
@@ -17,7 +17,7 @@ function Home() {
   const [categories, setCategories] = useState([]);
   const dispatch = useNotification();
   useEffect(async () => {
-    await getProduct().then((response)=>{
+    await getAllProduct().then((response)=>{
       setListProduct(response.data);
     }).catch((error) => {
       dispatch({

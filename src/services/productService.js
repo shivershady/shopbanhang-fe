@@ -9,7 +9,7 @@ export function addProduct(payload) {
   });
 }
 
-export function getProduct() {
+export function getAllProduct() {
   const url = "product";
   return Axios.get(url);
 }
@@ -21,7 +21,7 @@ export function getProductById(id) {
 
 const productService = {
   addProduct,
-  getProduct,
+  getAllProduct,
 };
 
 export default productService;
