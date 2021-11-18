@@ -12,7 +12,7 @@ import {
   BellIcon,
 } from "@heroicons/react/outline";
 import { Disclosure, Menu, Popover, Transition } from "@headlessui/react";
-// import { withAlert } from 'react-alert'
+
 
 import { getUser } from "services/authService";
 import { logout } from "services/authService";
@@ -65,7 +65,6 @@ function Header() {
       setUser(resp.data[0]);
     });
   }, []);
-  console.log(user);
 
   const dispatch = useNotification();
   const doLogout = async () => {
@@ -207,20 +206,11 @@ function Header() {
               <Menu as="div" className="ml-3 relative">
                 <div>
                   <Menu.Button className="max-w-xs rounded-md p-2 inline-flex items-center justify-center hover:bg-gray-200 hover:text-gray-800 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-whit space-x-4">
-                    {!user.url && (
-                      <img
-                        className="rounded-full h-6 w-6"
-                        src={Icons.userIcon}
-                        alt=""
-                      />
-                    )}
-                    {user.url && (
                       <img
                         className="rounded-full h-6 w-6"
                         src={user.url}
                         alt=""
                       />
-                    )}
                     <div className="text-base font-medium leading-none ">
                       {user.name}
                     </div>
@@ -367,20 +357,11 @@ function Header() {
                   <div className="pt-4 pb-3 border-t border-gray-700">
                     <div className="flex items-center px-5">
                       <div className="flex-shrink-0">
-                        {!user.url && (
-                          <img
-                            className="rounded-full h-6 w-6"
-                            src={Icons.userIcon}
-                            alt=""
-                          />
-                        )}
-                        {user.url && (
                           <img
                             className="rounded-full h-6 w-6"
                             src={user.url}
                             alt=""
                           />
-                        )}
                       </div>
                       <div className="ml-3">
                         <div className="text-base font-medium leading-none text-gray-400">

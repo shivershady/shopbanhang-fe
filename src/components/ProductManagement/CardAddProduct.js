@@ -30,7 +30,7 @@ export default function CardAddProduct(props) {
     content: "",
   };
   const dispatch = useNotification();
-  const doAddProduct = async (data) => {
+  const doAddProduct = async (data,{resetForm}) => {
     let formData = new FormData();
     const file_name = data.photoCover;
     for (let i = 0; i < file_name.length; i++) {
@@ -53,6 +53,7 @@ export default function CardAddProduct(props) {
         type: "success",
         message: "Thêm sản phẩm thành công",
       });
+      resetForm();
     } catch (error) {
       dispatch({
         type: "error",
