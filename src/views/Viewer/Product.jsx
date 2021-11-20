@@ -15,14 +15,15 @@ import { getProductById } from "services/productService";
 
 export default function Product() {
   const [product, setProduct] = useState({});
+  const [image, setImage] = useState([]);
 
   const { id } = useParams();
   const dispatch = useNotification();
   useEffect(async () => {
     await getProductById(id)
       .then((response) => {
-        console.log(response);
-        setProduct(response.productDetails[0]);
+        setProduct(response.data);
+        setImage(response.data.url)
       })
       .catch((error) => {
         dispatch({
@@ -43,7 +44,8 @@ export default function Product() {
           iPay={product.iPay}
           quantity={product.quantity}
           view={product.view}
-          image={product.image}
+          image={image}
+          discount={product.discount_id}
         />
 
         {/* Sản Phẩm Tương Tự */}

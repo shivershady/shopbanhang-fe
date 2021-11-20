@@ -2,44 +2,44 @@ import React ,{ useState } from 'react';
 import { Carousel } from "react-carousel-minimal";
 
 const slider = [
-    {
-      image:
-        "https://cdn.tgdd.vn/Products/Images/42/234315/samsung-galaxy-a32-4g-thumb-xanh-600x600-200x200.jpg",
-    },
-    {
-      image:
-        "https://hoanghamobile.com/i/productlist/dsp/Uploads/2021/03/11/image-removebg-preview-1.png",
-    },
-    {
-      image:
-        "https://hc.com.vn/i/ecommerce/media/GS.007666_FEATURE_80464.jpg",
-    },
-    {
-      image:
-        "https://product.hstatic.net/1000063620/product/samsung-galaxy-a32-mhm_4b065c798e844c098fb66385829d8a57_grande.jpg",
-    },
-    {
-      image:
-        "https://i.natgeofe.com/n/f7732389-a045-402c-bf39-cb4eda39e786/scotland_travel_4x3.jpg",
-    },
-    {
-      image:
-        "https://www.tusktravel.com/blog/wp-content/uploads/2020/07/Best-Time-to-Visit-Darjeeling-for-Honeymoon.jpg",
-    },
-    {
-      image:
-        "https://www.omm.com/~/media/images/site/locations/san_francisco_780x520px.ashx",
-    },
-    {
-      image:
-        "https://images.ctfassets.net/bth3mlrehms2/6Ypj2Qd3m3jQk6ygmpsNAM/61d2f8cb9f939beed918971b9bc59bcd/Scotland.jpg?w=750&h=422&fl=progressive&q=50&fm=jpg",
-    },
-    {
-      image:
-        "https://www.oyorooms.com/travel-guide/wp-content/uploads/2019/02/summer-7.jpg",
-    },
-  ];
-  
+  {
+    image:
+      "https://cdn.tgdd.vn/Products/Images/42/234315/samsung-galaxy-a32-4g-thumb-xanh-600x600-200x200.jpg",
+  },
+  {
+    image:
+      "https://hoanghamobile.com/i/productlist/dsp/Uploads/2021/03/11/image-removebg-preview-1.png",
+  },
+  {
+    image:
+      "https://hc.com.vn/i/ecommerce/media/GS.007666_FEATURE_80464.jpg",
+  },
+  {
+    image:
+      "https://product.hstatic.net/1000063620/product/samsung-galaxy-a32-mhm_4b065c798e844c098fb66385829d8a57_grande.jpg",
+  },
+  {
+    image:
+      "https://i.natgeofe.com/n/f7732389-a045-402c-bf39-cb4eda39e786/scotland_travel_4x3.jpg",
+  },
+  {
+    image:
+      "https://www.tusktravel.com/blog/wp-content/uploads/2020/07/Best-Time-to-Visit-Darjeeling-for-Honeymoon.jpg",
+  },
+  {
+    image:
+      "https://www.omm.com/~/media/images/site/locations/san_francisco_780x520px.ashx",
+  },
+  {
+    image:
+      "https://images.ctfassets.net/bth3mlrehms2/6Ypj2Qd3m3jQk6ygmpsNAM/61d2f8cb9f939beed918971b9bc59bcd/Scotland.jpg?w=750&h=422&fl=progressive&q=50&fm=jpg",
+  },
+  {
+    image:
+      "https://www.oyorooms.com/travel-guide/wp-content/uploads/2019/02/summer-7.jpg",
+  },
+];
+
   const slideNumberStyle = {
     fontSize: "20px",
     fontWeight: "bold",
@@ -74,11 +74,10 @@ const slider = [
   };
 
 function ProductDetail(props) {
-  const {name , price , iHot , iPay , quantity , view , image }= props;
-  // console.log(image);
-  // const slider = image.map(img=> ({
-  //   image: img.url,
-  // }));
+  const {name , price , iHot , iPay , quantity , view , image , discount}= props;
+  const imgProduct = image.map((img) => ({
+    image : img.url,
+  }));
 
   const [count,setCount] = useState(1);
   const decrementCount=()=>setCount(count - 1);
@@ -87,8 +86,7 @@ function ProductDetail(props) {
         <div className="bg-white rounded-xl shadow-md overflow-hidden ">
           <div className="lg:flex">
             {/* Imgage */}
-
-            <div style={{ textAlign: "center" }}>
+             <div style={{ textAlign: "center" }}>
               <div
                 style={{
                   padding: "0 20px",
@@ -116,11 +114,12 @@ function ProductDetail(props) {
                     textAlign: "center",
                     maxWidth: "850px",
                     maxHeight: "800px",
+                    minWidth: "800px",
                     margin: "40px auto",
                   }}
                 />
               </div>
-            </div>
+            </div>  
 
             <div className="p-8 border-l border-gray-300 space-y-2">
               {/* Title */}
@@ -134,7 +133,7 @@ function ProductDetail(props) {
                   </li>
                   <li>|</li>
                   <li className="text-gray-400 space-x-2">
-                    <span>300</span>
+                    <span>{view}</span>
                     <span>Đánh giá</span>
                   </li>
                   <li>|</li>
@@ -153,7 +152,7 @@ function ProductDetail(props) {
                     {iHot} vnđ
                   </div>
                   <div className="text-red-500 text-xl font-bold border border-red-500 text-center w-24 ">
-                    -{iPay}%
+                    -{discount}%
                   </div>
                 </div>
 

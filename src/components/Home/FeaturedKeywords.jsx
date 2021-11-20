@@ -1,8 +1,22 @@
+import { useNotification } from "Notifications/NotificationProvider";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { getRandomProduct } from "services/productService";
 
 
-export default function InfiniteScroll(props) {
-  const { listProduct } = props;
+export default function InfiniteScroll() {
+  const [listProduct, setListProduct] = useState([]);
+  const dispatch = useNotification();
+  useEffect(async () => {
+    await getRandomProduct().then((response)=>{
+      setListProduct(response.data);
+    }).catch((error) => {
+      dispatch({
+        type: "error",
+        message: error,
+      })
+    });
+  }, []);
   return (
     <div className="bg-white rounded-xl shadow-md overflow-hidden">
       <div className="max-w-full mx-auto py-10 px-8">

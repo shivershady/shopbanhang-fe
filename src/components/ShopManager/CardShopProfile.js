@@ -3,7 +3,7 @@ import React from "react";
 
 // components
 
-export default function CardShopProfile() {
+export default function CardShopProfile({user}) {
   return (
     <>
       <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-xl rounded-lg mt-16">
@@ -13,14 +13,14 @@ export default function CardShopProfile() {
               <div className="relative">
                 <img
                   alt="..."
-                  src={Images.team_2_800x800}
+                  src={user.url}
                   className="shadow-xl rounded-full h-auto align-middle border-none absolute -m-16 -ml-20 lg:-ml-16"
                   style={{ maxWidth: 150 }}
                 />
               </div>
             </div>
             <div className="w-full px-4 text-center mt-20">
-              <div className="flex justify-center py-4 lg:pt-4 pt-8">
+              {/* <div className="flex justify-center py-4 lg:pt-4 pt-8">
                 <div className="mr-4 p-3 text-center">
                   <span className="text-xl font-bold block uppercase tracking-wide text-blue-600">
                     22
@@ -33,12 +33,12 @@ export default function CardShopProfile() {
                   </span>
                   <span className="text-sm text-blue-400">Đánh giá</span>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
           <div className="text-center mt-12">
             <h3 className="text-xl font-semibold leading-normal mb-2 text-blue-700">
-              Jenna Stones
+              {user.name}
             </h3>
             <div className="text-sm leading-normal mt-0 mb-2 text-blue-400 font-bold uppercase">
               <i className="fas fa-map-marker-alt mr-2 text-lg text-blue-400"></i>{" "}

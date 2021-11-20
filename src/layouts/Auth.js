@@ -12,6 +12,7 @@ import Profile from "views/Auth/Profile";
 import Cart from "views/Auth/Cart";
 import Order from "views/Auth/Order";
 import { useNotification } from "Notifications/NotificationProvider";
+import ChangePassword from "views/Auth/ChangePassword";
 
 export default function Auth() {
   const [user, setUser] = useState({});
@@ -35,6 +36,9 @@ export default function Auth() {
         <Switch>
           <Route path="/auth/profile" exact>
             <Profile user={user}/>
+          </Route>
+          <Route path="/auth/changePassword" exact>
+            <ChangePassword user={user}/>
           </Route>
           <Route path="/auth/cart" exact component={Cart} />
           <Route path="/auth/order" exact component={Order} />

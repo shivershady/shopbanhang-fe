@@ -18,8 +18,9 @@ InputImageField.defaultProps = {
 };
 
 function InputImageField(props) {
-  const { field, form, label, title , img } = props;
+  const { field, form, label, title } = props;
   const { name } = field;
+  const img = field.value;
   const [profileImg, setProfileImg] = useState(img);
   const imageHandler = (e) => {
     const reader = new FileReader();

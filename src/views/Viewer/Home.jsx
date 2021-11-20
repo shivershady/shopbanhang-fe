@@ -9,23 +9,12 @@ import FeaturedCategorises from "components/Home/FeaturedCategorises";
 import FeaturedKeywords from "components/Home/FeaturedKeywords";
 import InfiniteScroll from "components/Home/InfiniteScroll";
 import { useNotification } from "Notifications/NotificationProvider";
-import { getAllProduct } from "services/productService";
+import { getRandomProduct } from "services/productService";
 import { getCategory } from "services/categorySevice";
 
 function Home() {
-  const [listProduct, setListProduct] = useState([]);
   const [categories, setCategories] = useState([]);
   const dispatch = useNotification();
-  useEffect(async () => {
-    await getAllProduct().then((response)=>{
-      setListProduct(response.data);
-    }).catch((error) => {
-      dispatch({
-        type: "error",
-        message: error,
-      })
-    });
-  }, []);
 
   useEffect( async () => {
     await getCategory().then((response)=>{
@@ -48,16 +37,16 @@ function Home() {
         <HomeQuicklinksTabContainer />
 
         {/* Thương hiệu chính hãng */}
-        <BrandStaticWidget listProduct={listProduct}/>
+        <BrandStaticWidget/>
 
         {/* Danh mục sản phẩm */}
         <FeaturedCategorises categories={categories}/>
 
         {/* Tìm kiếm nổi bật*/}
-        <FeaturedKeywords listProduct={listProduct}/>
+        <FeaturedKeywords/>
 
         {/* Gợi ý hôm nay */}
-        <InfiniteScroll  listProduct={listProduct}/>
+        <InfiniteScroll />
       </main>
       <Footer />
     </div>

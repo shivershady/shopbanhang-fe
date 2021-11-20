@@ -14,6 +14,11 @@ export function getAllProduct() {
   return Axios.get(url);
 }
 
+export function getRandomProduct() {
+  const url = "product-random";
+  return Axios.get(url);
+}
+
 export function getProductById(id) {
   const url = "product-details";
   return Axios.get(url+'/'+id);
@@ -22,6 +27,7 @@ export function getProductById(id) {
 const productService = {
   addProduct,
   getAllProduct,
+  getProductById,
 };
 
 export default productService;
