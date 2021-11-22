@@ -1,62 +1,63 @@
-import React from "react";
-import { FastField, Form, Formik } from "formik";
+import React, { useState } from "react";
+import { FastField, Form, Formik, Field } from "formik";
 import InputField from "cutom-fields/InputField/InputField";
 import InputPhotoField from "cutom-fields/InputField/InputPhotoField";
 import TextareaField from "cutom-fields/InputField/TextareaField";
 import SelectField from "cutom-fields/SelectField/SelectField";
-import { INDUSTRY_OPTION } from "constants/global";
 import { ACTIVE_OPTION } from "constants/global";
 import { useNotification } from "Notifications/NotificationProvider";
 import { addProduct } from "services/productService";
 
 // components
 
-export default function CardAddProduct() {
+export default function CardAddProduct(props) {
+  const { categories, user } = props;
+  const optionsCategory = categories.map((category) => ({
+    value: category.id,
+    label: category.name,
+  }));
   const initialValues = {
     name: "",
     photoCover: null,
-    photo1: null,
-    photo2: null,
-    photo3: null,
-    photo4: null,
-    photo5: null,
-    photo6: null,
-    photo7: null,
     price: "",
     quantity: "",
     category: "",
     active: "",
     iHot: "",
+    discount:"",
     iPay: "",
     description: "",
     content: "",
   };
-
-/*  export function updateAvatar(file) {
-    Axios.setHeaders({
-      'Content-Type': 'multipart/form-data'
-    })
-    let formData = new FormData();
-    formData.append('file[]', this.photo1);
-    formData.append('file[]', this.photo2);
-    return Axios.post(`user/avatar`, formData);
-  }
-  */
   const dispatch = useNotification();
   const doAddProduct = async (data) => {
+    let formData = new FormData();
+    const file_name = data.photoCover;
+    for (let i = 0; i < file_name.length; i++) {
+      formData.append("file_name[]", file_name[i]);
+    }
+    formData.append("name", data.name);
+    formData.append("category_id", data.category);
+    formData.append("quantity", data.quantity);
+    formData.append("price", data.price);
+    formData.append("active", data.active);
+    formData.append("iHot", data.iHot);
+    formData.append("discount_id", data.discount);
+    formData.append("iPay", data.iPay);
+    formData.append("description", data.description);
+    formData.append("content", data.content);
+    formData.append("user_id", user.id);
     try {
-      await addProduct(data);
-
+      await addProduct(formData);
       dispatch({
         type: "success",
         message: "Thêm sản phẩm thành công",
-      })
-
+      });
     } catch (error) {
       dispatch({
-          type: "error",
-          message: "Thêm sản phẩm thất bại" + error,
-        })
+        type: "error",
+        message: "Thêm sản phẩm thất bại" + error,
+      });
     }
   };
   return (
@@ -71,8 +72,9 @@ export default function CardAddProduct() {
           <h6 className="text-blue-400 text-sm mt-3 mb-6 font-bold uppercase">
             Thông tin cơ bản
           </h6>
+
           <Formik initialValues={initialValues} onSubmit={doAddProduct}>
-            {(formikProps) => {
+            {() => {
               return (
                 <Form className="flex flex-col gap-4 px-0 py-1 ">
                   <FastField
@@ -82,56 +84,13 @@ export default function CardAddProduct() {
                     component={InputField}
                     placeholder="Quần áo"
                   />
-                  <label className="text-base font-semibold">Tải ảnh</label>
-                  <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-4">
-                    <FastField
-                      name="photoCover"
-                      title="Ảnh bìa"
-                      component={InputPhotoField}
-                    />
 
-                    <FastField
-                      name="photo1"
-                      title="Tải ảnh 1"
-                      component={InputPhotoField}
-                    />
-
-                    <FastField
-                      name="photo2"
-                      title="Tải ảnh 2"
-                      component={InputPhotoField}
-                    />
-
-                    <FastField
-                      name="photo3"
-                      title="Tải ảnh 3"
-                      component={InputPhotoField}
-                    />
-
-                    <FastField
-                      name="photo4"
-                      title="Tải ảnh 4"
-                      component={InputPhotoField}
-                    />
-
-                    <FastField
-                      name="photo5"
-                      title="Tải ảnh 5"
-                      component={InputPhotoField}
-                    />
-
-                    <FastField
-                      name="photo6"
-                      title="Tải ảnh 6"
-                      component={InputPhotoField}
-                    />
-
-                    <FastField
-                      name="photo7"
-                      title="Tải ảnh 7"
-                      component={InputPhotoField}
-                    />
-                  </div>
+                  <FastField
+                    name="photoCover"
+                    label="Ảnh sản phẩm"
+                    title="Thêm ảnh"
+                    component={InputPhotoField}
+                  />
 
                   <div className="grid grid-cols-2 gap-4">
                     <FastField
@@ -152,12 +111,12 @@ export default function CardAddProduct() {
                   </div>
 
                   <div className="grid grid-cols-2 gap-4">
-                    <FastField
+                    <Field
                       name="category"
                       label="Danh mục"
                       component={SelectField}
                       placeholder="Danh mục"
-                      options={INDUSTRY_OPTION}
+                      options={optionsCategory}
                     />
 
                     <FastField
@@ -169,20 +128,29 @@ export default function CardAddProduct() {
                     />
                   </div>
 
-                  <FastField
-                    name="iHot"
-                    type="number"
-                    label="iHot"
-                    component={InputField}
-                    placeholder="100.000 vnđ"
-                  />
+                  <div className="grid grid-cols-2 gap-4">
+                    <FastField
+                      name="iHot"
+                      type="number"
+                      label="iHot"
+                      component={InputField}
+                      placeholder="100.000 vnđ"
+                    />
 
+                    <FastField
+                      name="discount"
+                      type="number"
+                      label="Chiết khấu"
+                      component={InputField}
+                      placeholder="25%"
+                    />
+                  </div>
                   <FastField
                     name="iPay"
                     type="text"
-                    label="iPay"
+                    label="Phương thức thanh toán"
                     component={InputField}
-                    placeholder="25%"
+                    placeholder="Thêm phương thức thanh toán cho sản phẩm của bạn"
                   />
 
                   <FastField

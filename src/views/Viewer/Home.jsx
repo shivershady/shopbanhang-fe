@@ -17,19 +17,20 @@ function Home() {
   const [categories, setCategories] = useState([]);
   const dispatch = useNotification();
   useEffect(async () => {
-/*    await getProduct().then((response)=>{
-      setListProduct(response.products);
+    await getProduct().then((response)=>{
+      setListProduct(response.data);
     }).catch((error) => {
+      alert(JSON.stringify(error));
       dispatch({
         type: "error",
         message: error,
       })
-    });*/
+    });
   }, []);
 
   useEffect( async () => {
     await getCategory().then((response)=>{
-      setCategories(response.category);
+      setCategories(response.data);
     }).catch((error) => {
       dispatch({
         type: "error",
@@ -37,6 +38,7 @@ function Home() {
       })
     })
   },[])
+
   return (
     <div>
       <Header />

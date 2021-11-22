@@ -75,7 +75,14 @@ const slider = [
 
 function ProductDetail(props) {
   const {name , price , iHot , iPay , quantity , view , image }= props;
-  console.log(image);
+  // console.log(image);
+  // const slider = image.map(img=> ({
+  //   image: img.url,
+  // }));
+
+  const [count,setCount] = useState(1);
+  const decrementCount=()=>setCount(count - 1);
+  const incrementCount=()=>setCount(count + 1);
     return (
         <div className="bg-white rounded-xl shadow-md overflow-hidden ">
           <div className="lg:flex">
@@ -183,13 +190,13 @@ function ProductDetail(props) {
               {/* quantity & button */}
               <div className="p-4 space-y-4 text-center">
                 <div className="flex justify-center space-x-2">
-                  <button className="w-10 h-8 border border-gray-300">-</button>
+                  <button className="w-10 h-8 border border-gray-300" onClick={decrementCount}>-</button>
                   <input
                     className="w-10 h-8 border border-gray-300 text-center"
                     type="text"
-                    value="1"
+                    value={count}
                   />
-                  <button className="w-10 h-8 border border-gray-300">+</button>
+                  <button className="w-10 h-8 border border-gray-300" onClick={incrementCount}>+</button>
                 </div>
                 <button className="px-16 py-4 bg-indigo-600 text-white font-bold uppercase text-xs rounded hover:bg-gray-200 hover:text-gray-800">
                   Chọn Mua

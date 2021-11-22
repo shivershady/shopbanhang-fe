@@ -62,9 +62,10 @@ function Header() {
     const hasToken = localStorage.getItem("token");
     if (!hasToken) return;
     await getUser().then((resp) => {
-      setUser(resp.user[0]);
+      setUser(resp.data[0]);
     });
   }, []);
+  console.log(user);
 
   const dispatch = useNotification();
   const doLogout = async () => {
@@ -206,17 +207,17 @@ function Header() {
               <Menu as="div" className="ml-3 relative">
                 <div>
                   <Menu.Button className="max-w-xs rounded-md p-2 inline-flex items-center justify-center hover:bg-gray-200 hover:text-gray-800 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-whit space-x-4">
-                    {!user.images && (
+                    {!user.url && (
                       <img
                         className="rounded-full h-6 w-6"
                         src={Icons.userIcon}
                         alt=""
                       />
                     )}
-                    {user.images && (
+                    {user.url && (
                       <img
                         className="rounded-full h-6 w-6"
-                        src={user.images}
+                        src={user.url}
                         alt=""
                       />
                     )}
@@ -366,17 +367,17 @@ function Header() {
                   <div className="pt-4 pb-3 border-t border-gray-700">
                     <div className="flex items-center px-5">
                       <div className="flex-shrink-0">
-                        {!user.images && (
+                        {!user.url && (
                           <img
                             className="rounded-full h-6 w-6"
                             src={Icons.userIcon}
                             alt=""
                           />
                         )}
-                        {user.images && (
+                        {user.url && (
                           <img
                             className="rounded-full h-6 w-6"
-                            src={user.images}
+                            src={user.url}
                             alt=""
                           />
                         )}

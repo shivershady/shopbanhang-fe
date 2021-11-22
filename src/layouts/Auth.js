@@ -18,11 +18,11 @@ export default function Auth() {
   const dispatch = useNotification();
   useEffect(async () => {
     await getUser().then((response)=>{
-      setUser(response.user);
+      setUser(response.data[0]);
     }).catch((error) => {
        dispatch({
         type: "error",
-        message: "Bạn chưa đăng nhập",
+        message: "Bạn chưa đăng nhập"+ error,
       })
     });
   }, []);
@@ -33,7 +33,9 @@ export default function Auth() {
       <Header />
       <main>
         <Switch>
-          <Route path="/auth/profile" exact component={Profile} user={user} />
+          <Route path="/auth/profile" exact>
+            <Profile user={user}/>
+          </Route>
           <Route path="/auth/cart" exact component={Cart} />
           <Route path="/auth/order" exact component={Order} />
           <Redirect from="/auth" to="/auth/profile" />

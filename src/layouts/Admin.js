@@ -28,11 +28,11 @@ export default function Admin() {
   const dispatch = useNotification();
   useEffect(async () => {
     await getUser().then((response)=>{
-      setUser(response.user);
+      setUser(response.data[0]);
     }).catch((error) => {
       dispatch({
         type: "error",
-        message: "Bạn chưa đăng nhập",
+        message: "Bạn chưa đăng nhập" + error,
       })
     });
   }, []);
@@ -48,7 +48,9 @@ export default function Admin() {
             <Route path="/admin/dashboard" exact component={Dashboard} />
             <Route path="/admin/shop-profile" exact component={ShopProfile} />
             <Route path="/admin/products-show" exact component={ProductShow} />
-            <Route path="/admin/products-add" exact component={ProductAdd} />
+            <Route path="/admin/products-add" exact>
+              <ProductAdd user={user}></ProductAdd>
+            </Route>
             <Route path="/admin/orders-show" exact component={OrderShow} />
             {/* <Route path="/admin/order-exit" exact component={OrderExit} />
             <Route path="/admin/order-return" exact component={OrderReturn} />
