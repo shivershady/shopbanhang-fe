@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState , useEffect } from "react";
 import PropTypes from "prop-types";
 
 InputPhotoField.propTypes = {
@@ -33,8 +33,12 @@ function InputPhotoField(props) {
       );
     }
   };
-
   form.setFieldValue(name, file_name);
+  useEffect(() => {
+    if(!field.value){
+      setSelectedFiles([]);
+    }
+  },[field.value])
 
   const removeSelectedImage = (index) => {
     const arr = [...selectedFiles];

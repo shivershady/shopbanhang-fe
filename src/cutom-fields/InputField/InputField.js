@@ -25,7 +25,6 @@ function InputField(props) {
       const {name} = field;
       const {errors , touched} = form;
       const showError = errors[name] && touched[name];
-
   return (
     <div>
       {label && <label className="text-base font-semibold" for={label}>{label}</label>}
@@ -33,7 +32,6 @@ function InputField(props) {
         className="py-2 pl-3 border border-transparent rounded-md shadow-sm text-sm h-11 w-full text-left my-2"
         id={name}
         {...field}
-
         placeholder={placeholder}
         type={type}
         disabled={disabled}

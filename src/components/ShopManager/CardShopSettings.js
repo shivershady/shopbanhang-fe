@@ -1,5 +1,5 @@
 import React from "react";
-import { FastField, Form, Formik } from "formik";
+import { FastField, Form, Formik ,Field } from "formik";
 import InputField from "cutom-fields/InputField/InputField";
 import InputPhotoField from "cutom-fields/InputField/InputPhotoField";
 import TextareaField from "cutom-fields/InputField/TextareaField";
@@ -8,19 +8,25 @@ import { useNotification } from "Notifications/NotificationProvider";
 
 // components
 
-export default function CardShopSettings() {
+export default function CardShopSettings({user}) {
   const initialValues = {
-    nameShop: "",
+    nameShop: user.name,
     // photoShop: "",
     address_line1: "",
-    // address_line2: "",
+    address_line2: "",
     city:"",
     province:"",
     description: "",
   };
   const dispatch = useNotification();
   const doSettingShop = async (data) => {
-    await editShop(data).then(() => {
+    await editShop({
+      address_line1:data.address_line1,
+      address_line2:data.address_line2,
+      city:data.city,
+      province:data.province,
+      description:data.description
+    }).then(() => {
       dispatch({
         type: "success",
         message: "Thêm thành công",
@@ -49,16 +55,17 @@ export default function CardShopSettings() {
           <Formik 
           initialValues={initialValues}
           onSubmit={doSettingShop}
+          enableReinitialize  
           >
             {(formikProps) => {
               return (
                 <Form className="flex flex-col gap-4 px-0 py-1 ">
-                  <FastField
+                  <Field
                     name="nameShop"
                     type="text"
                     label="Tên Shop"
                     component={InputField}
-                    placeholder="abc shop"
+                    disabled="true"
                   />
 
                   {/* <FastField
@@ -75,13 +82,13 @@ export default function CardShopSettings() {
                     placeholder="Địa chỉ shop"
                   />
 
-                  {/* <FastField
+                  <FastField
                     label="Địa chỉ 2"
                     name="address_line2"
                     type="text"
                     component={InputField}
                     placeholder="Địa chỉ shop"
-                  /> */}
+                  />
 
                   <FastField
                     label="Huyện"
