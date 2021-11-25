@@ -93,7 +93,7 @@ function ProductDetail(props) {
                 }}
               >
                 <Carousel
-                  data={slider}
+                  data={imgProduct}
                   time={2000}
                   width="850px"
                   height="500px"

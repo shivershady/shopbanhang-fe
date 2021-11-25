@@ -1,4 +1,4 @@
-import { Fragment, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import { Dialog, Disclosure, Transition } from "@headlessui/react";
 import { XIcon } from "@heroicons/react/outline";
 import { ChevronDownIcon, PlusSmIcon } from "@heroicons/react/solid";
@@ -6,6 +6,8 @@ import { ChevronDownIcon, PlusSmIcon } from "@heroicons/react/solid";
 import ProductGrid from "components/Category/ProductGrid";
 import Footer from "components/Footers/Footer";
 import Header from "components/Headers/Header";
+import { useNotification } from "Notifications/NotificationProvider";
+import { getCategory } from "services/categorySevice";
 
 const filters = [
   {
@@ -51,6 +53,19 @@ function classNames(...classes) {
 
 export default function Category() {
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
+  const [categories, setCategories] = useState([]);
+  const dispatch = useNotification();
+  useEffect( async () => {
+    await getCategory().then((response)=>{
+      setCategories(response.data);
+    }).catch((error) => {
+      dispatch({
+        type: "error",
+        message: error,
+      })
+    })
+  },[])
+  console.log(categories);
 
   return (
     <div>
@@ -98,7 +113,7 @@ export default function Category() {
 
                 {/* Filters */}
                 <form className="mt-4">
-                  {filters.map((section) => (
+                  {/* {filters.map((section) => (
                     <Disclosure
                       as="div"
                       key={section.name}
@@ -149,7 +164,34 @@ export default function Category() {
                         </fieldset>
                       )}
                     </Disclosure>
-                  ))}
+                  ))} */}
+                  <div>
+                    <div className="block text-sm font-medium text-gray-900 px-6">
+                      Danh mục
+                    </div>
+                    <div className="pt-6 space-y-3 px-6">
+                    {categories.map((category, categoryIdx) => (
+                            <div
+                              key={categoryIdx}
+                              className="flex items-center"
+                            >
+                              <input
+                                id={category.id}
+                                name={`${category.id}[]`}
+                                defaultValue={category.value}
+                                type="checkbox"
+                                className="h-4 w-4 border-gray-300 rounded text-indigo-600 focus:ring-indigo-500"
+                              />
+                              <label
+                                htmlFor={category.id}
+                                className="ml-3 text-sm text-gray-600"
+                              >
+                                {category.name}
+                              </label>
+                            </div>
+                          ))}
+                    </div>
+                  </div>
                 </form>
               </div>
             </Transition.Child>
@@ -180,8 +222,8 @@ export default function Category() {
               </button>
 
               <div className="hidden lg:block">
-                <form className="divide-y divide-gray-200 space-y-10">
-                  {filters.map((section, sectionIdx) => (
+                 <form className="divide-y divide-gray-200 space-y-10">
+                {/*  {filters.map((section, sectionIdx) => (
                     <div
                       key={section.name}
                       className={sectionIdx === 0 ? null : "pt-10"}
@@ -214,8 +256,35 @@ export default function Category() {
                         </div>
                       </fieldset>
                     </div>
-                  ))}
-                </form>
+                  ))}*/}
+                  <div>
+                    <div className="block text-sm font-medium text-gray-900">
+                      Danh mục
+                    </div>
+                    <div className="pt-6 space-y-3">
+                    {categories.map((category, categoryIdx) => (
+                            <div
+                              key={categoryIdx}
+                              className="flex items-center"
+                            >
+                              <input
+                                id={category.id}
+                                name={`${category.id}[]`}
+                                defaultValue={category.value}
+                                type="checkbox"
+                                className="h-4 w-4 border-gray-300 rounded text-indigo-600 focus:ring-indigo-500"
+                              />
+                              <label
+                                htmlFor={category.id}
+                                className="ml-3 text-sm text-gray-600"
+                              >
+                                {category.name}
+                              </label>
+                            </div>
+                          ))}
+                    </div>
+                  </div>
+                </form> 
               </div>
             </aside>
 
