@@ -30,6 +30,15 @@ export function getUser() {
 
 export function editProfile(payload) {
   const url = "user/update-profile";
+  return Axios.post(url, payload, {
+    headers: {
+      "Content-Type": "multipart/form-data",
+    },
+  });
+}
+
+export function changePassword(payload) {
+  const url = "user/change-password";
   return Axios.post(url, payload);
 }
 
@@ -45,6 +54,7 @@ const authService = {
   getUser,
   editProfile,
   editShop,
+  changePassword,
 };
 
 export default authService;

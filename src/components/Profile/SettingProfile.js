@@ -9,7 +9,7 @@ import { useNotification } from "Notifications/NotificationProvider";
 
 export default function SettingProfile({ user }) {
   const initialValues = {
-    photo: user.url,
+    img: user.url,
     name: user.name,
     email: user.email,
     phone: user.phone,
@@ -17,11 +17,19 @@ export default function SettingProfile({ user }) {
   };
   const dispatch = useNotification();
   const uploadProfile = async (data) => {
-    await editProfile(data).then(() => {
+    console.log(data);
+    let formData = new FormData();
+    formData.append("name", data.name);
+    formData.append("img", data.img);
+    formData.append("email", data.email);
+    formData.append("phone", data.phone);
+    formData.append("user_seller", data.user_seller);
+    await editProfile(formData).then(() => {
       dispatch({
         type: "success",
         message: "Thêm thành công",
       })
+      window.location.reload();
     }).catch((e) => {
       dispatch({
         type: "error",
@@ -46,7 +54,7 @@ export default function SettingProfile({ user }) {
               <Form className="mt-8 space-y-8">
                 <div className="text-center">
                   <Field
-                    name="photo"
+                    name="img"
                     label="Ảnh đại diện"
                     title="Chọn ảnh"
                     component={InputImageField}
@@ -72,7 +80,7 @@ export default function SettingProfile({ user }) {
                   <Field
                     name="phone"
                     label="Số Điện Thoại"
-                    type="text"
+                    type="number"
                     component={InputField}
                   />
 

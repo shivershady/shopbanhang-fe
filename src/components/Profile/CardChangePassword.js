@@ -1,6 +1,8 @@
 import InputField from "cutom-fields/InputField/InputField";
 import { FastField, Form, Formik } from "formik";
+import { useNotification } from "Notifications/NotificationProvider";
 import React from "react";
+import {changePassword} from "services/authService"
 import * as yup from "yup";
 
 const schema = yup.object().shape({
@@ -26,6 +28,24 @@ export default function CardChangePassword() {
         newPassword: "",
         confirmPassword: "",
       };
+      const dispatch = useNotification();
+      const doChangePassword = async (data,{resetForm}) => {
+        changePassword({
+          current_password: data.oldPassword,
+          new_password: data.newPassword
+        }).then(() => {
+          dispatch({
+            type: "success",
+            message:"Đổi mật khẩu thành công"
+          })
+          resetForm();
+        }).catch((e) => {
+          dispatch({
+            type: "error",
+            message: "Đổi mật khẩu thất bại" + e
+          })
+        })
+      }
   return (
     <div className="w-full bg-gray-100 px-8">
       <div className="text-3xl font-bold mt-4">Đổi mật khẩu</div>
@@ -33,6 +53,7 @@ export default function CardChangePassword() {
         <Formik
           initialValues={initialValues}
           validationSchema={schema}
+          onSubmit={doChangePassword}
         >
           {(formikProps) => {
             return (

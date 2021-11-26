@@ -21,7 +21,7 @@ function InputImageField(props) {
   const { field, form, label, title } = props;
   const { name } = field;
   const img = field.value;
-  const [profileImg, setProfileImg] = useState(img);
+  const [profileImg, setProfileImg] = useState([]);
   const imageHandler = (e) => {
     const reader = new FileReader();
     reader.onload = () => {
@@ -30,7 +30,7 @@ function InputImageField(props) {
       }
     };
     reader.readAsDataURL(e.target.files[0]);
-    const urlImg = URL.createObjectURL(e.target.files[0]);
+    const urlImg = e.target.files[0];
     form.setFieldValue(name, urlImg);
   };
 
@@ -39,7 +39,8 @@ function InputImageField(props) {
       <div className="container-img">
         <h1 className="heading">{label}</h1>
         <div className="img-holder">
-          <img src={profileImg} alt="" id="img" className="img" />
+          {profileImg.length>0 && <img src={profileImg} alt="" id="img" className="img" />}
+          {profileImg.length==0 && <img src={img} alt="" id="img" className="img" />}
         </div>
         <input
           type="file"

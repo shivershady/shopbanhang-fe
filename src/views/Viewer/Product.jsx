@@ -3,11 +3,8 @@ import React, { useEffect, useState } from "react";
 import Footer from "components/Footers/Footer";
 import Header from "components/Headers/Header";
 import ProductDetail from "components/Product/ProductDetail";
-import ProductInformation from "components/Product/ProductInformation";
-import ProductDescription from "components/Product/ProductDescription";
 import ProductComment from "components/Product/ProductComment";
 import SimilarProduct from "components/Product/SimilarProduct";
-import ViewedProducts from "components/Product/ViewedProducts";
 import MoreProducts from "components/Product/MoreProducts";
 import { useParams } from "react-router-dom";
 import { useNotification } from "Notifications/NotificationProvider";
@@ -46,16 +43,12 @@ export default function Product() {
           view={product.view}
           image={image}
           discount={product.discount_id}
+          content={product.content}
+          description={product.description}
         />
 
         {/* Sản Phẩm Tương Tự */}
         <SimilarProduct />
-
-        {/* Thông tin chi tiết */}
-        <ProductInformation content={product.content} />
-
-        {/* Mô tả sản phẩm */}
-        <ProductDescription description={product.description} />
 
         {/* Đánh giá từ khách hàng */}
         <ProductComment />
@@ -63,8 +56,6 @@ export default function Product() {
         {/* Khám phá thêm */}
         <MoreProducts />
 
-        {/* Sản phẩm đã xem */}
-        <ViewedProducts />
       </main>
       <Footer />
     </div>

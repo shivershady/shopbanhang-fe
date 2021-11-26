@@ -37,6 +37,9 @@ export default function InfiniteScroll() {
               <p className="mt-1 text-lg font-medium text-gray-900">
                 {product.price} vnđ
               </p>
+              <span className="text-red-400 line-through">
+                {product.iHot} vnđ
+              </span>
             </Link>
           ))}
         </div>

@@ -1,7 +1,7 @@
 
 export const ACTIVE_OPTION = [
-    {value: 1 , label: 'On'},
-    {value: 2 , label: 'Off'},
+    {value: 0 , label: 'On'},
+    {value: 1 , label: 'Off'},
 ];
 
 

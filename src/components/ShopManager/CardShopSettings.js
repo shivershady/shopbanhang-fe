@@ -19,7 +19,7 @@ export default function CardShopSettings({user}) {
     description: "",
   };
   const dispatch = useNotification();
-  const doSettingShop = async (data) => {
+  const doSettingShop = async (data,{resetForm}) => {
     await editShop({
       address_line1:data.address_line1,
       address_line2:data.address_line2,
@@ -31,6 +31,7 @@ export default function CardShopSettings({user}) {
         type: "success",
         message: "Thêm thành công",
       })
+      resetForm();
     }).catch((e) => {
       dispatch({
         type: "error",

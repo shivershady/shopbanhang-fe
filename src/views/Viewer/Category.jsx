@@ -9,47 +9,11 @@ import Header from "components/Headers/Header";
 import { useNotification } from "Notifications/NotificationProvider";
 import { getCategory } from "services/categorySevice";
 
-const filters = [
-  {
-    id: "color",
-    name: "Màu sắc",
-    options: [
-      { value: "white", label: "Trắng" },
-      { value: "beige", label: "Màu be" },
-      { value: "blue", label: "Xanh dương" },
-      { value: "brown", label: "Nâu" },
-      { value: "green", label: "Xanh lục" },
-      { value: "purple", label: "Tía" },
-    ],
-  },
-  {
-    id: "category",
-    name: "Danh mục",
-    options: [
-      { value: "new-arrivals", label: "Tất cả hàng mới đến" },
-      { value: "tees", label: "Tees" },
-      { value: "crewnecks", label: "Thuyền viên" },
-      { value: "sweatshirts", label: "Áo nỉ" },
-      { value: "pants-shorts", label: "Quần lót ngắn" },
-    ],
-  },
-  {
-    id: "sizes",
-    name: "Sizes",
-    options: [
-      { value: "xs", label: "XS" },
-      { value: "s", label: "S" },
-      { value: "m", label: "M" },
-      { value: "l", label: "L" },
-      { value: "xl", label: "XL" },
-      { value: "2xl", label: "2XL" },
-    ],
-  },
-];
 
-function classNames(...classes) {
-  return classes.filter(Boolean).join(" ");
-}
+
+// function classNames(...classes) {
+//   return classes.filter(Boolean).join(" ");
+// }
 
 export default function Category() {
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
@@ -65,7 +29,6 @@ export default function Category() {
       })
     })
   },[])
-  console.log(categories);
 
   return (
     <div>

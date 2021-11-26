@@ -3,49 +3,6 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { getAllProduct } from "services/productService";
 
-const products = [
-  {
-    id: 1,
-    name: "Bình đất",
-    href: "#",
-    price: "48.000 vnđ",
-    imageSrc:
-      "https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-01.jpg",
-    imageAlt:
-      "Chai sứ mảnh mai cao với phần thân bằng đất sét tự nhiên và nút chai.",
-  },
-  {
-    id: 2,
-    name: "Bình bầu dục",
-    href: "#",
-    price: "35.000 vnđ",
-    imageSrc:
-      "https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-02.jpg",
-    imageAlt:
-      "Chai cách nhiệt màu xanh lá cây ô liu có nắp vặn loe và phần trên bằng phẳng.",
-  },
-  {
-    id: 3,
-    name: "Giấy ghi chú",
-    href: "#",
-    price: "89.000 vnđ",
-    imageSrc:
-      "https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-03.jpg",
-    imageAlt:
-      "Người dùng bút để gạch ngang một nhiệm vụ trên thẻ giấy năng suất.",
-  },
-  {
-    id: 4,
-    name: "Bút chì cơ khí được gia công",
-    href: "#",
-    price: "35.000 vnđ",
-    imageSrc:
-      "https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-04.jpg",
-    imageAlt:
-      "Tay cầm bút chì cơ bằng thép gia công màu đen với đầu và đỉnh bằng đồng.",
-  },
-  // More products...
-];
 
 export default function Productgrid() {
   const [listProduct, setListProduct] = useState([]);
