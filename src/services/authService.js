@@ -47,6 +47,11 @@ export function editShop(payload) {
   return Axios.post(url, payload);
 }
 
+export function getShop() {
+  const url = "user/shop";
+  return Axios.get(url);
+}
+
 const authService = {
   login,
   logout,

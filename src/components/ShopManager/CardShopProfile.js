@@ -1,9 +1,25 @@
 import Images from "constants/Images";
-import React from "react";
+import { useNotification } from "Notifications/NotificationProvider";
+import React, { useEffect, useState } from "react";
+import { getShop } from "services/authService";
 
 // components
 
 export default function CardShopProfile({user}) {
+  const [shop,setShop] = useState({});
+  const dispatch = useNotification();
+  useEffect(async () => {
+    await getShop()
+      .then((response) => {
+        setShop(response[0]);
+      })
+      .catch((error) => {
+        dispatch({
+          type: "error",
+          message: "Lấy thông tin thất bại" + error,
+        });
+      });
+  }, []);
   return (
     <>
       <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-xl rounded-lg mt-16">
@@ -42,34 +58,23 @@ export default function CardShopProfile({user}) {
             </h3>
             <div className="text-sm leading-normal mt-0 mb-2 text-blue-400 font-bold uppercase">
               <i className="fas fa-map-marker-alt mr-2 text-lg text-blue-400"></i>{" "}
-              Los Angeles, California
+              {shop.province + " " + shop.city}
             </div>
             <div className="mb-2 text-blue-600 mt-10">
               <i className="fas fa-briefcase mr-2 text-lg text-blue-400"></i>
-              Solution Manager - Creative Tim Officer
+              {shop.address_line1}
             </div>
             <div className="mb-2 text-blue-600">
               <i className="fas fa-university mr-2 text-lg text-blue-400"></i>
-              University of Computer Science
+              {shop.address_line2}
             </div>
           </div>
           <div className="mt-10 py-10 border-t border-blue-200 text-center">
             <div className="flex flex-wrap justify-center">
               <div className="w-full lg:w-9/12 px-4">
                 <p className="mb-4 text-lg leading-relaxed text-blue-700">
-                  Một nghệ sĩ tầm cỡ, Jenna cái tên được lấy bởi Nick Murphy,
-                  sống ở Brooklyn, lớn lên ở Melbourne, viết, biểu diễn và ghi
-                  lại tất cả các bản nhạc của chính anh ấy, tạo cho nó một sự ấm
-                  cúng, thân mật cảm giác với một cấu trúc rãnh vững chắc. Một
-                  nghệ sĩ đáng kể phạm vi.
+              {shop.description}
                 </p>
-                <a
-                  href="#pablo"
-                  className="font-normal text-lightBlue-500"
-                  onClick={(e) => e.preventDefault()}
-                >
-                  Cho xem nhiều hơn
-                </a>
               </div>
             </div>
           </div>
