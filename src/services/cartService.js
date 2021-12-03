@@ -1,12 +1,12 @@
 import { Axios } from "./Axios";
 
 
-export function addCart(payload) {
+export function addCart(id,payload) {
   const url = "cart/add";
-  return Axios.post(url,payload);
+  return Axios.post(url+"/"+id,payload);
 }
 
-export function deleteCart() {
+export function deleteCart(payload) {
     const url = "cart/delete";
     return Axios.post(url,payload);
   }

@@ -133,7 +133,7 @@ export default function CardAddProduct(props) {
                     <FastField
                       name="iHot"
                       type="number"
-                      label="iHot"
+                      label="Giá cũ"
                       component={InputField}
                       placeholder="100.000 vnđ"
                     />

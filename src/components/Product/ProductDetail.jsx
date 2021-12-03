@@ -1,5 +1,7 @@
+import { useNotification } from "Notifications/NotificationProvider";
 import React, { useState } from "react";
 import { Carousel } from "react-carousel-minimal";
+import { addCart } from "services/cartService";
 
 const slideNumberStyle = {
   fontSize: "20px",
@@ -36,6 +38,7 @@ const StarRating = () => {
 
 function ProductDetail(props) {
   const {
+    id,
     name,
     price,
     iHot,
@@ -53,8 +56,27 @@ function ProductDetail(props) {
   }));
 
   const [count, setCount] = useState(1);
-  const decrementCount = () => setCount(count - 1);
+  const decrementCount = () =>
+    count === 1 ? setCount(1) : setCount(count - 1);
   const incrementCount = () => setCount(count + 1);
+  const dispatch = useNotification();
+
+  const handleAddCart= async () =>{
+    await addCart(
+      id,
+      {quantity:count}
+    ).then(()=>{
+      dispatch({
+        type: "success",
+        message: "Thêm sản phẩm thành công",
+      })
+    }).catch((error) =>{
+      dispatch({
+        type: "error",
+        message: error,
+      })
+    })
+  }
   return (
     <div className="bg-white rounded-xl shadow-md overflow-hidden ">
       <div className="lg:flex">
@@ -106,8 +128,8 @@ function ProductDetail(props) {
               </li>
               <li>|</li>
               <li className="text-gray-400 space-x-2">
-                  {view && <span>{view}</span>}
-                  {!view && <span>0</span>}
+                {view && <span>{view}</span>}
+                {!view && <span>0</span>}
                 <span>Đánh giá</span>
               </li>
               <li>|</li>
@@ -164,8 +186,9 @@ function ProductDetail(props) {
                 +
               </button>
             </div>
-            <button className="px-16 py-4 bg-indigo-600 text-white font-bold uppercase text-xs rounded hover:bg-gray-200 hover:text-gray-800">
-              Chọn Mua
+            <button className="px-16 py-4 bg-indigo-600 text-white font-bold uppercase text-xs rounded hover:bg-gray-200 hover:text-gray-800" 
+            onClick={handleAddCart}>
+              Thêm vào giỏ hàng
             </button>
           </div>
         </div>

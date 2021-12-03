@@ -183,6 +183,7 @@ function Header() {
               className="whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 p-2 hover:bg-gray-200 hover:text-gray-800 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
             >
               <i class="fas fa-shopping-cart text-base"></i>
+              10
             </Link>
             {/* User */}
             {!user.name && (

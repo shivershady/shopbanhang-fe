@@ -20,7 +20,7 @@ export default function Product() {
     await getProductById(id)
       .then((response) => {
         setProduct(response.data);
-        setImage(response.data.url)
+        setImage(response.data.url);
       })
       .catch((error) => {
         dispatch({
@@ -35,6 +35,7 @@ export default function Product() {
       <main className="container mx-auto space-y-10 my-10">
         {/* ProductDetail */}
         <ProductDetail
+          id={id}
           name={product.name}
           price={product.price}
           iHot={product.iHot}
@@ -55,7 +56,6 @@ export default function Product() {
 
         {/* Khám phá thêm */}
         <MoreProducts />
-
       </main>
       <Footer />
     </div>
