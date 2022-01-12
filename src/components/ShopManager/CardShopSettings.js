@@ -8,15 +8,16 @@ import { useNotification } from "Notifications/NotificationProvider";
 
 // components
 
-export default function CardShopSettings({user}) {
+export default function CardShopSettings({user,shop}) {
+  console.log(shop);
   const initialValues = {
     nameShop: user.name,
     // photoShop: "",
-    address_line1: "",
-    address_line2: "",
-    city:"",
-    province:"",
-    description: "",
+    address_line1: shop.address_line1,
+    address_line2: shop.address_line2,
+    city:shop.city,
+    province:shop.province,
+    description: shop.description,
   };
   const dispatch = useNotification();
   const doSettingShop = async (data,{resetForm}) => {
@@ -31,7 +32,7 @@ export default function CardShopSettings({user}) {
         type: "success",
         message: "Thêm thành công",
       })
-      resetForm();
+      window.location.reload();
     }).catch((e) => {
       dispatch({
         type: "error",
@@ -65,17 +66,12 @@ export default function CardShopSettings({user}) {
                     name="nameShop"
                     type="text"
                     label="Tên Shop"
+
                     component={InputField}
                     disabled="true"
                   />
-
-                  {/* <FastField
-                    name="photoShop"
-                    title="Tải ảnh"
-                    component={InputPhotoField}
-                  /> */}
-
-                  <FastField
+                  
+                  <Field
                     label="Địa chỉ "
                     name="address_line1"
                     type="text"
@@ -83,7 +79,7 @@ export default function CardShopSettings({user}) {
                     placeholder="Địa chỉ shop"
                   />
 
-                  <FastField
+                  <Field
                     label="Địa chỉ 2"
                     name="address_line2"
                     type="text"
@@ -91,7 +87,7 @@ export default function CardShopSettings({user}) {
                     placeholder="Địa chỉ shop"
                   />
 
-                  <FastField
+                  <Field
                     label="Huyện"
                     name="province"
                     type="text"
@@ -99,7 +95,7 @@ export default function CardShopSettings({user}) {
                     placeholder="Huyện"
                   />
 
-                  <FastField
+                  <Field
                     label="Thành phố"
                     name="city"
                     type="text"
@@ -107,12 +103,12 @@ export default function CardShopSettings({user}) {
                     placeholder="Thành phố"
                   />
                   
-                  <FastField
+                  <Field
                     label="Về tôi"
                     name="description"
                     type="text"
                     component={TextareaField}
-                    placeholder="Nhập mô tả hoặc thông tin về shop của bạn tại đây"
+                    placeholder="Về chúng tôi"
                   />
                   <div className=" text-center  py-4">
                     <button

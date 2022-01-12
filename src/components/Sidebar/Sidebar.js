@@ -358,7 +358,7 @@ export default function Sidebar() {
               <li className="items-center">
                 <Link
                   className="text-gray-700 hover:text-gray-500 text-xs uppercase py-3 font-bold block"
-                  to="auth/profile"
+                  to="/auth/profile"
                 >
                   <i className="fas fa-user-circle text-gray-400 mr-2 text-sm"></i>{" "}
                   Hồ sơ của bạn

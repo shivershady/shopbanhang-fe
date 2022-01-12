@@ -1,25 +1,8 @@
-import Images from "constants/Images";
-import { useNotification } from "Notifications/NotificationProvider";
-import React, { useEffect, useState } from "react";
-import { getShop } from "services/authService";
+import React from "react";
 
 // components
 
-export default function CardShopProfile({user}) {
-  const [shop,setShop] = useState({});
-  const dispatch = useNotification();
-  useEffect(async () => {
-    await getShop()
-      .then((response) => {
-        setShop(response[0]);
-      })
-      .catch((error) => {
-        dispatch({
-          type: "error",
-          message: "Lấy thông tin thất bại" + error,
-        });
-      });
-  }, []);
+export default function CardShopProfile({user,shop}) {
   return (
     <>
       <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-xl rounded-lg mt-16">
@@ -35,22 +18,6 @@ export default function CardShopProfile({user}) {
                 />
               </div>
             </div>
-            <div className="w-full px-4 text-center mt-20">
-              {/* <div className="flex justify-center py-4 lg:pt-4 pt-8">
-                <div className="mr-4 p-3 text-center">
-                  <span className="text-xl font-bold block uppercase tracking-wide text-blue-600">
-                    22
-                  </span>
-                  <span className="text-sm text-blue-400">Người theo dõi</span>
-                </div>
-                <div className="lg:mr-4 p-3 text-center">
-                  <span className="text-xl font-bold block uppercase tracking-wide text-blue-600">
-                    89
-                  </span>
-                  <span className="text-sm text-blue-400">Đánh giá</span>
-                </div>
-              </div> */}
-            </div>
           </div>
           <div className="text-center mt-12">
             <h3 className="text-xl font-semibold leading-normal mb-2 text-blue-700">
@@ -60,7 +27,7 @@ export default function CardShopProfile({user}) {
               <i className="fas fa-map-marker-alt mr-2 text-lg text-blue-400"></i>{" "}
               {shop.province + " " + shop.city}
             </div>
-            <div className="mb-2 text-blue-600 mt-10">
+            <div className="mb-2 text-blue-600">
               <i className="fas fa-briefcase mr-2 text-lg text-blue-400"></i>
               {shop.address_line1}
             </div>

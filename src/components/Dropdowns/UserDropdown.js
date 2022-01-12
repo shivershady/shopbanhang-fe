@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { createPopper } from "@popperjs/core";
-import Images from "constants/Images";
+import { Link } from "react-router-dom";
+import { getUser } from "services/authService";
+import { useNotification } from "Notifications/NotificationProvider";
+import { logout } from "services/authService";
 
 const UserDropdown = () => {
   // dropdown props
@@ -15,6 +18,38 @@ const UserDropdown = () => {
   };
   const closeDropdownPopover = () => {
     setDropdownPopoverShow(false);
+  };
+  const [user, setUser] = useState({});
+
+  useEffect(async () => {
+    const hasToken = localStorage.getItem("token");
+    if (!hasToken) return;
+    await getUser().then((resp) => {
+      setUser(resp.data[0]);
+    });
+  }, []);
+
+  const dispatch = useNotification();
+  const doLogout = async () => {
+    try {
+      await logout();
+      //xử lý tiếp,
+      localStorage.removeItem("token");
+      // đưa ra thông báo
+      dispatch({
+        type: "success",
+        message: "Đăng xuất thành công",
+      });
+      setTimeout(() => {
+        window.location.href = "/login";
+      }, 1000);
+    } catch (e) {
+      //đưa ra thông báo lỗi
+      dispatch({
+        type: "error",
+        message: "Đăng xuất thất bại",
+      });
+    }
   };
   return (
     <>
@@ -32,7 +67,7 @@ const UserDropdown = () => {
             <img
               alt="..."
               className="w-full rounded-full align-middle border-none shadow-lg"
-              src={Images.team_1_800x800}
+              src={user.url}
             />
           </span>
         </div>
@@ -44,25 +79,23 @@ const UserDropdown = () => {
           "bg-white text-base z-50 float-left py-2 list-none text-left rounded shadow-lg min-w-48"
         }
       >
-        <a
-          href="#pablo"
+        <Link
+          to="/admin/shop-profile"
           className={
             "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blue-700"
           }
-          onClick={(e) => e.preventDefault()}
         >
           Hồ sơ shop
-        </a>
+        </Link>
         <div className="h-0 my-2 border border-solid border-blue-100" />
-        <a
-          href="#pablo"
+        <div
+          onClick={doLogout}
           className={
             "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blue-700"
           }
-          onClick={(e) => e.preventDefault()}
         >
           Đăng xuất
-        </a>
+        </div>
       </div>
     </>
   );

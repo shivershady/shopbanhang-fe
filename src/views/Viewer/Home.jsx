@@ -42,8 +42,8 @@ function Home() {
         {/* Danh mục sản phẩm */}
         <FeaturedCategorises categories={categories}/>
 
-        {/* Tìm kiếm nổi bật*/}
-        <FeaturedKeywords/>
+        {/* Tìm kiếm nổi bật
+        <FeaturedKeywords/> */}
 
         {/* Gợi ý hôm nay */}
         <InfiniteScroll />
