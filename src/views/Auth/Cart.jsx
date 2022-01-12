@@ -2,6 +2,7 @@ import React, { Component, useEffect, useState } from "react";
 
 import { useNotification } from "Notifications/NotificationProvider";
 import { getCart } from "services/cartService";
+import { deleteCart } from "services/cartService";
 import { CheckIcon, ClockIcon, XIcon } from "@heroicons/react/solid";
 import { Link } from "react-router-dom";
 
@@ -27,6 +28,22 @@ export default function Cart() {
   Object.keys(cart).map((item) => {
     arrCart.push(cart[item]);
   });
+  console.log(arrCart);
+
+  const removeCart = async (id)=> {
+      await deleteCart(id).then((response) => {
+      dispatch({
+        type: "success",
+        message: "Xóa sản phẩm khỏi giỏ hàng thành công",
+      });
+    }). catch((error) => {
+      dispatch({
+        type: "error",
+        message: "Xóa sản phẩm khỏi giỏ hàng thất bại " + error,
+      });
+    })
+    window.location.reload(false);
+  }
 
   const [count, setCount] = useState();
   const decrementCount = () =>
@@ -118,7 +135,7 @@ export default function Cart() {
                               </span>
                             </div>
 
-                            <div className="absolute top-0 right-0">
+                            <div className="absolute top-0 right-0" onClick={()=> removeCart(product.id)}>
                               <button
                                 type="button"
                                 className="-m-2 p-2 inline-flex text-gray-400 hover:text-gray-500"

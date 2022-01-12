@@ -8,7 +8,7 @@ export function addCart(id,payload) {
 
 export function deleteCart(payload) {
     const url = "cart/delete";
-    return Axios.post(url,payload);
+    return Axios.post(url+"/"+payload);
   }
 
   export function getCart() {
