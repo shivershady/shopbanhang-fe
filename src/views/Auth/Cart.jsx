@@ -8,13 +8,13 @@ import { Link } from "react-router-dom";
 
 
 export default function Cart() {
-  const [cart, setCart] = useState([]);
+  const [data, setData] = useState([]);
 
   const dispatch = useNotification();
   useEffect(async () => {
     await getCart()
       .then((response) => {
-        setCart(response.data);
+        setData(response.data);
       })
       .catch((error) => {
         dispatch({
@@ -24,9 +24,16 @@ export default function Cart() {
       });
   }, []);
 
+  const [cartItems , setCartItems]= useState([]);
+
+  // const itemsPrice = cartItems.reduce((a, c) => a + c.qty * c.price, 0);
+  // const taxPrice = itemsPrice * 0.14;
+  // const shippingPrice = itemsPrice > 2000 ? 0 : 20;
+  // const totalPrice = itemsPrice + taxPrice + shippingPrice;
+
   let arrCart = [];
-  Object.keys(cart).map((item) => {
-    arrCart.push(cart[item]);
+  Object.keys(data).map((item) => {
+    arrCart.push(data[item]);
   });
   console.log(arrCart);
 
@@ -45,10 +52,30 @@ export default function Cart() {
     window.location.reload(false);
   }
 
-  const [count, setCount] = useState();
-  const decrementCount = () =>
-    count === 1 ? setCount(1) : setCount(count - 1);
-  const incrementCount = () => setCount(count + 1);
+  // const decrementCount = (product) => {
+  //   const exist = cartItems.find((x) => x.id === product.id);
+  //   if (exist) {
+  //     setCartItems(
+  //       cartItems.map((x) =>
+  //         x.id === product.id ? { ...exist, qty: exist.qty + 1 } : x
+  //       )
+  //     );
+  //   } else {
+  //     setCartItems([...cartItems, { ...product, qty: 1 }]);
+  //   }
+  // };
+  // const incrementCount = (product) => {
+  //   const exist = cartItems.find((x) => x.id === product.id);
+  //   if (exist.qty === 1) {
+  //     setCartItems(cartItems.filter((x) => x.id !== product.id));
+  //   } else {
+  //     setCartItems(
+  //       cartItems.map((x) =>
+  //         x.id === product.id ? { ...exist, qty: exist.qty - 1 } : x
+  //       )
+  //     );
+  //   }
+  // };
 
   return (
     <main className="container mx-auto mt-10">
@@ -112,7 +139,7 @@ export default function Cart() {
                             <div className="space-x-2">
                               <button
                                 className="w-10 h-8 border border-gray-300"
-                                onClick={decrementCount}
+                                // onClick={decrementCount}
                               >
                                 -
                               </button>
@@ -123,7 +150,7 @@ export default function Cart() {
                               />
                               <button
                                 className="w-10 h-8 border border-gray-300"
-                                onClick={incrementCount}
+                                // onClick={incrementCount}
                               >
                                 +
                               </button>
@@ -183,7 +210,7 @@ export default function Cart() {
               Đang chuyển hàng
             </label>
             <select className="block p-2 text-gray-600 w-full text-sm">
-              <option>Vận chuyển tiêu chuẩn - $10.00</option>
+              <option>Vận chuyển tiêu chuẩn - 20000 vnđ</option>
             </select>
           </div>
           <div className="py-10">

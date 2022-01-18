@@ -50,7 +50,7 @@ function ProductDetail(props) {
     content,
     description,
   } = props;
-  console.log(content);
+  
   const imgProduct = image.map((img) => ({
     image: img.url,
   }));
