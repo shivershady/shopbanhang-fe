@@ -33,8 +33,7 @@ export default function CardChangePassword() {
      changePassword({
       current_password: data.oldPassword,
       new_password: data.newPassword,
-    })
-      .then(() => {
+    }).then(() => {
         dispatch({
           type: "success",
           message: "Đổi mật khẩu thành công",
@@ -45,10 +44,11 @@ export default function CardChangePassword() {
         console.log(error);
         dispatch({
           type: "error",
-          message: "Đổi mật khẩu thất bại " + error,
+          message: error.response.data.message,
         });
       });
   };
+
   return (
     <div className="w-full bg-gray-100 px-8">
       <div className="text-3xl font-bold mt-4">Đổi mật khẩu</div>
