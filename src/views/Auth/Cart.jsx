@@ -5,16 +5,16 @@ import { getCart } from "services/cartService";
 import { deleteCart } from "services/cartService";
 import { CheckIcon, ClockIcon, XIcon } from "@heroicons/react/solid";
 import { Link } from "react-router-dom";
-
+import { updateCart } from "services/cartService";
 
 export default function Cart() {
-  const [data, setData] = useState([]);
+  const [cartItems, setCartItems] = useState([]);
 
   const dispatch = useNotification();
   useEffect(async () => {
     await getCart()
       .then((response) => {
-        setData(response.data);
+        setCartItems(response);
       })
       .catch((error) => {
         dispatch({
@@ -23,59 +23,71 @@ export default function Cart() {
         });
       });
   }, []);
+  console.log(cartItems);
 
-  const [cartItems , setCartItems]= useState([]);
-
-  // const itemsPrice = cartItems.reduce((a, c) => a + c.qty * c.price, 0);
-  // const taxPrice = itemsPrice * 0.14;
-  // const shippingPrice = itemsPrice > 2000 ? 0 : 20;
-  // const totalPrice = itemsPrice + taxPrice + shippingPrice;
-
-  let arrCart = [];
-  Object.keys(data).map((item) => {
-    arrCart.push(data[item]);
+  let cartItem = [];
+  cartItems.map((Item) => {
+    cartItem.push(Item.products);
   });
-  console.log(arrCart);
 
-  const removeCart = async (id)=> {
-      await deleteCart(id).then((response) => {
-      dispatch({
-        type: "success",
-        message: "Xóa sản phẩm khỏi giỏ hàng thành công",
+  const itemsPrice = cartItem.reduce((a, c) => a + c.quantity * c.price, 0);
+  const taxPrice = Math.round(itemsPrice * 0.14);
+  const shippingPrice = itemsPrice > 200000 ? 0 : 20000;
+  const totalPrice = itemsPrice + taxPrice + shippingPrice;
+
+  const removeCart = async (id) => {
+    await deleteCart(id)
+      .then((response) => {
+        dispatch({
+          type: "success",
+          message: "Xóa sản phẩm khỏi giỏ hàng thành công",
+        });
+      })
+      .catch((error) => {
+        dispatch({
+          type: "error",
+          message: "Xóa sản phẩm khỏi giỏ hàng thất bại " + error,
+        });
       });
-    }). catch((error) => {
-      dispatch({
-        type: "error",
-        message: "Xóa sản phẩm khỏi giỏ hàng thất bại " + error,
-      });
-    })
     window.location.reload(false);
-  }
+  };
 
-  // const decrementCount = (product) => {
-  //   const exist = cartItems.find((x) => x.id === product.id);
-  //   if (exist) {
-  //     setCartItems(
-  //       cartItems.map((x) =>
-  //         x.id === product.id ? { ...exist, qty: exist.qty + 1 } : x
-  //       )
-  //     );
-  //   } else {
-  //     setCartItems([...cartItems, { ...product, qty: 1 }]);
-  //   }
-  // };
-  // const incrementCount = (product) => {
-  //   const exist = cartItems.find((x) => x.id === product.id);
-  //   if (exist.qty === 1) {
-  //     setCartItems(cartItems.filter((x) => x.id !== product.id));
-  //   } else {
-  //     setCartItems(
-  //       cartItems.map((x) =>
-  //         x.id === product.id ? { ...exist, qty: exist.qty - 1 } : x
-  //       )
-  //     );
-  //   }
-  // };
+  const incrementCount = async (product) => {
+    const qty = product.quantity + 1;
+    await updateCart(product.id, { quantity: qty })
+      .then((response) => {
+        dispatch({
+          type: "success",
+          message: "Cập nhật giỏ hàng thành công",
+        });
+      })
+      .catch((error) => {
+        dispatch({
+          type: "error",
+          message: "cập nhật giỏ hàng thất bại " + error,
+        });
+      });
+    window.location.reload(false);
+  };
+  const decrementCount = async (product) => {
+    let qty = 0;
+    product.quantity == 1 ? qty = 1 : qty= product.quantity-1;
+    alert(qty);
+    await updateCart(product.id, { quantity: qty })
+      .then((response) => {
+        dispatch({
+          type: "success",
+          message: "Cập nhật giỏ hàng thành công",
+        });
+      })
+      .catch((error) => {
+        dispatch({
+          type: "error",
+          message: "cập nhật giỏ hàng thất bại " + error,
+        });
+      });
+    window.location.reload(false);
+  };
 
   return (
     <main className="container mx-auto mt-10">
@@ -90,35 +102,31 @@ export default function Cart() {
               aria-labelledby="cart-heading"
               className="lg:col-span-7 mt-10"
             >
-              {arrCart.map((products, i) => (
-                <ul
-                  key={i}
-                  className="border-t border-b border-gray-200 divide-y divide-gray-200"
-                >
-                  {products.map((product, productIdx) => (
-                    <li key={product.id} className="flex py-6 sm:py-10">
-                      <div className="flex-shrink-0">
-                        <img
-                          src={product.product.image.url}
-                          alt={product.product.name}
-                          className="w-24 h-24 rounded-md object-center object-cover sm:w-48 sm:h-48"
-                        />
-                      </div>
+              {cartItems.map((product, productIdx) => (
+                <ul className="border-t border-b border-gray-200 divide-y divide-gray-200">
+                  <li key={product.id} className="flex py-6 sm:py-10">
+                    <div className="flex-shrink-0">
+                      <img
+                        src={product.products.image}
+                        alt={product.products.name}
+                        className="w-24 h-24 rounded-md object-center object-cover sm:w-48 sm:h-48"
+                      />
+                    </div>
 
-                      <div className="ml-4 flex-1 flex flex-col justify-between sm:ml-6">
-                        <div className="relative pr-9 sm:grid sm:grid-cols-2 sm:gap-x-6 sm:pr-0">
-                          <div>
-                            <div className="flex justify-between">
-                              <h3 className="text-sm">
-                                <a
-                                  href={product.href}
-                                  className="font-semibold text-gray-700 hover:text-blue-500"
-                                >
-                                  {product.product.name}
-                                </a>
-                              </h3>
-                            </div>
-                            {/* <div className="mt-1 flex text-sm">
+                    <div className="ml-4 flex-1 flex flex-col justify-between sm:ml-6">
+                      <div className="relative pr-9 sm:grid sm:grid-cols-2 sm:gap-x-6 sm:pr-0">
+                        <div>
+                          <div className="flex justify-between">
+                            <h3 className="text-sm">
+                              <a
+                                href={product.href}
+                                className="font-semibold text-gray-700 hover:text-blue-500"
+                              >
+                                {product.products.name}
+                              </a>
+                            </h3>
+                          </div>
+                          {/* <div className="mt-1 flex text-sm">
                         <p className="text-gray-500">{product.color}</p>
                         {product.size ? (
                           <p className="ml-4 pl-4 border-l border-gray-200 text-gray-500">
@@ -126,64 +134,66 @@ export default function Cart() {
                           </p>
                         ) : null}
                       </div> */}
-                            <div className="mt-1 text-sm font-medium text-red-500">
-                              {product.product.price} vnđ
-                            </div>
-                          </div>
-
-                          <div className="mt-4 sm:mt-0 sm:pr-9">
-                            <label htmlFor={`quantity-${productIdx}`}>
-                              Số lượng :
-                            </label>
-                            <br />
-                            <div className="space-x-2">
-                              <button
-                                className="w-10 h-8 border border-gray-300"
-                                // onClick={decrementCount}
-                              >
-                                -
-                              </button>
-                              <input
-                                className="w-10 h-8 border border-gray-300 text-center"
-                                type="text"
-                                value={product.quantity}
-                              />
-                              <button
-                                className="w-10 h-8 border border-gray-300"
-                                // onClick={incrementCount}
-                              >
-                                +
-                              </button>
-                            </div>
-                            <div>
-                              Thành tiền :{" "}
-                              <span className="text-red-500">
-                                {product.total} Vnđ
-                              </span>
-                            </div>
-
-                            <div className="absolute top-0 right-0" onClick={()=> removeCart(product.id)}>
-                              <button
-                                type="button"
-                                className="-m-2 p-2 inline-flex text-gray-400 hover:text-gray-500"
-                              >
-                                <span className="sr-only">Remove</span>
-                                <XIcon className="h-5 w-5" aria-hidden="true" />
-                              </button>
-                            </div>
+                          <div className="mt-1 text-sm font-medium text-red-500">
+                            {product.products.price} vnđ
                           </div>
                         </div>
 
-                        <p className="mt-4 flex text-sm text-gray-700 space-x-2">
-                          <CheckIcon
-                            className="flex-shrink-0 h-5 w-5 text-green-500"
-                            aria-hidden="true"
-                          />
-                          <span>Đã thêm vào giỏ hàng</span>
-                        </p>
+                        <div className="mt-4 sm:mt-0 sm:pr-9">
+                          <label htmlFor={`quantity-${productIdx}`}>
+                            Số lượng :
+                          </label>
+                          <br />
+                          <div className="space-x-2">
+                            <button
+                              className="w-10 h-8 border border-gray-300"
+                              onClick={() => decrementCount(product.products)}
+                            >
+                              -
+                            </button>
+                            <input
+                              className="w-10 h-8 border border-gray-300 text-center"
+                              type="text"
+                              value={product.products.quantity}
+                            />
+                            <button
+                              className="w-10 h-8 border border-gray-300"
+                              onClick={() => incrementCount(product.products)}
+                            >
+                              +
+                            </button>
+                          </div>
+                          <div>
+                            Thành tiền :{" "}
+                            <span className="text-red-500">
+                              {product.products.total} Vnđ
+                            </span>
+                          </div>
+
+                          <div
+                            className="absolute top-0 right-0"
+                            onClick={() => removeCart(product.products.id)}
+                          >
+                            <button
+                              type="button"
+                              className="-m-2 p-2 inline-flex text-gray-400 hover:text-gray-500"
+                            >
+                              <span className="sr-only">Remove</span>
+                              <XIcon className="h-5 w-5" aria-hidden="true" />
+                            </button>
+                          </div>
+                        </div>
                       </div>
-                    </li>
-                  ))}
+
+                      <p className="mt-4 flex text-sm text-gray-700 space-x-2">
+                        <CheckIcon
+                          className="flex-shrink-0 h-5 w-5 text-green-500"
+                          aria-hidden="true"
+                        />
+                        <span>Đã thêm vào giỏ hàng</span>
+                      </p>
+                    </div>
+                  </li>
                 </ul>
               ))}
             </section>
@@ -235,22 +245,28 @@ export default function Cart() {
               <dl className="space-y-4">
                 <div className="flex items-center justify-between space-x-2">
                   <dt className="text-sm text-gray-600">Tổng</dt>
-                  <dd className="text-sm font-medium text-red-500">$99.00</dd>
+                  <dd className="text-sm font-medium text-red-500">
+                    {itemsPrice}
+                  </dd>
                 </div>
                 <div className="flex items-center justify-between space-x-2">
                   <dt className="text-sm text-gray-600">Phí Ship</dt>
-                  <dd className="text-sm font-medium text-red-500">$5.00</dd>
+                  <dd className="text-sm font-medium text-red-500">
+                    {shippingPrice}
+                  </dd>
                 </div>
                 <div className="flex items-center justify-between space-x-2">
                   <dt className="text-sm text-gray-600">Thuế</dt>
-                  <dd className="text-sm font-medium text-red-500">$8.32</dd>
+                  <dd className="text-sm font-medium text-red-500">
+                    {taxPrice}
+                  </dd>
                 </div>
                 <div className="flex items-center justify-between space-x-2">
                   <dt className="text-base font-medium text-gray-900">
                     Tổng đơn đặt hàng
                   </dt>
                   <dd className="text-base font-medium text-red-500">
-                    $112.32
+                    {totalPrice}
                   </dd>
                 </div>
               </dl>
