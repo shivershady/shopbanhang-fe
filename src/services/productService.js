@@ -24,10 +24,16 @@ export function getProductById(id) {
   return Axios.get(url+'/'+id);
 }
 
+export function getProductByCategory(id) {
+  const url = "list-product-byCategory";
+  return Axios.get(url+"/"+id);
+}
+
 const productService = {
   addProduct,
   getAllProduct,
   getProductById,
+  getProductByCategory
 };
 
 export default productService;

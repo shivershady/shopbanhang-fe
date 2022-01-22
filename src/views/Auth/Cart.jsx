@@ -71,8 +71,7 @@ export default function Cart() {
   };
   const decrementCount = async (product) => {
     let qty = 0;
-    product.quantity == 1 ? qty = 1 : qty= product.quantity-1;
-    alert(qty);
+    product.quantity == 1 ? (qty = 1) : (qty = product.quantity - 1);
     await updateCart(product.id, { quantity: qty })
       .then((response) => {
         dispatch({
@@ -199,7 +198,7 @@ export default function Cart() {
             </section>
           </div>
 
-          <Link to="/category" className="flex  text-indigo-600 text-sm mt-10">
+          <Link to="/" className="flex  text-indigo-600 text-sm mt-10">
             <svg
               className="fill-current mr-2 text-indigo-600 w-4"
               viewBox="0 0 448 512"

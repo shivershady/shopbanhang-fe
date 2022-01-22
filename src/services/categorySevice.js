@@ -6,6 +6,7 @@ export function getCategory() {
   return Axios.get(url);
 }
 
+
 const categoryService = {
   getCategory,
 };

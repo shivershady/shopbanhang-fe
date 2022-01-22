@@ -2,33 +2,32 @@ import { Fragment, useEffect, useState } from "react";
 import { Dialog, Disclosure, Transition } from "@headlessui/react";
 import { XIcon } from "@heroicons/react/outline";
 import { ChevronDownIcon, PlusSmIcon } from "@heroicons/react/solid";
+import { useParams } from "react-router-dom";
 
 import ProductGrid from "components/Category/ProductGrid";
 import Footer from "components/Footers/Footer";
 import Header from "components/Headers/Header";
 import { useNotification } from "Notifications/NotificationProvider";
 import { getCategory } from "services/categorySevice";
-
-
-
-// function classNames(...classes) {
-//   return classes.filter(Boolean).join(" ");
-// }
+import { Link } from "react-router-dom";
 
 export default function Category() {
+  const { id } = useParams();
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
   const [categories, setCategories] = useState([]);
   const dispatch = useNotification();
-  useEffect( async () => {
-    await getCategory().then((response)=>{
-      setCategories(response.data);
-    }).catch((error) => {
-      dispatch({
-        type: "error",
-        message: error,
+  useEffect(async () => {
+    await getCategory()
+      .then((response) => {
+        setCategories(response.data);
       })
-    })
-  },[])
+      .catch((error) => {
+        dispatch({
+          type: "error",
+          message: error,
+        });
+      });
+  }, []);
 
   return (
     <div>
@@ -76,83 +75,21 @@ export default function Category() {
 
                 {/* Filters */}
                 <form className="mt-4">
-                  {/* {filters.map((section) => (
-                    <Disclosure
-                      as="div"
-                      key={section.name}
-                      className="border-t border-gray-200 pt-4 pb-4"
-                    >
-                      {({ open }) => (
-                        <fieldset>
-                          <legend className="w-full px-2">
-                            <Disclosure.Button className="w-full p-2 flex items-center justify-between text-gray-400 hover:text-gray-500">
-                              <span className="text-sm font-medium text-gray-900">
-                                {section.name}
-                              </span>
-                              <span className="ml-6 h-7 flex items-center">
-                                <ChevronDownIcon
-                                  className={classNames(
-                                    open ? "-rotate-180" : "rotate-0",
-                                    "h-5 w-5 transform"
-                                  )}
-                                  aria-hidden="true"
-                                />
-                              </span>
-                            </Disclosure.Button>
-                          </legend>
-                          <Disclosure.Panel className="pt-4 pb-2 px-4">
-                            <div className="space-y-6">
-                              {section.options.map((option, optionIdx) => (
-                                <div
-                                  key={option.value}
-                                  className="flex items-center"
-                                >
-                                  <input
-                                    id={`${section.id}-${optionIdx}-mobile`}
-                                    name={`${section.id}[]`}
-                                    defaultValue={option.value}
-                                    type="checkbox"
-                                    className="h-4 w-4 border-gray-300 rounded text-indigo-600 focus:ring-indigo-500"
-                                  />
-                                  <label
-                                    htmlFor={`${section.id}-${optionIdx}-mobile`}
-                                    className="ml-3 text-sm text-gray-500"
-                                  >
-                                    {option.label}
-                                  </label>
-                                </div>
-                              ))}
-                            </div>
-                          </Disclosure.Panel>
-                        </fieldset>
-                      )}
-                    </Disclosure>
-                  ))} */}
                   <div>
                     <div className="block text-sm font-medium text-gray-900 px-6">
                       Danh mục
                     </div>
                     <div className="pt-6 space-y-3 px-6">
-                    {categories.map((category, categoryIdx) => (
-                            <div
-                              key={categoryIdx}
-                              className="flex items-center"
-                            >
-                              <input
-                                id={category.id}
-                                name={`${category.id}[]`}
-                                defaultValue={category.value}
-                                type="checkbox"
-                                className="h-4 w-4 border-gray-300 rounded text-indigo-600 focus:ring-indigo-500"
-                              />
-                              <label
-                                htmlFor={category.id}
-                                className="ml-3 text-sm text-gray-600"
-                              >
-                                {category.name}
-                              </label>
-                            </div>
-                          ))}
+                      {categories.map((category, categoryIdx) => (
+                        <div key={categoryIdx} className="flex items-center">
+                          <Link
+                            to={"/category/" + category.id}
+                            className="text-blue-400 ml-4"
+                          >
+                            {category.name}
+                          </Link>
+                        </div>
+                      ))}
                     </div>
                   </div>
                 </form>
@@ -185,73 +122,29 @@ export default function Category() {
               </button>
 
               <div className="hidden lg:block">
-                 <form className="divide-y divide-gray-200 space-y-10">
-                {/*  {filters.map((section, sectionIdx) => (
-                    <div
-                      key={section.name}
-                      className={sectionIdx === 0 ? null : "pt-10"}
-                    >
-                      <fieldset>
-                        <legend className="block text-sm font-medium text-gray-900">
-                          {section.name}
-                        </legend>
-                        <div className="pt-6 space-y-3">
-                          {section.options.map((option, optionIdx) => (
-                            <div
-                              key={option.value}
-                              className="flex items-center"
-                            >
-                              <input
-                                id={`${section.id}-${optionIdx}`}
-                                name={`${section.id}[]`}
-                                defaultValue={option.value}
-                                type="checkbox"
-                                className="h-4 w-4 border-gray-300 rounded text-indigo-600 focus:ring-indigo-500"
-                              />
-                              <label
-                                htmlFor={`${section.id}-${optionIdx}`}
-                                className="ml-3 text-sm text-gray-600"
-                              >
-                                {option.label}
-                              </label>
-                            </div>
-                          ))}
-                        </div>
-                      </fieldset>
-                    </div>
-                  ))}*/}
+                <form className="divide-y divide-gray-200 space-y-10">
                   <div>
                     <div className="block text-sm font-medium text-gray-900">
                       Danh mục
                     </div>
                     <div className="pt-6 space-y-3">
-                    {categories.map((category, categoryIdx) => (
-                            <div
-                              key={categoryIdx}
-                              className="flex items-center"
-                            >
-                              <input
-                                id={category.id}
-                                name={`${category.id}[]`}
-                                defaultValue={category.value}
-                                type="checkbox"
-                                className="h-4 w-4 border-gray-300 rounded text-indigo-600 focus:ring-indigo-500"
-                              />
-                              <label
-                                htmlFor={category.id}
-                                className="ml-3 text-sm text-gray-600"
-                              >
-                                {category.name}
-                              </label>
-                            </div>
-                          ))}
+                      {categories.map((category, categoryIdx) => (
+                        <div key={categoryIdx} className="flex items-center">
+                          <Link
+                            to={"/category/" + category.id}
+                            className="text-blue-400 ml-4"
+                          >
+                            {category.name}
+                          </Link>
+                        </div>
+                      ))}
                     </div>
                   </div>
-                </form> 
+                </form>
               </div>
             </aside>
 
-            <ProductGrid />
+            <ProductGrid id={id} />
           </div>
         </main>
       </div>

@@ -1,22 +1,39 @@
 import { useNotification } from "Notifications/NotificationProvider";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { getProductByCategory } from "services/productService";
 import { getAllProduct } from "services/productService";
 
 
-export default function Productgrid() {
+export default function Productgrid({ id }) {
   const [listProduct, setListProduct] = useState([]);
   const dispatch = useNotification();
   useEffect(async () => {
-    await getAllProduct().then((response)=>{
-      setListProduct(response.data);
-    }).catch((error) => {
-      dispatch({
-        type: "error",
-        message: error,
-      })
-    });
+    if (id) {
+      await getProductByCategory(id)
+        .then((response) => {
+          setListProduct(response.data);
+        })
+        .catch((error) => {
+          dispatch({
+            type: "error",
+            message: error,
+          });
+        });
+    } else {
+      await getAllProduct()
+        .then((response) => {
+          setListProduct(response.data);
+        })
+        .catch((error) => {
+          dispatch({
+            type: "error",
+            message: error,
+          });
+        });
+    }
   }, []);
+
   return (
     <div className="mt-6 lg:mt-0 lg:col-span-2 xl:col-span-3">
       {/* Replace with your content */}
@@ -24,7 +41,11 @@ export default function Productgrid() {
         <div className="max-w-full mx-auto py-10 px-4">
           <div className="grid grid-cols-1 gap-y-10 sm:grid-cols-2 gap-x-6 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
             {listProduct.map((product) => (
-              <Link key={product.id} to={"product/" + product.id} className="group">
+              <Link
+                key={product.id}
+                to={"product/" + product.id}
+                className="group"
+              >
                 <div className="w-full aspect-w-1 aspect-h-1 bg-gray-200 rounded-lg overflow-hidden xl:aspect-w-7 xl:aspect-h-8">
                   <img
                     src={product.url}

@@ -20,7 +20,7 @@ export default function FeaturedCategorises(props) {
                   />
                 </div>
                 <h3 className="text-sm text-gray-500">
-                  <Link to={"category/" + callout.slug}>
+                  <Link to={"category/" + callout.id}>
                     <span className="absolute inset-0" />
                     {callout.name}
                   </Link>
