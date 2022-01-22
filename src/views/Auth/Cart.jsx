@@ -72,19 +72,19 @@ export default function Cart() {
   const decrementCount = async (product) => {
     let qty = 0;
     product.quantity == 1 ? (qty = 1) : (qty = product.quantity - 1);
-    await updateCart(product.id, { quantity: qty })
-      .then((response) => {
-        dispatch({
-          type: "success",
-          message: "Cập nhật giỏ hàng thành công",
+      await updateCart(product.id, { quantity: qty })
+        .then((response) => {
+          dispatch({
+            type: "success",
+            message: "Cập nhật giỏ hàng thành công",
+          });
+        })
+        .catch((error) => {
+          dispatch({
+            type: "error",
+            message: "cập nhật giỏ hàng thất bại " + error,
+          });
         });
-      })
-      .catch((error) => {
-        dispatch({
-          type: "error",
-          message: "cập nhật giỏ hàng thất bại " + error,
-        });
-      });
     window.location.reload(false);
   };
 
