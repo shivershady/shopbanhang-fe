@@ -11,7 +11,7 @@
     "@heroicons/react": "^1.0.4",
     "@hookform/resolvers": "^2.8.2",
     "@material-tailwind/react": "^0.3.4",
-    "@mui/material": "^5.0.4",
+    "@mui/material": "^5.13.1",
     "@popperjs/core": "2.9.1",
     "@reduxjs/toolkit": "^1.6.1",
     "@tailwindcss/forms": "0.2.1",
